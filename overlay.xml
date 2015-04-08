@@ -2,13 +2,12 @@
 <repositories version="1.0">
 	<repo priority="50" quality="experimental" status="unofficial">
 		<name>spike</name>
-		<description>This repository contains the ebuild used to build Templar Repo for spike, a pentesting distro based on Sabayon these packages are for More defensive or privacy.</description>
-		<homepage>https://github.com/Sabayon-Labs/Templar-overlay</homepage>
-		<owner>
-			<email>mudler@dark-lab.net</email>
-			<email>skullbocks@dark-lab.net</email>
+		<description>This repository contains the ebuild from Necrose99 (some are works in progress) </description>
+		<homepage>https://github.com/necrose99/necromancy-overlay</homepage>
+		<owner type="person">
+
 			<email>necrose99@protonmail.ch</email>
 		</owner>
-		<source type="git">https://github.com/Sabayon-Labs/Templar-overlay.git</source>
+		<source type="git">https://github.com/necrose99/necromancy-overlay.git</source>
 	</repo>
 </repositories>
