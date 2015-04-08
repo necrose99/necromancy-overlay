@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <repositories version="1.0">
 	<repo priority="50" quality="experimental" status="unofficial">
-		<name>spike</name>
+		<name>necromancy-overlay</name>
 		<description>This repository contains the ebuild from Necrose99 (some are works in progress) </description>
 		<homepage>https://github.com/necrose99/necromancy-overlay</homepage>
 		<owner type="person">
-
 			<email>necrose99@protonmail.ch</email>
+			<email>mike@michaellawrenceit.com</email>
 		</owner>
 		<source type="git">https://github.com/necrose99/necromancy-overlay.git</source>
 	</repo>
