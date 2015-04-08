@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<!-- Proxy maintainer. -->
+	<maintainer>
+		<email>necrose99@proton.ch>
+		<name>necrose99</name>
+	</maintainer>
+	<longdescription lang="en">List all installed Gentoo packages with USE flags
+	will display all packages Including use flags and installed dependencies not always in  world file. but in the full package database.
+it is quite  dambed handy script to have for diagnostic use. 	</longdescription>
+	<upstream>
+		<remote-id type="http://nikita.melnichenko.name/blog.php?id=13&topic=gentoo-list-installed-packages-with-use-flags">gentoo-packages.sh</remote-id>
+	</upstream>
+</pkgmetadata>

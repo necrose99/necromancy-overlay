@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>net-im</herd>
+<name>gitter</name>
+<!-- Proxy maintainer. -->
+<maintainer>
+<email>necrose99@proton.ch>
+<name>necrose99</name>
+</maintainer>
+<description> lang="en"> Gitter im for Github developer chat</description>
+<upstream>
+<remote-id type="https://gitter.im/apps">Gitter</remote-id>
+</upstream>
+</pkgmetadata>

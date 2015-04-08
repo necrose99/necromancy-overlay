@@ -1,0 +1,1 @@
+pentoo srcs ebuild for eclass-ing. 

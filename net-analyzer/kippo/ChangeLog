@@ -1,0 +1,41 @@
+# ChangeLog for net-analyzer/kippo
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  17 Nov 2014;  <hash@gentoo.org> kippo-0.9.ebuild:
+  fix
+
+*kippo-0.9 (17 Nov 2014)
+
+  17 Nov 2014;  <hash@gentoo.org> +kippo-0.9.ebuild, -kippo-0.8.ebuild:
+  version bump
+
+*kippo-0.8 (05 May 2013)
+
+  05 May 2013;  <hash@gentoo.org> +kippo-0.8.ebuild, -kippo-0.5.ebuild:
+  version bump, eapi bump
+
+  08 Mar 2012; <hash@gentoo.org> kippo-0.5.ebuild, metadata.xml:
+
+
+  Changes:
+
+  modified: metadata.xml
+
+  modified: kippo-0.5.ebuild
+
+  tweak eapi bump...
+
+
+*kippo-0.5 (12 May 2011)
+
+  12 May 2011; <hash@gentoo.org> +kippo-0.5.ebuild, +metadata.xml:
+
+
+  Changes: Import inicial
+
+  new file: metadata.xml
+
+  new file: Manifest
+
+  new file: kippo-0.5.ebuild

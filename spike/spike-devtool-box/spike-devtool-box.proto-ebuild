@@ -1,0 +1,36 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: 
+# Current source: https://github.com/rapid7/metasploit-framework
+##  ~~Necrose99 Mike@michaellawrenceit.com
+## Spike-pentesting.org https://github.com/Sabayon-Labs/spike-community-overlay
+EAPI="5"
+KEYWORDS="~amd64 ~x86"
+DESCRIPTION="Spike meta-ebuild A Great Many number of Developer tools or tools to reverse Eng, 
+everything (relavant) & the kitchen sink almost"
+HOMEPAGE="http://www.spike-pentesting.org"
+SLOT="0"
+LICENSE="metapackage"
+IUSE=""
+einfo "This is Going to Install A Crap ton Of tools & Will Take some time On a Newer System "
+einfo "But Hopefully should Save you time in the End :-) ONE PACKAGE TO EMERGE THEM ALL MUHAHA..."
+einfo " ONE PACKAGE TO BIND THEM ALL, And Rule Them ALL.... MUHAHA..."
+# Meh not without a since of HUMOR.... hopefully this 'Fellowship of tools' and time savings and not having to F with installing them all 
+## one at a time ....after a disk crash, or ETC Will Cheep them up!!
+S="${WORKDIR}"
+
+PORTDEPEND="dev-python/yolk-portage
+app-portage/portage-utils
+"
+COMDEPEND="
+"
+IDEDEPEND="
+"
+DEVTOOLDEPEND="
+"
+## Using DEV KINDS of Arrays IE VCS , portage-tools ,devsup-IE-automake etc. 
+## keep package lists in small nibbles. so easy to ADD/Remove etc. 
+RDEPEND="${COMDEPEND}   ${IDEDEPEND}     ${IDEDEPEND}       ${IDEDEPEND}    ${IDEDEPEND}        "
+pkg_install(){
+einfo "Meta ebuild Many Developemt tools IDEs Etc GCC VALA etc SCALA automakes ETC"
+}
