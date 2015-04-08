@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit multilib
+inherit multilib distutils
 
 MY_PV=${PV/_p/-}
 MY_PN=${PN%%-bin-debian}
@@ -38,12 +38,12 @@ src_install() {
 		Network
 	distutils-r1_src_install
 	use doc && dodoc -r /usr/share/doc/gitter/*	
-	echo sid > "${D}"/etc/debian_version || die
 }
 
 }
-pkg_postinst() {
+pkg_postinst()
+	exec /opt/Gitter/linux64/after-install.sh
 	elog "Gitter Debian is installed"
 }
 
-#https://github.com/gitterHQ/desktop/archive/2.3.1.tar.gz
+#https://github.com/gitterHQ/desktop.git

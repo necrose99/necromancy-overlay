@@ -43,7 +43,8 @@ src_install() {
 }
 
 }
-pkg_postinst() {
+pkg_postinst()
+	exec /opt/Gitter/linux64/after-install.sh
 	elog "Gitter Debian is installed"
 }
 
