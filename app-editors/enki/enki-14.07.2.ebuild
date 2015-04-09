@@ -12,8 +12,8 @@ inherit qt4-r2
 MY_P="mks_${PV}-src"
 
 DESCRIPTION="A cross platform Qt 4 IDE"
-HOMEPAGE="http://www.monkeystudio.org"
-SRC_URI="http://${PN}.googlecode.com/files/${MY_P}.tar.gz"
+HOMEPAGE="http://enki-editor.org/"
+SRC_URI="https://github.com/hlamer/enki/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
@@ -26,8 +26,7 @@ RDEPEND="
 	dev-qt/qtgui:4
 	dev-qt/qthelp:4
 	dev-qt/qtsql:4
-	x11-libs/qscintilla:=
-	plugins? ( dev-qt/qtwebkit:4 )
+	dev-python/pyparsing 
 "
 DEPEND="${RDEPEND}
 	doc? ( >=app-doc/doxygen-1.5.8 )
