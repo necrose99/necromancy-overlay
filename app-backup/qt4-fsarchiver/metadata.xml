@@ -3,13 +3,13 @@
 <pkgmetadata>
 <herd>proxy-maintainers</herd> 
 		<use>
-		<flag name='btrfs'>Enable support <pkg>sys-fs/btrfs-progs</pkg></flag>
-		<flag name='jfs'>Enable support  <pkg>sys-fs/jfsutils</pkg></flag>
-		<flag name='ntfs'>Enable support <pkg>sys-fs/ntfs3g[ntfsprogs]</pkg></flag>
-		<flag name='reiser4'>Enable support <pkg>sys-fs/reiser4progs</pkg></flag>
-		<flag name='reiserfs'>Install <pkg>sys-fs/reiserfsprogs</pkg></flag>
+		<flag name='btrfs'>Enable support for <pkg>sys-fs/btrfs-progs</pkg></flag>
+		<flag name='jfs'>Enable support for<pkg>sys-fs/jfsutils</pkg></flag>
+		<flag name='ntfs'>Enable support for <pkg>sys-fs/ntfs3g[ntfsprogs]</pkg></flag>
+		<flag name='reiser4'>Enable support for<pkg>sys-fs/reiser4progs</pkg></flag>
+		<flag name='reiserfs'>Enable support for <pkg>sys-fs/reiserfsprogs</pkg></flag>
 		<flag name='xfs'>Enable support for <pkg>sys-fs/xfsprogs</pkg> session</flag>
-		<flag name='sshfs'>Using <pkg>sys-fs/sshfs-fuse</pkg></flag>
+		<flag name='sshfs'>Enable support for <pkg>sys-fs/sshfs-fuse</pkg></flag>
 		</use>
 <description>Proxy-Maintainer, assign bugs</description>
 	<maintainer>
@@ -17,3 +17,4 @@
 		<name>Michael R. Lawrence</name>
 	</maintainer>
 </pkgmetadata>
+
