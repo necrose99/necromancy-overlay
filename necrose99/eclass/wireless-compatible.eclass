@@ -5,6 +5,9 @@
 ### inject wifi compat  sabayon sources in new directory. {pv}
 ## Enjoy injection of other WIFI-Pentesting....
 ### ATM I'm excedding my "Paygrade" on skills but dare, know, grow... 
+## http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch
+## http://patches.aircrack-ng.org/channel-negative-one-maxim.patch
+   ## patch -p1 < mac80211.compat08082009.wl_frag+ack_v1.patch,    patch -p1 < mac80211.compat08082009.wl_frag+ack_v1.patch
 if ! use injection ; then
 		UNIPATCH_EXCLUDE="${UNIPATCH_EXCLUDE} \
 			4002_mac80211-2.6.29-fix-tx-ctl-no-ack-retry-count.patch \
