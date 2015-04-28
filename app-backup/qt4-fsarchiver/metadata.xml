@@ -11,6 +11,7 @@
 		<flag name='xfs'>Enable support for <pkg>sys-fs/xfsprogs</pkg> session</flag>
 		<flag name='sshfs'>Enable support for <pkg>sys-fs/sshfs-fuse</pkg></flag>
 		<flag name='samba'>Enable support for <pkg>net-fs/samba</pkg></flag>
+		<flag name='smbnetfs'>Enable support for <pkg>net-fs/smbnetfs</pkg></flag>
 		<flag name='nfs'>Enable support for <pkg>net-fs/nfs-utils</pkg></flag>
 		</use>
 <description>Proxy-Maintainer, assign bugs</description>
