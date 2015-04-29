@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>proxy-maintainers</herd> 
-		<use>
+	        <herd>proxy-maintainers</herd>
+	        <maintainer>
+	                <email>idella4@gentoo.org</email>
+	        </maintainer>
+			<maintainer>
+			<email>necrose99@protomail.ch,mike@michaellawrenceit.com</email>
+				<name>Michael R. Lawrence</name>
+					<description>proxy maintainer and recipient of bugs</description>
+			</maintainer>
+             <use>
 		<flag name='btrfs'>Enable support for <pkg>sys-fs/btrfs-progs</pkg></flag>
 		<flag name='jfs'>Enable support for<pkg>sys-fs/jfsutils</pkg></flag>
 		<flag name='ntfs'>Enable support for <pkg>sys-fs/ntfs3g[ntfsprogs]</pkg></flag>
@@ -14,10 +22,5 @@
 		<flag name='smbnetfs'>Enable support for <pkg>net-fs/smbnetfs</pkg></flag>
 		<flag name='nfs'>Enable support for <pkg>net-fs/nfs-utils</pkg></flag>
 		</use>
-<description>Proxy-Maintainer, assign bugs</description>
-	<maintainer>
-		<email>necrose99@protomail.ch,mike@michaellawrenceit.com</email>
-		<name>Michael R. Lawrence</name>
-	</maintainer>
 </pkgmetadata>
 
