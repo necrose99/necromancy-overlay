@@ -5,11 +5,11 @@
 	        <maintainer>
 	                <email>idella4@gentoo.org</email>
 	        </maintainer>
-			<maintainer>
-			<email>necrose99@protomail.ch,mike@michaellawrenceit.com</email>
-				<name>Michael R. Lawrence</name>
-					<description>proxy maintainer and recipient of bugs</description>
-			</maintainer>
+		<maintainer>
+		   <email>necrose99@protomail.ch,mike@michaellawrenceit.com</email>
+		    <name>Michael R. Lawrence</name>
+		   <description>proxy maintainer and recipient of bugs</description>
+		</maintainer>
              <use>
 		<flag name='btrfs'>Enable support for <pkg>sys-fs/btrfs-progs</pkg></flag>
 		<flag name='jfs'>Enable support for<pkg>sys-fs/jfsutils</pkg></flag>
