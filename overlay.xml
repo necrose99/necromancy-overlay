@@ -9,5 +9,8 @@
 			<email>mike@michaellawrenceit.com</email>
 		</owner>
 		<source type="git">https://github.com/necrose99/necromancy-overlay.git</source>
+		<source type="git">git://github.com/necrose99/necromancy-overlay.git</source>
+    		<source type="git">git@github.com:necrose99/necromancy-overlay.git</source>
+		 <feed>https://github.com/necrose99/necromancy-overlay/commits/master.atom</feed>
 	</repo>
 </repositories>
