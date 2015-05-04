@@ -9,9 +9,16 @@ inherit python-r1 git-r3
 
 DESCRIPTION="A Honeypot for the SSH Service log brute force attacks by the attacker"
 HOMEPAGE="https://github.com/madirish/kojoney2"
-EGIT_REPO_URI="https://github.com/madirish/kojoney2.git"
-EGIT_COMMIT="v${PV}"
-SRC_URI="https://github.com/madirish/${PN}/archive/v${PV}.zip"
+if [[ ${PV} == "9999" ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="EGIT_REPO_URI="https://github.com/madirish/kojoney2.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/madirish/${PN}/archive/v${PV}.zip" -> ${P}.tar.gz"
+	inherit versionator
+	S="${WORKDIR}"/${PN}-${PN}_$(replace_all_version_separators _)
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
