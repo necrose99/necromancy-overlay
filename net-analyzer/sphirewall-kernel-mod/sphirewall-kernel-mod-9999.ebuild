@@ -11,8 +11,9 @@ MY_PN="${PN/-kernel}"
 MY_P="${MY_PN}-${MY_PV}"
 PVER="20150503"
 
-DESCRIPTION="The OpenAFS distributed file system kernel module"
-HOMEPAGE="http://www.openafs.org/"
+DESCRIPTION="sphirewall Kernel module for cloud firewall"
+HOMEPAGE="http://linewize.net/downloads.html
+https://bitbucket.org/sphirewalllabs/sphirewall-code"
 # We always d/l the doc tarball as man pages are not USE=doc material
 [[ ${PV} == *_pre* ]] && MY_PRE="candidate/" || MY_PRE=""
 SRC_URI="
