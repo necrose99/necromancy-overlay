@@ -11,8 +11,9 @@ MY_PN=${PN%%-bin-debian}
 
 DESCRIPTION="gitter IM Debian binary"
 HOMEPAGE="https://gitter.im/apps"
-SRC_URI="https://update.gitter.im/linux64/latest
-https://update.gitter.im/linux32/latest"
+SRC_URI="
+    x86?   ( https://update.gitter.im/linux32/latest )
+    AMD64? ( https://update.gitter.im/linux64/latest )"
 
 LICENSE="MIT"
 SLOT="0"
