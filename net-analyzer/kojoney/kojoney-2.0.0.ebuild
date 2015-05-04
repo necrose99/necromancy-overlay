@@ -11,7 +11,7 @@ DESCRIPTION="A Honeypot for the SSH Service"
 HOMEPAGE="https://github.com/madirish/kojoney2"
 EGIT_REPO_URI="https://github.com/madirish/kojoney2.git"
 EGIT_COMMIT="v${PV}"
-#SRC_URI="https://github.com/madirish/kojoney2/archive/master.zip"
+SRC_URI="https://github.com/madirish/${PN}/archive/v${PV}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
