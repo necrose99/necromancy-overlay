@@ -7,7 +7,7 @@ EAPI=5
 PYTHON_COMPAT=( python2_6 python2_7 )
 inherit python-r1 git-r3
 
-DESCRIPTION="A Honeypot for the SSH Service"
+DESCRIPTION="A Honeypot for the SSH Service log brute force attacks by the attacker"
 HOMEPAGE="https://github.com/madirish/kojoney2"
 EGIT_REPO_URI="https://github.com/madirish/kojoney2.git"
 EGIT_COMMIT="v${PV}"
