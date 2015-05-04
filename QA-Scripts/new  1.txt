@@ -1,0 +1,24 @@
+### This is set-up for making a public layman for testing by non spike-  general Gentoo use Abuse and Etc..
+### you can always edit this to keep your own fork In sync, 
+git remote set-url --push origin https://github.com/Sabayon-Labs/calamares.git
+git remote add origin https://github.com/Sabayon-Labs/calamares.git
+git remote add upstream https://github.com/calamares/calamares.git
+git fetch upstream
+git rebase upstream/master
+git add *
+git commit -m "robot script syncing files..."
+#git commit --amend
+git push -f
+git push origin master
+
+
+now, if you can do what I do, repoman commit -m "Commit message" and it will: repoman full && echangelog "Commit Message" && git commit -m "Commit Message"
+
+app-i18n/scim
+
+wine msiexec /i Python2.7.msi /qn TARGETDIR=C:\Python27 ALLUSERS=1
+
+http://sourceforge.net/projects/vpythonwx/files/6.11-release/VPython-Win-32-Py2.7-6.11.exe/download
+http://sourceforge.net/projects/vpythonwx/files/6.11-release/VPython-Win-64-Py2.7-6.11.exe/download
+pip install 
+http://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi
