@@ -12,8 +12,7 @@ MY_P="${PN}-$(replace_version_separator 3 '-')"
 DESCRIPTION="qt4-fsarchiver a program with a graphical interface for easy operation the archiving program fsarchiver (Flexible filesystem archiver) for backup and deployment tool"
 HOMEPAGE="http://qt4-fsarchiver.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/source/${MY_P}.tar.gz
-https://github.com/Sabayon-Zorro/Sabayon-Zorro-Overlay/blob/master/app-backup/qt4-fsarchiver/Gentoo-qt4-fsarchiver-pro.diff
-https://github.com/necrose99/qt4-fsarchiver/blob/master/qt4-fsarchiver-src/Gentoo-qt4-fsarchiver-pro.diff"
+https://github.com/necrose99/qt4-fsarchiver/raw/master/SRC-TARBALLS/${MY_P}.tar.gz"
   LICENSE="GPL-2"
 SLOT="0"
     KEYWORDS="~amd64 ~x86"
