@@ -44,10 +44,8 @@ src_prepare() {
 	sed -i \
 		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
 		|| die "sed on ${PN}.pro failed"
-}
-
-src_compile() {
-	eqmake4
+		eqmake
+	
 }
 
 src_install() {
