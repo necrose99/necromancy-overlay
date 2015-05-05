@@ -90,3 +90,40 @@ src_install() {
 	# Aborted
 	chmod 4755 "${D}"/usr/${libdir}/${MY_PN}/chrome-sandbox || die
 }
+
+DEPEND="app-arch/deb2targz"
+
+
+QA_PREBUILT="*"
+S=${WORKDIR}
+OPERA_HOME="usr/$(get_libdir)/${PN}"
+
+src_unpack() {
+        unpack_deb ${A}
+}
+
+src_prepare() {
+        mv usr/lib/x86_64-linux-gnu usr/$(get_libdir) || die
+        rm -r usr/lib || die
+
+        rm usr/bin/${PN} || die
+
+        rm usr/share/doc/${PN}/copyright || die
+        mv usr/share/doc/${PN} usr/share/doc/${PF} || die
+
+        pushd "${OPERA_HOME}/localization" > /dev/null || die
+        chromium_remove_language_paks
+        popd > /dev/null || die
+
+        sed -i 
+                -e 's|^TargetEnvironment|X-&|g' 
+                usr/share/applications/opera-developer.desktop || die
+}
+
+src_install() {
+        cp -a * "${D}" || die
+        dosym ../$(get_libdir)/${PN}/opera /usr/bin/${PN}
+        dodir /usr/$(get_libdir)/${PN}/lib
+        dosym /$(get_libdir)/libudev.so.1 /usr/$(get_libdir)/${PN}/lib/libudev.so.0
+        fperms 4711 /usr/$(get_libdir)/${PN}/opera_sandbox
+}
