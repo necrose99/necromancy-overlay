@@ -20,21 +20,23 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="Doc"
 
-DEPEND="app-arch/dpkg"
+DEPEND="app-arch/deb2targz"
 RDEPEND="net-libs/nodejs"
-
+QA_PREBUILT="*"
 S=${WORKDIR}
 
-QA_PREBUILT="usr/lib*/${MY_PN}/*"
+src_unpack() {
+        unpack_deb ${A}
+        }
+
 src_install() {
-	insinto /opt/gitter/linux64
+	cp -a * "${D}" || die
+        dodir /opt/${PN}/linux64"
+        insinto /opt/${PN}/linux64
 	doins -r *
-
 	fperms +x /opt/gitter/linux64
-
-	dobin "${FILESDIR}/opt/gitter/linux64"
-	dosym /opt/Gitter/linux64/Gitter /usr/local/bin/gitter
-
+	dobin "${FILESDIR}/opt/${PN}/linux64"
+	dosym /opt/${PN}/linux64/${PN} /usr/local/bin/${PN}
 	make_desktop_entry gitter Gitter \
 		"/opt/gitter/linux64logo.png" \
 		Network
@@ -45,5 +47,5 @@ src_install() {
 
 }
 pkg_postinst() {
-	elog "Gitter Debian is installed"
+	elog "Gitter Debian is installed ,NOTE Gitter is self Updating if Enabled"
 }
