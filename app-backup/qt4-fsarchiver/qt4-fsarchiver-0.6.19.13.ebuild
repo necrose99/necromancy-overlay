@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: hasufell Exp $
+# $Header: Necrose99 Proxymaintier  Exp $
 
 EAPI=5
 
@@ -44,10 +44,10 @@ src_prepare() {
 	sed -i \
 		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
 		|| die "sed on ${PN}.pro failed"
-		eqmake
-	
 }
-
+src_configure() {
+	eqmake
+}
 src_install() {
 	emake INSTALL_ROOT="${D}" install
 	einstalldocs
