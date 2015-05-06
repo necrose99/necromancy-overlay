@@ -7,8 +7,8 @@ EAPI="5"
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 
-DESCRIPTION="qt4-fsarchiver a program with a graphical interface for easy operation the archiving program fsarchiver (Flexible filesystem archiver) for backup and deployment tool"
-HOMEPAGE="http://qt4-fsarchiver.sourceforge.net/"
+DESCRIPTION="multi user meta wine setup to support veil-framwork/metasploit"
+HOMEPAGE="spike-pentesting.org"
 SRC_URI=""
   LICENSE="metapackage"
 SLOT="0"
@@ -18,6 +18,8 @@ SLOT="0"
 
   DEPEND="app-emulation/winetricks
          app-misc/srm"
+         # firejail
+         # ebuilds for veil-framwork not yet done,
     
           RDEPEND="${DEPEND}
           install? ( veil_wine_setup )
