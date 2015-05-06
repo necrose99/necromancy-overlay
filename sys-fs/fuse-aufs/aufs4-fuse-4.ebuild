@@ -29,12 +29,14 @@ if [ ${PV} == "9999" ] ; then
 	inherit git-2
 	MY_PV=9999
 	EGIT_REPO_URI="https://github.com/sfjro/aufs4-standalone.git"
+	${PN}_LIVE_BRANCH
 	EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
 else
 if [ ${PV} == "4" ] ; then
 	inherit git-2
 	MY_PV=4
 	EGIT_REPO_URI="https://github.com/sfjro/aufs4-standalone.git"
+	${PN}_LIVE_BRANCH
 	EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
 
 SLOT="0"
