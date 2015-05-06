@@ -31,12 +31,12 @@ dir_prepair () {
   dodir /opt/veilwine
 }
 veil_wine_setup_x86 () {
-	WINEPREFIX=~/opt/veilwine wine32 winecfg
+	WINEPREFIX=~/opt/veilwine WINEARCH=win32 wine32 winecfg
 	env WINEPREFIX=~/opt/veilwine wineboot -u
 	export WINEPREFIX=
   }
   veil_wine_setup_64 () {
-	env WINEPREFIX=~/opt/veilwine wine64 winecfg
+	env WINEPREFIX=~/opt/veilwine WINEARCH=win64 wine64 winecfg
 	env WINEPREFIX=~/opt/veilwine wineboot -u
 	export WINEPREFIX=/opt/veilwine
   }
