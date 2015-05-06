@@ -31,6 +31,7 @@ dir_prepair () {
   dodir /opt/veilwine
 }
 veil_wine_setup () {
+	WINEPREFIX=~/opt/veilwine wineprefixcreate
   }
   veilgroup_setup () { 
     groupadd veilusers
