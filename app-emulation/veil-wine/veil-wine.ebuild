@@ -24,14 +24,21 @@ SLOT="0"
           uninstall? ( shread_veilwine )
           reinstall? ( reinstall_veilwine )
           ~x86? ( veil_wine_setup_x86 )
-          ~amd64? ( veil_wine_setup_amd64 )"
+          ~amd64? ( veil_wine_setup_64 )"
 
 S="${WORKDIR}/${PN}"
 dir_prepair () {
   dodir /opt/veilwine
 }
-veil_wine_setup () {
-	WINEPREFIX=~/opt/veilwine wineprefixcreate
+veil_wine_setup_x86 () {
+	WINEPREFIX=~/opt/veilwine wine32 winecfg
+	env WINEPREFIX=~/opt/veilwine wineboot -u
+	export WINEPREFIX=
+  }
+  veil_wine_setup_64 () {
+	env WINEPREFIX=~/opt/veilwine wine64 winecfg
+	env WINEPREFIX=~/opt/veilwine wineboot -u
+	export WINEPREFIX=/opt/veilwine
   }
   veilgroup_setup () { 
     groupadd veilusers
@@ -40,9 +47,7 @@ veil_wine_setup () {
   }
   
   # Basic 32-bit Python-in-Wine environment
-sudo add-apt-repository ppa:ubuntu-wine/ppa
-sudo apt-get update
-sudo apt-get install wine1.6
+winetricks allfonts
 wget -N http://python.org/ftp/python/2.7.5/python-2.7.5.msi
 wine msiexec /i python-2.7.5.msi /quiet
 
