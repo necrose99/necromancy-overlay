@@ -18,5 +18,13 @@ KEYWORDS="~amd64"
 DESCRIPTION="Official Spike Linux Grsecuity enhanced kernel image"
 RESTRICT="mirror"
 
-DEPEND="${DEPEND}
-    sys-apps/v86d"
+DEPEND="${DEPEND}    
+    sys-apps/v86d
+    sys-apps/gradm
+    app-admin/grsecurity-scripts
+    sys-kernel/dracut
+    sys-fs/zfs-kmod"
+    
+IUSE="abi_x86_64 amd64 btrfs -build iscsi symlink kernel_linux userland_GNU plymouth splash elibc_glibc dracut lvm dmraid mdadm luks grsecurity"
+
+#I hate dracut at times but for ZFS use.... injection  not quite done or may not be neaded anyhow,
