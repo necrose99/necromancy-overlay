@@ -26,4 +26,4 @@ RESTRICT="mirror"
 DEPEND="${DEPEND}
 	sys-apps/v86d"
 
-IUSE="dmraid dracut -iscsi luks lvm mdadm plymouth splash injection  grsecurity"
+IUSE="abi_x86_64 amd64 btrfs -build iscsi symlink kernel_linux userland_GNU plymouth splash elibc_glibc -dracut lvm dmraid mdadm luks injection  grsecurity"
