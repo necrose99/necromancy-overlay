@@ -1,12 +1,13 @@
 # Copyright 2004-2010 Spike Project
 # Distributed under the terms of the GNU General Public License v2
-# $
+# $ Necrose99's clone of the spike kernel with GRSECURITY and a few Added patch streams 
+# some added patches for the pariniod to come. 
 
-# @ECLASS-VARIABLE: K_spiketemplarKERNEL_NAME
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_NAME
 # @DESCRIPTION:
 # The kernel name used by the ebuild, it should be the ending ${PN} part
 # for example, of linux-spike-templar it is "${PN/${PN/-*}-}" (spike-templar)
-K_SPIKETEMPLARKERNEL_NAME="${K_spiketemplarKERNEL_NAME:-${PN/${PN/-*}-}}"
+K_SPIKETEMPLARKERNEL_NAME="${K_SPIKETEMPLARKERNEL_NAME:-${PN/${PN/-*}-}}"
 
 # @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME
 # @DESCRIPTION:
