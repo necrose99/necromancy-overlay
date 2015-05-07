@@ -41,7 +41,7 @@ grsec_init_variables() {
 	debug-print-function ${FUNCNAME} "$@"
 
 	: ${GRSEC_VER:=${GRSEC_VER:-"${KSV}"}} # Patchset version
-	: ${GRSEC_SRC:=${GRSEC_SRC:-"https://grsecurity.net/stable/grsecurity-${GRSEC_VER}.patch"}} # Patchset sources url
+	: ${GRSEC_SRC:=${GRSEC_SRC:-"https://grsecurity.net/test/grsecurity-${GRSEC_VER}.patch"}} # Patchset sources url
 	: ${GRSEC_URL:=${GRSEC_URL:-"https://grsecurity.net"}} # Patchset url
 	: ${GRSEC_INF:=${GRSEC_INF:-"${YELLOW}GrSecurity patch version ${GREEN}${GRSEC_VER}${YELLOW} from ${GREEN}${GRSEC_URL}${NORMAL}"}}
 
