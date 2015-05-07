@@ -3,7 +3,7 @@
 # $Header: $
 
 # @ECLASS: grsec.eclass
-# This file is part of sys-kernel/geek-sources project.
+# This file is fork of sys-kernel/geek-sources project.
 # @MAINTAINER:
 # Andrey Ovcharov <sudormrfhalt@gmail.com>
 # @AUTHOR:
