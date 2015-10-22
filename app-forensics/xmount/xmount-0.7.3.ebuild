@@ -10,6 +10,10 @@ SRC_URI="http://files.pinguin.lu/${P}.tar.gz"
 ## git clone https://code.pinguin.lu/diffusion/XMOUNT/xmount.git
 ## https://code.pinguin.lu/diffusion/XMOUNT/browse/master/trunk/CMakeLists.txt
 
+EGIT_REPO_URI="https://github.com/Markus-Go/bonesi.git"
+EGIT_CHECKOUT_DIR="${WORKDIR}/bonesi"
+S="${WORKDIR}/${PN}"
+
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="+aff +ewf"
