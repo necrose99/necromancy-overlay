@@ -7,6 +7,7 @@ inherit cmake-utils git-3 multilib
 DESCRIPTION="Convert on-the-fly between multiple input and output harddisk image types"
 HOMEPAGE="https://www.pinguin.lu/xmount"
 SRC_URI="http://files.pinguin.lu/${P}.tar.gz"
+## git clone https://code.pinguin.lu/diffusion/XMOUNT/xmount.git
 
 LICENSE="GPL-3"
 SLOT="0"
