@@ -6,13 +6,16 @@ EAPI=5
 inherit cmake-utils git-3 multilib
 DESCRIPTION="Convert on-the-fly between multiple input and output harddisk image types"
 HOMEPAGE="https://www.pinguin.lu/xmount"
-SRC_URI="http://files.pinguin.lu/${P}.tar.gz"
-## git clone https://code.pinguin.lu/diffusion/XMOUNT/xmount.git
 ## https://code.pinguin.lu/diffusion/XMOUNT/browse/master/trunk/CMakeLists.txt
+if [[ ${PV} = 9999 ]]; then
+	EGIT_REPO_URI="https://code.pinguin.lu/diffusion/XMOUNT/xmount.git"
+	EGIT_BOOTSTRAP=""
+	KEYWORDS=""
+else
+	SRC_URI="SRC_URI="http://files.pinguin.lu/${P}.tar.gz""
+	KEYWORDS="~amd64 ~x86"
+fi
 
-EGIT_REPO_URI="https://github.com/Markus-Go/bonesi.git"
-EGIT_CHECKOUT_DIR="${WORKDIR}/bonesi"
-S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
