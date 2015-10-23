@@ -21,7 +21,7 @@ DOC_CONTENTS="
 	For your convenience you can review
 	https://www.veil-framework.com/guidesvideos/
 
-RDEPEND="
+RDEPEND="dev-python/jsonrpc
 >=net-analyzerVeil-Evasion-2.21.1.1
 net-analyzerVeil-Ordnance 
 net-analyzerVeil-Pillage
