@@ -3,20 +3,23 @@
 # $Header: /var/cvsroot/gentoo-x86/sys-fs/udev/udev-9999.ebuild,v 1.328 2015/06/10 02:37:44 floppym Exp $
 
 EAPI=5
+inherit python-any-r1 git-3
+PYTHON_COMPAT=( python2_7 )
 
-inherit autotools bash-completion-r1 eutils linux-info multilib multilib-minimal toolchain-funcs udev user versionator
 
-if [[ ${PV} = 9999* ]]; then
-	EGIT_REPO_URI="git://anongit.freedesktop.org/systemd/systemd"
-	inherit git-2
-	patchset=
-else
-	patchset=
-	SRC_URI="http://www.freedesktop.org/software/systemd/systemd-${PV}.tar.xz"
-	if [[ -n "${patchset}" ]]; then
-				SRC_URI="${SRC_URI}
-					http://dev.gentoo.org/~ssuominen/${P}-patches-${patchset}.tar.xz
-					http://dev.gentoo.org/~williamh/dist/${P}-patches-${patchset}.tar.xz"
-			fi
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
-fi
+DESCRIPTION="Veil-Catapult is a payload delivery tool that integrates with Veil-Evasion"
+GO_PN="github.com/hashicorp/${PN}"
+HOMEPAGE="https://www.veil-framework.com/"
+EGIT_REPO_URI="https://github.com/Veil-Framework/Veil-Ordnance.git"
+LICENSE="MPL-2.0"
+SLOT="0"
+IUSE="test"
+
+LICENSE="Apache-2.0"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
+DEPEND="dev-python/impacket "
+RDEPEND="${DEPEND}"
+
+S="${WORKDIR}/veil-catapult-${PV}/veil-catapult"
