@@ -16,3 +16,10 @@
 - 
 * Want repo accseess ok  fine,   just ask and done 
 * REBASE snobbery meh I'm all f'@#$%^ing thumbs sometimes with github long as it works I'm happy, if it works other users happy 
+Add 
+
+## IRC
+Server: *chat.freenode.net*
+Channel: *#hackallthethings* pentoo Sabayon etc or pm necrose99
+### ADD 
+layman -f -a https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/overlay.xml
