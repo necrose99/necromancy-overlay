@@ -2,7 +2,7 @@
 
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
+# $Id$  live ebuild Necrose99 
 
 EAPI=5
 inherit eutils dlang versionator multilib-build git-r3 cmake-utils
@@ -10,6 +10,7 @@ inherit eutils dlang versionator multilib-build git-r3 cmake-utils
 DESCRIPTION="A command line hashing program based on the tiger algorithm""
 HOMEPAGE="https://bitbucket.org/King_DuckZ/tigersum/"
 EGIT_REPO_URI="git@bitbucket.org:King_DuckZ/tigersum.git"
+EGIT_CHECKOUT_DIR=${WORKDIR}/tigersum
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
@@ -38,7 +39,7 @@ pkg_postinst() {
 	gnome2_pkg_postinst
 
 
-S="${WORKDIR}/dmd2"
+S="${WORKDIR}/tigersum"
 PREFIX="opt/${PN}-${SLOT}"
 IMPORT_DIR="/${PREFIX}/import"
 
