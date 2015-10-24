@@ -5,10 +5,10 @@
 
 EAPI=5
 inherit eutils dlang versionator multilib-build git-r3
-git@bitbucket.org:King_DuckZ/tigersum.git
+
 DESCRIPTION="A command line hashing program based on the tiger algorithm""
 HOMEPAGE="https://bitbucket.org/King_DuckZ/tigersum/"
-
+EGIT_REPO_URI="git@bitbucket.org:King_DuckZ/tigersum.git"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
