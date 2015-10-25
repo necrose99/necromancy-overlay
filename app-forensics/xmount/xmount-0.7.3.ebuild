@@ -48,40 +48,22 @@ src_configure() {
     local mycmakeargs=(
         $(cmake-utils_use_build bindist  REDIST_PACKAGE)
         $(cmake-utils_use_build c_sync   C_SYNC)
-        $(cmake-utils_use_build cpp      CPP)
-        $(cmake-utils_use_build examples EXAMPLES)
-        $(cmake-utils_use_build fakenect FAKENECT)
-        $(cmake-utils_use_build opencv   CV)
-        $(cmake-utils_use_build openni2  OPENNI2_DRIVER)
-        $(cmake-utils_use_build python   PYTHON)
     )
     cmake-utils_src_configure
 }
 
-src_install() {
-    cmake-utils_src_install
-    
-    # udev rules
-    insinto /lib/udev/rules.d/
-    doins "${S}"/platform/linux/udev/51-kinect.rules
-    
-------------------------------    
-    src_configure() {
-	export USE_BUNDLED_DEPS=OFF
-	append-cflags "-Wno-error"
-	append-cppflags "-DNDEBUG -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1"
-	local mycmakeargs=(
-		-DCMAKE_BUILD_TYPE=Release
-		-DLIBUNIBILIUM_USE_STATIC=OFF
-		-DLIBTERMKEY_USE_STATIC=OFF
-		-DLIBVTERM_USE_STATIC=OFF
-		)
-	cmake-utils_src_configure
-}
+
+
 
 src_install() {
 	cmake-utils_src_install
 	# install a default configuration file
+	dodoc README CHANGELOG VERSION
 	insinto /etc/vim
-	doins "${FILESDIR}"/nvimrc
+	doins "${FILESDIR}"/xmount-*
+	dobin xmount-*
+}
+
+pkg_postinst() {
+	einfo "Xmount Installed"
 }
