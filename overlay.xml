@@ -4,10 +4,14 @@
 		<name>necromancy-overlay</name>
 		<description>This repository contains the ebuild from Necrose99 (some are works in progress) </description>
 		<homepage>https://github.com/necrose99/necromancy-overlay</homepage>
-		<owner type="person">
+		<owner type="person"><name><![CDATA[Michael Lawrenceit]]></name>
+			 <email>mike@michaellawrenceit.com</email>
 			<email>necrose99@protonmail.ch</email>
-			<email>mike@michaellawrenceit.com</email>
-		</owner>
+			</owner>    
+		<owner type="person">
+      			<email>brentonhorne77@gmail.com</email>
+      			<name><![CDATA[Brenton Horne]]></name>
+    			</owner>
 		<source type="git">https://github.com/necrose99/necromancy-overlay.git</source>
 		<source type="git">git://github.com/necrose99/necromancy-overlay.git</source>
     		<source type="git">git@github.com:necrose99/necromancy-overlay.git</source>
