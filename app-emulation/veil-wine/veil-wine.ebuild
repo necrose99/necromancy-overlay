@@ -11,7 +11,7 @@ DESCRIPTION="user meta wine setup to support veil-framwork/metasploit"
 HOMEPAGE=""
 SRC_URI="
     x86?  ( https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/app-emulation/veil-wine/files/veil-wine32-setup.sh )
-   AMD64? ( https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/app-emulation/veil-wine/files/veil-wine64-setup.sh )" https://github.com/necrose99/necromancy-overlay/blob/master/app-emulation/veil-wine/files/veil-wine32-setup.sh
+   AMD64? ( https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/app-emulation/veil-wine/files/veil-wine64-setup.sh )"
 
   LICENSE="gpl-3"
 SLOT="0"
