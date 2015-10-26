@@ -32,8 +32,8 @@ DEPEND="${RDEPEND}
 #	econf
 #}
 
------------------ Need to Addapt to Xmount and replace above when time permits. upstream switched to cmake build. 
-  #cmake -DCMAKE_INSTALL_PREFIX=/usr/bin -DCMAKE_BUILD_TYPE=Release .. PREFIX ?= /usr
+#----------------- Need to Addapt to Xmount and replace above when time permits. upstream switched to cmake build. 
+#cmake -DCMAKE_INSTALL_PREFIX=/usr/bin -DCMAKE_BUILD_TYPE=Release .. PREFIX ?= /usr
 #$ make
  # $ sudo make install
  # make
