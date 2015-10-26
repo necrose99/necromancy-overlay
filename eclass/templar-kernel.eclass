@@ -297,7 +297,7 @@ if _is_kernel_binary; then
 fi
 
 if [ -n "${K_TEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
-    HOMEPAGE="http://ftp.riken.jp/Linux/sabayon/distfiles/sys-kernel/"
+    HOMEPAGE="http://mirror.cs.vt.edu/pub/SabayonLinux/distfiles/sys-kernel/"
 else
     HOMEPAGE="http://www.spike-pentesting.org"
 fi
