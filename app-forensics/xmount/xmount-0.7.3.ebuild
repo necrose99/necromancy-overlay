@@ -16,13 +16,9 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="+aff +ewf"
-
-#unable to build, see the upstream bug: https://www.pinguin.lu/node/16
-KEYWORDS=""
 
 RDEPEND="sys-fs/fuse
 	aff? ( app-forensics/afflib )
@@ -30,36 +26,31 @@ RDEPEND="sys-fs/fuse
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
-src_prepare(){
-	sed -e "s#LIBS = \@LIBS\@#LIBS = \@LIBS\@ -lz#" \
-		-i Makefile.in
-}
+#src_configure() {
+#	use aff || export ac_cv_lib_afflib_af_open=no
+#	use ewf || export ac_cv_lib_ewf_libewf_open=no
+#	econf
+#}
 
-src_configure() {
-	use aff || export ac_cv_lib_afflib_af_open=no
-	use ewf || export ac_cv_lib_ewf_libewf_open=no
-	econf
-}
-
- ----------------- Need to Addapt to Xmount and replace above when time permits.
-  #cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ..
+----------------- Need to Addapt to Xmount and replace above when time permits. upstream switched to cmake build. 
+  #cmake -DCMAKE_INSTALL_PREFIX=/usr/bin -DCMAKE_BUILD_TYPE=Release .. PREFIX ?= /usr
+#$ make
+ # $ sudo make install
  # make
 src_configure() {
     local mycmakeargs=(
+    	PREFIX ?= /usr/bin
         $(cmake-utils_use_build bindist  REDIST_PACKAGE)
-        $(cmake-utils_use_build c_sync   C_SYNC)
-    )
-    cmake-utils_src_configure
+        use aff || export cmake-utils_use_want afflib afflib
+        use ewf || export cmake-utils_use_want libewf libewf
+	cmake-utils_src_configure
 }
-
-
-
 
 src_install() {
 	cmake-utils_src_install
 	# install a default configuration file
 	dodoc README CHANGELOG VERSION
-	insinto /etc/vim
+	insinto /usr/bin/
 	doins "${FILESDIR}"/xmount-*
 	dobin xmount-*
 }
