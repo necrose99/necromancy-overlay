@@ -1,48 +1,48 @@
-# Copyright 2004-2016 Templar Project
+# Copyright 2004-2010 Spike Project
 # Distributed under the terms of the GNU General Public License v2
-# $ Necrose99's  Templar kernel with GRSECURITY and a few Added patch streams From Pentoo 
+# $ Necrose99's clone of the spike kernel with GRSECURITY and a few Added patch streams 
 # some added patches for the pariniod to come. 
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_NAME
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_NAME
 # @DESCRIPTION:
 # The kernel name used by the ebuild, it should be the ending ${PN} part
-# for example, of linux-templar-templar it is "${PN/${PN/-*}-}" (templar-templar)
-K_TEMPLARKERNEL_NAME="${K_TEMPLARKERNEL_NAME:-${PN/${PN/-*}-}}"
+# for example, of linux-spike-templar it is "${PN/${PN/-*}-}" (spike-templar)
+K_SPIKETEMPLARKERNEL_NAME="${K_SPIKETEMPLARKERNEL_NAME:-${PN/${PN/-*}-}}"
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_SELF_TARBALL_NAME
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME
 # @DESCRIPTION:
 # If the main kernel sources tarball is generated in-house and available
-# on the "templar" mirror, set this variable to the extension name (see example
+# on the "spike" mirror, set this variable to the extension name (see example
 # below). This will disable ALL the extra/local patches (since they have to
-# be applied inside the tarball). Moreover, K_TEMPLARKERNEL_NAME,
+# be applied inside the tarball). Moreover, K_SPIKETEMPLARKERNEL_NAME,
 # K_KERNEL_PATCH_VER will be ignored.
 # Example:
-#   K_TEMPLARKERNEL_SELF_TARBALL_NAME="templar-templar"
+#   K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME="spike-templar"
 #   This would generate:
-#   SRC_URI="mirror://templar/sys-kernel/linux-${PV}+templar.tar.${K_TARBALL_EXT}"
-K_TEMPLARKERNEL_SELF_TARBALL_NAME="${K_TEMPLARKERNEL_SELF_TARBALL_NAME:-}"
+#   SRC_URI="mirror://spike/sys-kernel/linux-${PV}+spike.tar.${K_TARBALL_EXT}"
+K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME="${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME:-}"
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_PATCH_UPSTREAM_TARBALL
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_PATCH_UPSTREAM_TARBALL
 # @DESCRIPTION:
 # If set to 1, the ebuild will fetch the upstream kernel tarball and
-# apply the  patch against it. This strategy avoids the need of
+# apply the spike patch against it. This strategy avoids the need of
 # creating complete kernel source tarballs. The default value is 0.
-K_TEMPLARKERNEL_PATCH_UPSTREAM_TARBALL="${K_TEMPLARKERNEL_PATCH_UPSTREAM_TARBALL:-0}"
+K_SPIKETEMPLARKERNEL_PATCH_UPSTREAM_TARBALL="${K_SPIKETEMPLARKERNEL_PATCH_UPSTREAM_TARBALL:-0}"
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_FORCE_SUBLEVEL
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_FORCE_SUBLEVEL
 # @DESCRIPTION:
 # Force the rewrite of SUBLEVEL in kernel sources Makefile
-K_TEMPLARKERNEL_FORCE_SUBLEVEL="${K_TEMPLARKERNEL_FORCE_SUBLEVEL:-}"
+K_SPIKETEMPLARKERNEL_FORCE_SUBLEVEL="${K_SPIKETEMPLARKERNEL_FORCE_SUBLEVEL:-}"
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_RESET_EXTRAVERSION
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_RESET_EXTRAVERSION
 # @DESCRIPTION:
 # Force the rewrite of EXTRAVERSION in kernel sources Makefile (setting it to "")
-K_TEMPLARKERNEL_RESET_EXTRAVERSION="${K_TEMPLARKERNEL_RESET_EXTRAVERSION:-}"
+K_SPIKETEMPLARKERNEL_RESET_EXTRAVERSION="${K_SPIKETEMPLARKERNEL_RESET_EXTRAVERSION:-}"
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_LONGTERM
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_LONGTERM
 # @DESCRIPTION:
 # Consider Kernel stable patchset as longterm (changing URL)
-K_TEMPLARKERNEL_LONGTERM="${K_TEMPLARKERNEL_LONGTERM:-}"
+K_SPIKETEMPLARKERNEL_LONGTERM="${K_SPIKETEMPLARKERNEL_LONGTERM:-}"
 
 # @ECLASS-VARIABLE: K_KERNEL_SOURCES_PKG
 # @DESCRIPTION:
@@ -83,7 +83,7 @@ K_KERNEL_SLOT_USEPVR="${K_KERNEL_SLOT_USEPVR:-0}"
 # Set this to "1" if your kernel ebuild uses the new Linux kernel upstream
 # versioning and ${PV} contains the stable revision, like 3.7.1.
 # In the example above, this makes the SLOT variable contain only "3.7".
-# The sublevel version can be forced using K_TEMPLARKERNEL_FORCE_SUBLEVEL
+# The sublevel version can be forced using K_SPIKETEMPLARKERNEL_FORCE_SUBLEVEL
 K_KERNEL_NEW_VERSIONING="${K_KERNEL_NEW_VERSIONING:-0}"
 
 # @ECLASS-VARIABLE: K_KERNEL_IMAGE_NAME
@@ -106,7 +106,7 @@ K_KERNEL_LTS="${K_KERNEL_LTS:-}"
 # --kernel-binary= flag.
 K_KERNEL_IMAGE_PATH="${K_KERNEL_IMAGE_PATH:-}"
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_FIRMWARE
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_FIRMWARE
 # @DESCRIPTION:
 # Set this to "1" if your ebuild is a kernel firmware package
 K_FIRMWARE_PACKAGE="${K_FIRMWARE_PACKAGE:-}"
@@ -136,10 +136,10 @@ K_WORKAROUND_SOURCES_COLLISION="${K_WORKAROUND_SOURCES_COLLISION:-}"
 # this variable and depmod will work correctly.
 K_WORKAROUND_USE_REAL_EXTRAVERSION="${K_WORKAROUND_USE_REAL_EXTRAVERSION:-}"
 
-# @ECLASS-VARIABLE: K_TEMPLARKERNEL_ZFS
+# @ECLASS-VARIABLE: K_SPIKETEMPLARKERNEL_ZFS
 # @DESCRIPTION:
 # If set, this kernel features ZFS.
-K_TEMPLARKERNEL_ZFS="${K_TEMPLARKERNEL_ZFS:-}"
+K_SPIKETEMPLARKERNEL_ZFS="${K_SPIKETEMPLARKERNEL_ZFS:-}"
 
 # @ECLASS-VARIABLE: K_GENKERNEL_ARGS
 # @DESCRIPTION:
@@ -166,7 +166,7 @@ K_MKIMAGE_WRAP_INITRAMFS="${K_MKIMAGE_WRAP_INITRAMFS:-1}"
 # [ARM ONLY] Provide the kernel load address to be used with mkimage
 K_MKIMAGE_KERNEL_ADDRESS="${K_MKIMAGE_KERNEL_ADDRESS:-}"
 
-KERN_INITRAMFS_SEARCH_NAME="${KERN_INITRAMFS_SEARCH_NAME:-initramfs-genkernel*${K_TEMPLARKERNEL_NAME}}"
+KERN_INITRAMFS_SEARCH_NAME="${KERN_INITRAMFS_SEARCH_NAME:-initramfs-genkernel*${K_SPIKETEMPLARKERNEL_NAME}}"
 
 # Disable deblobbing feature
 K_DEBLOB_AVAILABLE=0
@@ -178,35 +178,35 @@ if [ "${K_KERNEL_NEW_VERSIONING}" = "1" ]; then
     CKV="$(get_version_component_range 1-2)"
 fi
 
-inherit eutils multilib kernel-2 templar-artwork mount-boot linux-info hardened grsec zfs upatch aufs
+inherit eutils multilib kernel-2 spike-artwork mount-boot linux-info
 
 # from kernel-2 eclass
 detect_version
 detect_arch
 
-DESCRIPTION="Templar Linux kernel functions and phases"
+DESCRIPTION="Spike Linux kernel functions and phases"
 
 
 K_LONGTERM_URL_STR=""
-if [ -n "${K_TEMPLARKERNEL_LONGTERM}" ]; then
+if [ -n "${K_SPIKETEMPLARKERNEL_LONGTERM}" ]; then
     K_LONGTERM_URL_STR="/longterm/v${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
 fi
 
 ## kernel-2 eclass settings
-if [ "${K_TEMPLARKERNEL_PATCH_UPSTREAM_TARBALL}" = "1" ]; then
-    _patch_name="$(get_version_component_range 1-2)-${K_TEMPLARKERNEL_SELF_TARBALL_NAME}-${PVR}.patch.xz"
+if [ "${K_SPIKETEMPLARKERNEL_PATCH_UPSTREAM_TARBALL}" = "1" ]; then
+    _patch_name="$(get_version_component_range 1-2)-${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}-${PVR}.patch.xz"
     SRC_URI="${KERNEL_URI}
-        mirror://templar/${CATEGORY}/${_patch_name}
+        mirror://spike/${CATEGORY}/${_patch_name}
     "
     UNIPATCH_LIST="${UNIPATCH_LIST} ${DISTDIR}/${_patch_name}"
     unset _patch_name
-elif [ -n "${K_templarTEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
-    SRC_URI="mirror://templar/${CATEGORY}/linux-${PVR}+${K_TEMPLARKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
+elif [ -n "${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
+    SRC_URI="mirror://spike/${CATEGORY}/linux-${PVR}+${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
 else
     SRC_URI="${KERNEL_URI}"
 fi
 
-if [ -z "${K_TEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
+if [ -z "${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
     if [ -n "${K_KERNEL_PATCH_VER}" ]; then
         K_PATCH_NAME="patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${K_KERNEL_PATCH_VER}.${K_TARBALL_EXT}"
         SRC_URI="${SRC_URI}
@@ -223,7 +223,7 @@ _get_real_kv_full() {
     if [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
         echo "${ORIGINAL_KV_FULL}"
     elif [[ "${OKV/.*}" = "3" ]]; then
-        # Linux 3.x support, KV_FULL is set to: 3.0-templar
+        # Linux 3.x support, KV_FULL is set to: 3.0-spike
         # need to add another final .0 to the version part
         echo "${ORIGINAL_KV_FULL/-/.0-}"
     else
@@ -231,11 +231,10 @@ _get_real_kv_full() {
     fi
 }
 
-# replace "linux" with K_TEMPLARKERNEL_NAME, usually replaces
-# "linux" with "nmiozzi@daytonhabitat.org
-" or "server" or "openvz"
-KV_FULL="${KV_FULL/${PN/-*}/${K_TEMPLARKERNEL_NAME}}"
-EXTRAVERSION="${EXTRAVERSION/${PN/-*}/${K_TEMPLARKERNEL_NAME}}"
+# replace "linux" with K_SPIKETEMPLARKERNEL_NAME, usually replaces
+# "linux" with "spike" or "server" or "openvz"
+KV_FULL="${KV_FULL/${PN/-*}/${K_SPIKETEMPLARKERNEL_NAME}}"
+EXTRAVERSION="${EXTRAVERSION/${PN/-*}/${K_SPIKETEMPLARKERNEL_NAME}}"
 # drop -rX if exists
 if [[ -n "${PR//r0}" ]] && [[ "${K_KERNEL_DISABLE_PR_EXTRAVERSION}" = "1" ]] \
         && [[ -z "${K_NOSETEXTRAVERSION}" ]]; then
@@ -248,7 +247,7 @@ ORIGINAL_KV_FULL="${KV_FULL}"
 KV_FULL="$(_get_real_kv_full)"
 
 # Starting from linux-3.0, we still have to install
-# sources stuff into /usr/src/linux-3.0.0-templar (example)
+# sources stuff into /usr/src/linux-3.0.0-spike (example)
 # where the last part must always match uname -r
 # otherwise kernel-switcher (and RELEASE_LEVEL file)
 # will complain badly
@@ -296,8 +295,8 @@ if _is_kernel_binary; then
     fi
 fi
 
-if [ -n "${K_TEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
-    HOMEPAGE="http://mirror.cs.vt.edu/pub/SabayonLinux/distfiles/sys-kernel/"
+if [ -n "${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
+    HOMEPAGE="https://github.com/Spike-Pentesting/kernel"
 else
     HOMEPAGE="http://www.spike-pentesting.org"
 fi
@@ -342,10 +341,10 @@ _set_config_file_vars() {
         fi
     fi
 
-    K_TEMPLARKERNEL_CONFIG_FILES=()
-    K_TEMPLARKERNEL_CONFIG_FILES+=( "${K_TEMPLARKERNEL_NAME}-${pvr}-$(_get_arch).config" )
-    K_TEMPLARKERNEL_CONFIG_FILES+=( "${K_TEMPLARKERNEL_NAME}-${pv}-$(_get_arch).config" )
-    K_TEMPLARKERNEL_CONFIG_FILES+=( "${K_TEMPLARKERNEL_NAME}-$(_get_arch).config" )
+    K_SPIKETEMPLARKERNEL_CONFIG_FILES=()
+    K_SPIKETEMPLARKERNEL_CONFIG_FILES+=( "${K_SPIKETEMPLARKERNEL_NAME}-${pvr}-$(_get_arch).config" )
+    K_SPIKETEMPLARKERNEL_CONFIG_FILES+=( "${K_SPIKETEMPLARKERNEL_NAME}-${pv}-$(_get_arch).config" )
+    K_SPIKETEMPLARKERNEL_CONFIG_FILES+=( "${K_SPIKETEMPLARKERNEL_NAME}-$(_get_arch).config" )
 
     _config_file_set=1
 }
@@ -356,7 +355,7 @@ if [ -n "${K_ONLY_SOURCES}" ] || [ -n "${K_FIRMWARE_PACKAGE}" ]; then
     RDEPEND="${RDEPEND}"
 else
     IUSE="btrfs dmraid dracut iscsi luks lvm mdadm plymouth splash"
-    if [ -n "${K_TEMPLARKERNEL_ZFS}" ]; then
+    if [ -n "${K_SPIKETEMPLARKERNEL_ZFS}" ]; then
         IUSE="${IUSE} zfs"
     fi
     DEPEND="app-arch/xz-utils
@@ -367,7 +366,7 @@ else
         arm? ( dev-embedded/u-boot-tools )
         amd64? ( sys-apps/v86d )
         x86? ( sys-apps/v86d )
-        splash? ( templar/templar-artwork-core )
+        splash? ( spike/spike-artwork-core )
         lvm? ( sys-fs/lvm2 sys-block/thin-provisioning-tools )
         plymouth? (
             || ( >=sys-kernel/genkernel-next-5 >=sys-kernel/genkernel-5 )
@@ -407,7 +406,7 @@ _update_depmod() {
     fi
 }
 
-templar-kernel_pkg_setup() {
+spike-kernel_pkg_setup() {
     if [ -n "${K_FIRMWARE_PACKAGE}" ]; then
         einfo "Preparing kernel firmwares"
     else
@@ -415,10 +414,10 @@ templar-kernel_pkg_setup() {
     fi
 }
 
-templar-kernel_src_unpack() {
+spike-kernel_src_unpack() {
     local okv="${OKV}"
-    if [ -n "${K_TEMPLARKERNEL_SELF_TARBALL_NAME}" ] && [ "${K_TEMPLARKERNEL_PATCH_UPSTREAM_TARBALL}" != "1" ]; then
-        OKV="${PVR}+${K_TEMPLARKERNEL_SELF_TARBALL_NAME}"
+    if [ -n "${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}" ] && [ "${K_SPIKETEMPLARKERNEL_PATCH_UPSTREAM_TARBALL}" != "1" ]; then
+        OKV="${PVR}+${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}"
     fi
     if [ "${K_KERNEL_NEW_VERSIONING}" = "1" ]; then
         # workaround for kernel-2's universal_unpack assumptions
@@ -426,12 +425,12 @@ templar-kernel_src_unpack() {
     else
         kernel-2_src_unpack
     fi
-    if [ -n "${K_TEMPLARKERNEL_FORCE_SUBLEVEL}" ]; then
+    if [ -n "${K_SPIKETEMPLARKERNEL_FORCE_SUBLEVEL}" ]; then
         # patch out Makefile with proper sublevel
-        sed -i "s:^SUBLEVEL = .*:SUBLEVEL = ${K_TEMPLARKERNEL_FORCE_SUBLEVEL}:" \
+        sed -i "s:^SUBLEVEL = .*:SUBLEVEL = ${K_SPIKETEMPLARKERNEL_FORCE_SUBLEVEL}:" \
             "${S}/Makefile" || die
     fi
-    if [ -n "${K_TEMPLARKERNEL_RESET_EXTRAVERSION}" ]; then
+    if [ -n "${K_SPIKETEMPLARKERNEL_RESET_EXTRAVERSION}" ]; then
         sed -i "s:^EXTRAVERSION =.*:EXTRAVERSION = :" "${S}/Makefile" || die
         # some sources could have multiple append-based EXTRAVERSIONs
         sed -i "s/^EXTRAVERSION :=.*//" "${S}/Makefile" || die
@@ -440,15 +439,15 @@ templar-kernel_src_unpack() {
 
     # Let's handle EAPIs 0 and 1...
     case ${EAPI:-0} in
-        0|1) templar-kernel_src_prepare ;;
+        0|1) spike-kernel_src_prepare ;;
     esac
 }
 
-templar-kernel_src_prepare() {
+spike-kernel_src_prepare() {
     _set_config_file_vars
 }
 
-templar-kernel_src_compile() {
+spike-kernel_src_compile() {
     if [ -n "${K_FIRMWARE_PACKAGE}" ]; then
         _firmwares_src_compile
     elif [ -n "${K_ONLY_SOURCES}" ]; then
@@ -472,15 +471,15 @@ _firmwares_src_compile() {
 
 _kernel_copy_config() {
     _is_config_file_set \
-        || die "Kernel configuration file not set. Was templar-kernel_src_prepare() called?"
+        || die "Kernel configuration file not set. Was spike-kernel_src_prepare() called?"
 
     local base_path="${DISTDIR}"
-    if [ -n "${K_TEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
-        base_path="${S}/templar/config"
+    if [ -n "${K_SPIKETEMPLARKERNEL_SELF_TARBALL_NAME}" ]; then
+        base_path="${S}/spike/config"
     fi
 
     local found= cfg=
-    for cfg in "${K_TEMPLARKERNEL_CONFIG_FILES[@]}"; do
+    for cfg in "${K_SPIKETEMPLARKERNEL_CONFIG_FILES[@]}"; do
         cfg="${base_path}/${cfg}"
         if [ -f "${cfg}" ]; then
             cp "${cfg}" "${1}" || die "cannot copy kernel config ${cfg} -> ${1}"
@@ -489,7 +488,7 @@ _kernel_copy_config() {
             break
         fi
     done
-    [[ -z "${found}" ]] && die "cannot find kernel configs among: ${K_TEMPLARKERNEL_CONFIG_FILES[*]}"
+    [[ -z "${found}" ]] && die "cannot find kernel configs among: ${K_SPIKETEMPLARKERNEL_CONFIG_FILES[*]}"
 }
 
 _kernel_src_compile() {
@@ -520,7 +519,7 @@ _kernel_src_compile() {
     cd "${S}" || die
     local GKARGS=()
     GKARGS+=("--no-menuconfig" "--no-save-config" "--e2fsprogs" "--udev" )
-    use splash && GKARGS+=( "--splash=templar" )
+    use splash && GKARGS+=( "--splash=spike" )
     use btrfs && GKARGS+=( "--btrfs" )
     use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=${PLYMOUTH_THEME}" )
     use dmraid && GKARGS+=( "--dmraid" )
@@ -528,7 +527,7 @@ _kernel_src_compile() {
     use mdadm && GKARGS+=( "--mdadm" )
     use luks && GKARGS+=( "--luks" )
     use lvm && GKARGS+=( "--lvm" )
-    if [ -n "${K_TEMPLARKERNEL_ZFS}" ]; then
+    if [ -n "${K_SPIKETEMPLARKERNEL_ZFS}" ]; then
         use zfs && GKARGS+=( "--zfs" )
     fi
 
@@ -610,7 +609,7 @@ _setup_mkimage_ramdisk() {
     return 0
 }
 
-templar-kernel_src_install() {
+spike-kernel_src_install() {
     if [ -n "${K_FIRMWARE_PACKAGE}" ]; then
         _firmwares_src_install
     elif [ -n "${K_ONLY_SOURCES}" ]; then
@@ -742,12 +741,12 @@ _kernel_src_install() {
         _dracut_initramfs_create "${KV_FULL}"
 }
 
-templar-kernel_pkg_preinst() {
+spike-kernel_pkg_preinst() {
     if _is_kernel_binary; then
         mount-boot_pkg_preinst
     fi
 }
-templar-kernel_grub2_mkconfig() {
+spike-kernel_grub2_mkconfig() {
     if [ -x "${ROOT}usr/sbin/grub2-mkconfig" ]; then
         # Grub 2.00
         "${ROOT}usr/sbin/grub2-mkconfig" -o "${ROOT}boot/grub/grub.cfg"
@@ -776,7 +775,7 @@ _get_release_level() {
     elif [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
         echo "${KV_FULL}"
     elif [[ "${OKV/.*}" = "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
-        # Linux 3.x support, KV_FULL is set to: 3.0-templar
+        # Linux 3.x support, KV_FULL is set to: 3.0-spike
         # need to add another final .0 to the version part
         echo "${KV_FULL/-/.0-}"
     else
@@ -784,7 +783,7 @@ _get_release_level() {
     fi
 }
 
-templar-kernel_uimage_config() {
+spike-kernel_uimage_config() {
     # Two cases here:
     # 1. /boot/uImage symlink is broken (pkg_postrm)
     # 2. /boot/uImage symlink doesn't exist (pkg_postinst)
@@ -816,7 +815,7 @@ templar-kernel_uimage_config() {
     fi
 }
 
-templar-kernel_bzimage_config() {
+spike-kernel_bzimage_config() {
     # Two cases here:
     # 1. /boot/bzImage symlink is broken (pkg_postrm)
     # 2. /boot/bzImage symlink doesn't exist (pkg_postinst)
@@ -867,7 +866,7 @@ _dracut_initramfs_create() {
     dracut -q -N -f --kver="${kver}" "${D}/boot/initramfs-dracut-${kver}"
 }
 
-templar-kernel_pkg_postinst() {
+spike-kernel_pkg_postinst() {
     if _is_kernel_binary; then
         fstab_file="${ROOT}etc/fstab"
         einfo "Removing extents option for ext4 drives from ${fstab_file}"
@@ -877,7 +876,7 @@ templar-kernel_pkg_postinst() {
         fi
 
         # Update kernel initramfs to match user customizations
-        use splash && update_templar_kernel_initramfs_splash
+        use splash && update_spike_kernel_initramfs_splash
 
         # Add kernel to grub.conf
         if use amd64 || use x86; then
@@ -893,18 +892,18 @@ templar-kernel_pkg_postinst() {
                     "/boot/initramfs-genkernel-${kern_arch}-${KV_FULL}"
             fi
 
-            templar-kernel_grub2_mkconfig
+            spike-kernel_grub2_mkconfig
         fi
 
         # Setup newly installed kernel on ARM
         if use arm; then
-            templar-kernel_uimage_config
+            spike-kernel_uimage_config
         fi
         # Setup newly installed kernel on x86/amd64
         # This is quite handy for static grub1/grub2
         # configurations (like on Amazon EC2)
         if use x86 || use amd64; then
-            templar-kernel_bzimage_config
+            spike-kernel_bzimage_config
         fi
 
         kernel-2_pkg_postinst
@@ -912,11 +911,11 @@ templar-kernel_pkg_postinst() {
         _update_depmod "${depmod_r}"
 
         elog "Please report kernel bugs at:"
-        elog "http://bugs.templar.org"
+        elog "http://bugs.spike.org"
 
         elog "The source code of this kernel is located at"
         elog "=${K_KERNEL_SOURCES_PKG}."
-        elog "templar Linux recommends that portage users install"
+        elog "spike Linux recommends that portage users install"
         elog "${K_KERNEL_SOURCES_PKG} if you want"
         elog "to build any packages that install kernel modules"
         elog "(such as ati-drivers, nvidia-drivers, virtualbox, etc...)."
@@ -925,13 +924,13 @@ templar-kernel_pkg_postinst() {
     fi
 }
 
-templar-kernel_pkg_prerm() {
+spike-kernel_pkg_prerm() {
     if _is_kernel_binary; then
         mount-boot_pkg_prerm
     fi
 }
 
-templar-kernel_pkg_postrm() {
+spike-kernel_pkg_postrm() {
     if _is_kernel_binary; then
         # Remove kernel from grub.conf
         if use amd64 || use x86; then
@@ -946,18 +945,18 @@ templar-kernel_pkg_postrm() {
                     "/boot/initramfs-genkernel-${kern_arch}-${KV_FULL}"
             fi
 
-            templar-kernel_grub2_mkconfig
+            spike-kernel_grub2_mkconfig
         fi
 
         # Setup newly installed kernel on ARM
         if use arm; then
-            templar-kernel_uimage_config
+            spike-kernel_uimage_config
         fi
         # Setup newly installed kernel on x86/amd64
         # This is quite handy for static grub1/grub2
         # configurations (like on Amazon EC2)
         if use x86 || use amd64; then
-            templar-kernel_bzimage_config
+            spike-kernel_bzimage_config
         fi
     fi
 }
