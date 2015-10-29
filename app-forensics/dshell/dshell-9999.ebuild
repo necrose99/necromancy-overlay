@@ -5,11 +5,14 @@
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
-inherit distutils-r1
+inherit distutils-r1 git-r3
+EAPI=5
+
+EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
 
 DESCRIPTION="Magnificent app which corrects your previous console command,'fuck' will try to fix console command, "
-HOMEPAGE="https://github.com/nvbn/thefuck"
-SRC_URI="https://github.com/nvbn/thefuck/archive/v${PV}.tar.gz -> thefuck-${PV}.tar.gz"
+HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
+SRC_URI=""
 
 LICENSE="Apache-2.0"
 SLOT="0"
