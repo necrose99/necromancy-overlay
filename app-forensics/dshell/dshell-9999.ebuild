@@ -15,8 +15,8 @@ if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 
 	KEYWORDS=""
-else
-	SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/v${PV}.tar.gz -> dhell-${PV}.tar.gz""
+#else
+#	SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/v${PV}.tar.gz -> dhell-${PV}.tar.gz""
 	KEYWORDS="~amd64 ~x86"
 fi
 
