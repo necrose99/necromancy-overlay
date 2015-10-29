@@ -6,9 +6,20 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1 git-r3
-EAPI=5
 
-EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
+if [[ ${PV} == 9999* ]]; then
+	EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
+	EGIT_BRANCH="master"
+	EGIT_CHECKOUT_DIR="${WORKDIR}/refpolicy"
+
+	inherit git-r3
+
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/v${PV}.tar.gz -> dhell-${PV}.tar.gz""
+	KEYWORDS="~amd64 ~x86"
+fi
+
 
 DESCRIPTION="Dshell is a network forensic analysis framework"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
@@ -24,4 +35,4 @@ DEPEND="dev-lang/python/python-2.7*
  dev-python/pypcap"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/dshell"
+S="${WORKDIR}/${PN}/${PV}"
