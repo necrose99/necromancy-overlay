@@ -10,7 +10,7 @@ EAPI=5
 
 EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
 
-DESCRIPTION="Magnificent app which corrects your previous console command,'fuck' will try to fix console command, "
+DESCRIPTION="Dshell is a network forensic analysis framework"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
 SRC_URI=""
 
