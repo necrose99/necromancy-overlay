@@ -18,7 +18,10 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND=""
+DEPEND="dev-lang/python/python-2.7*
+ dev-python/pygeoip
+ dev-python/ipy
+ dev-python/pypcap"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/thefuck-${PV}/thefuck"
+S="${WORKDIR}/dshell"
