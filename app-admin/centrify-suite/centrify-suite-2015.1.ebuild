@@ -4,8 +4,9 @@
 
 inherit eutils versionator rpm
 
-MY_PV=$(replace_version_separator 3 '-')
-MY_P=fetchmail-${MY_PV}
+MY_PN="centrify-suite"
+MY_PV=$(replace_version_separator 2 '-')
+MY_P="${MY_PN}-${MY_PV}"
 
 SRC_URI="
     x86?   ( http://edge.centrify.com/products/centrify-suite/2015-update-1/installers/centrify-suite-2015.1-rhel4-i386.tgz )
@@ -13,7 +14,8 @@ SRC_URI="
 DESCRIPTION="centrify-suite "
 HOMEPAGE="http://www.centrify.com/"
 #EULA="https://www.centrify.com/eula/"
-
+# release-notes-samba-rhel3-x86_64.txt
+centrify-express-dm-quickstart.pdf
 LICENSE="freeware,eula"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
