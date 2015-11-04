@@ -8,17 +8,9 @@ MY_PN="centrify-suite"
 MY_PV=$(replace_version_separator 2 '-')
 MY_P="${MY_PN}-${MY_PV}"
 
-http://edge.centrify.com/products/centrify-suite/2015-update-1/installers/centrify-suite-2015.1-rhel4-i386.tgz
-http://edge.centrify.com/products/opensource/samba-4.5.9/centrify-samba-4.5.9-rhel3-i386.tgz
-http://edge.centrify.com/products/opensource/kerberos-5.1.0/centrify-krb5-5.1.0-rhel3-i386.tgz
-
-http://edge.centrify.com/products/centrify-suite/2015-update-1/installers/centrify-suite-2015.1-rhel4-x86_64.tgz
-http://edge.centrify.com/products/opensource/samba-4.5.9/centrify-samba-4.5.9-rhel3-x86_64.tgz
-http://edge.centrify.com/products/opensource/kerberos-5.1.0/centrify-krb5-5.1.0-rhel3-x86_64.tgz
-
 SRC_URI="
-    x86?   ( https://update.gitter.im/linux32/latest )
-    AMD64? ( https://update.gitter.im/linux64/latest )"
+    x86?   ( http://edge.centrify.com/products/opensource/samba-4.5.9/centrify-samba-4.5.9-rhel3-i386.tgz )
+    AMD64? ( http://edge.centrify.com/products/opensource/samba-4.5.9/centrify-samba-4.5.9-rhel3-x86_64.tgz )"
 DESCRIPTION="centrify-suite "
 HOMEPAGE="http://www.centrify.com/"
 #EULA="https://www.centrify.com/eula/"
@@ -38,12 +30,54 @@ RESTRICT="mirror"
 # app-arch/rpm, then set the following:
 
 #USE_RPMOFFSET_ONLY=1
+RDEPEND="app-eselect/eselect-opencl
+	dev-cpp/tbb
+	sys-process/numactl
+	tools? (
+		sys-devel/llvm
+		>=virtual/jre-1.6
+	)"
+DEPEND=""
 
-S=${WORKDIR}/fetchmail-$(get_version_component_range 1-3)
+RESTRICT="mirror"
+QA_EXECSTACK="${INTEL_CL/\//}libcpu_device.so
+	${INTEL_CL/\//}libOclCpuBackEnd.so
+	${INTEL_CL/\//}libtask_executor.so"
+QA_PREBUILT="${INTEL_CL}*"
 
-src_unpack () {
-    rpm_src_unpack ${A}
-    cd "${S}"
-    EPATCH_SOURCE="${WORKDIR}" EPATCH_SUFFIX="patch" \
-        EPATCH_FORCE="yes" epatch
+S=${WORKDIR}
+
+
+src_unpack() {
+	default
+	rpm_unpack ./${MY_P}.rpm
+}
+
+src_prepare() {
+	# Remove unnecessary and bundled stuff
+	rm -rf ${INTEL_CL}/{docs,version.txt,llc}
+	rm -f ${INTEL_CL}/libboost*.so
+	rm -f ${INTEL_CL}/libtbb*
+	if ! use tools; then
+		rm -rf usr/bin
+		rm -f ${INTEL_CL}/{ioc64,ioc.jar}
+		rm -f ${INTEL_CL}/libboost*
+	fi
+}
+
+src_install() {
+	doins -r etc
+
+	insinto ${INTEL_CL}
+	doins -r usr/include
+
+	insopts -m 755
+	newins usr/$(get_libdir)/libOpenCL.so libOpenCL.so.1
+	dosym libOpenCL.so.1 ${INTEL_CL}/libOpenCL.so
+
+	doins ${INTEL_CL}/*
+}
+
+pkg_postinst() {
+	eselect opencl set --use-old intel
 }
