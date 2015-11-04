@@ -1,0 +1,12 @@
+<pkgmetadata>
+<maintainer>
+<email>mike@michaellawrenceit.com</email>
+<name>Necrose99,Michael R. Lawrence</name>
+</maintainer>
+</pkgmetadata>
+#<use>
+#<flag name="">Foo/bar</flag>
+#<flag name="">BAR</flag>
+#</use>
+<longdescription lang="en">Configure the brightness of the keyboard's backlight on ASUS
+laptops. start up kb lights on boot etc.</longdescription>
