@@ -9,7 +9,7 @@ inherit multilib unpacker
 MY_PV=${PV/_p/-}
 MY_PN=${PN%%-bin-debian}
 
-DESCRIPTION="gitter IM Debian binary"
+DESCRIPTION="gitter deeveloper Instant measenger  binary (intergrates to github & IRC with MD)"
 HOMEPAGE="https://gitter.im/apps"
 SRC_URI="
     x86?   ( https://update.gitter.im/linux32/latest )
