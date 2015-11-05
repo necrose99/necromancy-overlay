@@ -3,13 +3,15 @@
 <pkgmetadata>
 	        <herd>proxy-maintainers</herd>
 	        <maintainer>
-	                <email>idella4@gentoo.org</email>
+	        <email>idella4@gentoo.org</email>
 	        </maintainer>
-			<maintainer>
-			<email>necrose99@protomail.ch,mike@michaellawrenceit.com</email>
-				<name>Michael R. Lawrence</name>
-					<description>proxy maintainer and recipient of bugs</description>
-			</maintainer>
+		<maintainer>
+		<email>necrose99@protomail.ch,mike@michaellawrenceit.com</email>
+		<name>Michael R. Lawrence</name>
+		<description>proxy maintainer and recipient of bugs</description>
+		<longdescription lang="en">A GUI that Makes the operation Of FSarchiver and backing up Hardrives super Easy
+		</longdescription>
+		</maintainer>
              <use>
 		<flag name='btrfs'>Enable support for <pkg>sys-fs/btrfs-progs</pkg></flag>
 		<flag name='jfs'>Enable support for<pkg>sys-fs/jfsutils</pkg></flag>
