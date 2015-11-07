@@ -3,7 +3,7 @@
 ##some ebuild may get moved to orginizational repos when  more stable.
 #### Licence GPL2 , 
 - I am an IT Security Enginner , not a dev least professinally , if you have a fix that works pull request 
-* if you want to Eusup or Ascond an ebuild into the Gentoo tree or Gentoo-sun-rise open an issue and leave me a note 
+* if you want to Eusup or Ascond an ebuild into the Gentoo tree or Gentoo-sun-rise (perhaps some even to **Pentoo**)open an issue and leave me a note 
 ** As an Engineer I could give 2 rats whom takes credit but hey if its WORKING its all :-) smiles whooho.
 
 - Ebuilds that are Works in progress 
