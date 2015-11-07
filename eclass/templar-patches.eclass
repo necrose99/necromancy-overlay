@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-# @ECLASS: sab-patches.eclass
+# @ECLASS: templar-patches.eclass
 # @MAINTAINER:
 # slawomir.nizio@sabayon.org
 # @AUTHOR:
@@ -18,7 +18,7 @@
 # one than necessary.
 # The eclass does not define any phase function.
 
-# @ECLASS-VARIABLE: SAB_PATCHES_SRC
+# @ECLASS-VARIABLE: TEMPLAR_PATCHES_SRC
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Array that contains URIs of patches to be added to SRC_URI. Mandatory!
@@ -30,25 +30,25 @@
 
 inherit eutils
 
-if [[ ${#SAB_PATCHES_SRC[@]} -eq 0 ]]; then
-	die "SAB_PATCHES_SRC is not set"
+if [[ ${#TEMPLAR_PATCHES_SRC[@]} -eq 0 ]]; then
+	die "TEMPLAR_PATCHES_SRC is not set"
 fi
 
-# @FUNCTION: sab-patches_update_SRC_URI
+# @FUNCTION: templar-patches_update_SRC_URI
 # @DESCRIPTION:
 # Appends patches entries to SRC_URI. If it is not done, an error will
 # occur later on.
-sab-patches_update_SRC_URI() {
+templar-patches_update_SRC_URI() {
 	local p
-	for p in "${SAB_PATCHES_SRC[@]}"; do
+	for p in "${templar_PATCHES_SRC[@]}"; do
 		SRC_URI+=${SRC_URI:+ }${p}
 	done
 }
 
-# @FUNCTION: sab-patches_apply_all
+# @FUNCTION: templar-patches_apply_all
 # @DESCRIPTION:
-# Applies patches specified using SAB_PATCHES_SRC, skipping patches
-# with names matched in SAB_PATCHES_SKIP.
+# Applies patches specified using templar_PATCHES_SRC, skipping patches
+# with names matched in templar_PATCHES_SKIP.
 # Two possible cases are supported.
 # 1. A patch path which is a tarball (assumed file name: *.tar*).
 # Such a tarball must unpack to ${WORKDIR}/<tarball name without *.tar*>
@@ -56,26 +56,26 @@ sab-patches_update_SRC_URI() {
 # of patches to apply.
 # 2. A patch which is not a tarball, which will be simply applied (if
 # it is not skipped).
-sab-patches_apply_all() {
+templar-patches_apply_all() {
 	local p
-	for p in "${SAB_PATCHES_SRC[@]}"; do
+	for p in "${templar_PATCHES_SRC[@]}"; do
 		if [[ ${p} = *.tar* ]]; then
 			local dir=${p##*/}
 			dir=${dir%.tar*}
-			_sab-patches_apply_from_dir "${WORKDIR}/${dir}"
+			_templar-patches_apply_from_dir "${WORKDIR}/${dir}"
 		else
 			local name=${p##*/}
-			_sab-patches_apply_nonskipped "${DISTDIR}" "${name}"
+			_templar-patches_apply_nonskipped "${DISTDIR}" "${name}"
 		fi
 	done
 }
 
-# @FUNCTION: sab-patches_apply
+# @FUNCTION: templar-patches_apply
 # @DESCRIPTION:
 # Apply selected patches. Arguments are the directory containing
 # the patch, followed by one or more patch names.
-sab-patches_apply() {
-	[[ $# -lt 2 ]] && die "sab-patches_apply: missing arguments"
+templar-patches_apply() {
+	[[ $# -lt 2 ]] && die "templar-patches_apply: missing arguments"
 	local dir=$1
 	shift
 	local patch
@@ -84,14 +84,14 @@ sab-patches_apply() {
 	done
 }
 
-# @FUNCTION: sab-patches_unpack
+# @FUNCTION: templar-patches_unpack
 # @DESCRIPTION:
-# Unpack every file provided in SAB_PATCHES_SRC.
-sab-patches_unpack() {
+# Unpack every file provided in templar_PATCHES_SRC.
+templar-patches_unpack() {
 	local p
 	pushd "${WORKDIR}" > /dev/null || die
 
-	for p in "${SAB_PATCHES_SRC[@]}"; do
+	for p in "${templar_PATCHES_SRC[@]}"; do
 		local name=${p##*/}
 		unpack "${name}"
 	done
@@ -99,17 +99,17 @@ sab-patches_unpack() {
 	popd > /dev/null || die
 }
 
-# @FUNCTION: _sab-patches_apply_nonskipped
+# @FUNCTION: _templar-patches_apply_nonskipped
 # @INTERNAL
 # @DESCRIPTION:
 # Apply selected patches - only those which should not be skipped.
 # Arguments are the directory containing the patch, followed by
 # one or more patch names.
 # This function is not intended to be used by ebuilds because there
-# is a better way: use sab-patches_apply and skip the unwanted ones.
-_sab-patches_apply_nonskipped() {
+# is a better way: use templar-patches_apply and skip the unwanted ones.
+_templar-patches_apply_nonskipped() {
 	if [[ $# -lt 2 ]]; then
-		die "_sab-patches_apply_nonskipped: missing arguments"
+		die "_templar-patches_apply_nonskipped: missing arguments"
 	fi
 
 	local dir=$1
@@ -118,10 +118,10 @@ _sab-patches_apply_nonskipped() {
 	local patch
 	for patch; do
 		if [[ ${patch} = */* ]]; then
-			die "_sab-patches_apply_nonskipped: '${patch}' contains slashes"
+			die "_templar-patches_apply_nonskipped: '${patch}' contains slashes"
 		fi
 
-		if _sab-patches_is_skipped "${patch}"; then
+		if _templar-patches_is_skipped "${patch}"; then
 			einfo "(skipping ${patch})"
 		else
 			epatch "${dir}/${patch}"
@@ -129,11 +129,11 @@ _sab-patches_apply_nonskipped() {
 	done
 }
 
-# @FUNCTION: _sab-patches_apply_from_dir
+# @FUNCTION: _templar-patches_apply_from_dir
 # @INTERNAL
 # @DESCRIPTION:
-# Apply all patches from a directory in order. Obeys SAB_PATCHES_SKIP.
-_sab-patches_apply_from_dir() {
+# Apply all patches from a directory in order. Obeys templar_PATCHES_SKIP.
+_templar-patches_apply_from_dir() {
 	local dir=$1
 	local order_file=${dir}/order
 	if [[ ! -r ${order_file} ]] || [[ ! -f ${order_file} ]]; then
@@ -151,20 +151,20 @@ _sab-patches_apply_from_dir() {
 			die "Problems with the patch '${patch}', see ${order_file}."
 		fi
 
-		_sab-patches_apply_nonskipped "${dir}" "${patch}"
+		_templar-patches_apply_nonskipped "${dir}" "${patch}"
 	done < "${order_file}"
 
-	[[ $? -ne 0 ]] && die "_sab-patches_apply_from_dir: loop failed"
+	[[ $? -ne 0 ]] && die "_templar-patches_apply_from_dir: loop failed"
 }
 
-# @FUNCTION: _sab-patches_is_skipped
+# @FUNCTION: _templar-patches_is_skipped
 # @INTERNAL
 # @DESCRIPTION:
 # Returns success if the patch should be skipped. O(n). :)
-_sab-patches_is_skipped() {
+_templar-patches_is_skipped() {
 	local arg=$1
 	local p
-	for p in "${SAB_PATCHES_SKIP[@]}"; do
+	for p in "${templar_PATCHES_SKIP[@]}"; do
 		[[ ${arg} = ${p} ]] && return 0
 	done
 	return 1
