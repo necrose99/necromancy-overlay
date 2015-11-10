@@ -28,12 +28,16 @@ RDEPEND="
 	dev-qt/qtsql:4
 	dev-python/pyparsing 
 	qutepart?
+	dev-libs/libpcre
 	=python/python-2.7.9-r2
 	dev-python/PyQt4
 "
 DEPEND="${RDEPEND}
 	doc? ( dev-python/docutils )
 	dev-python/markdown
+	dev-python/pyside
+	dev-python/PyQt4 dev-python/PyQt5 dev-python/pyqt
+	
 "
 
 PATCHES=( "${FILESDIR}/${P}-install.patch" )
