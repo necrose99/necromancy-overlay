@@ -32,7 +32,8 @@ RDEPEND="
 	dev-python/PyQt4
 "
 DEPEND="${RDEPEND}
-	doc? ( >=app-doc/doxygen-1.5.8 )
+	doc? ( dev-python/docutils )
+	dev-python/markdown
 "
 
 PATCHES=( "${FILESDIR}/${P}-install.patch" )
