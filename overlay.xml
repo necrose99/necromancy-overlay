@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <repositories version="1.0">
 	<repo priority="50" quality="experimental" status="unofficial">
-		<name>necromancy-overlay</name>
+		<name>necromancy</name>
 		<description>This repository contains the ebuild from Necrose99 (some are works in progress) </description>
 		<homepage>https://github.com/necrose99/necromancy-overlay</homepage>
 		<owner type="person"><name><![CDATA[Michael Lawrenceit]]></name>
