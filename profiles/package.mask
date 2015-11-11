@@ -13,3 +13,5 @@ net-analyzer/veil
 net-analyzer/sphirewall-kernel-mod
 net-analyzer/alienvault-ossim
 net-analyzer/ossec-docs
+app-editors/enki
+dev-python/qutepart
