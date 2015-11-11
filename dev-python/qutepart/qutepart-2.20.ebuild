@@ -22,3 +22,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/qutepart-${PV}/qutepart"
 #cd qutepart
 #python setup.py install --include-dir=../pcre-8.37/build --lib-dir=../pcre-8.37/build/Release
+python_prepare_all() {
+
+	distutils-r1_python_prepare_all
+}
