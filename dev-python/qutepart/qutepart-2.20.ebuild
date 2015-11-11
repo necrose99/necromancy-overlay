@@ -15,7 +15,10 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="~app-forensics/yara-${PV}"
+DEPEND="dev-libs/libpcre
+|| ( dev-python/PyQt  dev-python/PyQt4 dev-python/PyQt5 )"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/yara-${PV}/yara-python"
+S="${WORKDIR}/qutepart-${PV}/qutepart"
+#cd qutepart
+#python setup.py install --include-dir=../pcre-8.37/build --lib-dir=../pcre-8.37/build/Release
