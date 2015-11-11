@@ -10,13 +10,13 @@ DESCRIPTION="ZFS Manager is a menu driven utility for managing ZFS Filesystems "
 HOMEPAGE="http://downloads.sourceforge.net/project/zfsmanager/"
 SRC_URI="mirror://sourceforge/${PN}/source/ZFS-Man.py -> zfsmanager.py
 
-http://downloads.sourceforge.net/project/zfsmanager/ZFS-Man.py?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fzfsmanager%2Ffiles%2F&ts=1447266032&use_mirror=iweb
+PYTHON_COMPAT=( python{2_*} )
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="*"
 IUSE=""
 DEPEND=""
-RDEPEND=">=dev-lang/python-2.*"
+RDEPEND="|| ( sys-fs/zfs sys-fs/zfs-fuse sys-fs/zfs-kmod )"
 
 
 
@@ -28,8 +28,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "list-gentoo-packages.sh installed ,note this will List Everything & the kitchen sink to the terminal"
-	elog "list-gentoo-packages.sh (ie pipe with | more/less etc. or redirect with > to mypackages.txt etc) "
-	elog "enalyze analyze -u packages alias thats easy to rember for novices/lazy, panic of impending drive fail-doom, etc."
-	elog "http://nikita.melnichenko.name/blog.php had one that list all flags etc, works still however is somewhat depricated."
+	elog "Thier is no Official Documentation it is advisable to read  the $HOMEPAGE"
 }
