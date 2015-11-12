@@ -42,3 +42,9 @@ src_install(){
 	dodir /var/lib/asus-kbd-backlight/
 	echo 1 > "$D"/var/lib/asus-kbd-backlight/brightness
 }
+## ADD In Systemd Gentoo Devs Say its better to Install them all. 
+systemd_install_service(){
+touch /usr/lib/systemd/system/asus-kbd-backlight.service
+echo "\r [Unit] \r Description=Asus Keyboard Backlight \r Wants=systemd-backlight@leds:asus::kbd_backlight.service \r After=systemd-backlight@leds:asus::kbd_backlight.service \r [Service] \r Type=oneshot \r
+RemainAfterExit=yes \r ExecStart=/bin/chmod 666 /sys/class/leds/asus::kbd_backlight/brightness \r [Install] \r WantedBy=multi-user.target /usr/lib/systemd/system/asus-kbd-backlight.service" > /usr/lib/systemd/system/asus-kbd-backlight.service
+}
