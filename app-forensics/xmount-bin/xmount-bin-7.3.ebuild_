@@ -1,13 +1,143 @@
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 
-~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd 
- ~amd64-linux ~ia64-linux ~x86-linux "
+Close
 
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_amd64.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armel.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_i386.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_powerpc.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armhf.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mips.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_arm64.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mipsel.deb
-http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_ppc64el.deb
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: blshkv $
+
+EAPI=5
+inherit  eutils unpacker  #flag-o-matic python-any-r1
+
+DESCRIPTION="Convert on-the-fly between multiple input and output harddisk image types"
+HOMEPAGE="https://www.pinguin.lu/xmount"
+SRC_URI="
+    x86?   ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_i386.deb )
+    AMD64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_amd64.deb )
+    arm64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_arm64.deb )
+           ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armel.deb )
+ppc?       ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_powerpc.deb )
+ppc64?     ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_ppc64el.deb )"
+#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armhf.deb
+#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mips.deb
+#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mipsel.deb
+
+LICENSE="GPL-3"
+SLOT="0"
+IUSE="+aff +ewf"
+
+#unable to build, see the upstream bug: https://www.pinguin.lu/node/16
+KEYWORDS="~alpha ~arm ~arm64-Linux  ~mips-linux ~ppc-linux ~ppc64-linux  ~amd64-linux ~ia64-linux ~x86-linux "
+
+RDEPEND="sys-fs/fuse
+	aff? ( app-forensics/afflib )
+	ewf? ( app-forensics/libewf )"
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig"
+
+src_prepare(){
+unpack_deb
+
+}
+src_configure() {
+	use aff || export ac_cv_lib_afflib_af_open=no
+	use ewf || export ac_cv_lib_ewf_libewf_open=no
+	econf
+
+
+/usr/bin/xmount
+/usr/lib/xmount/libxmount_input_aaff.so
+/usr/lib/xmount/libxmount_input_aewf.so
+/usr/lib/xmount/libxmount_input_aff.so
+/usr/lib/xmount/libxmount_input_ewf.so
+/usr/lib/xmount/libxmount_input_raw.so
+/usr/lib/xmount/libxmount_morphing_combine.so
+/usr/lib/xmount/libxmount_morphing_raid.so
+/usr/lib/xmount/libxmount_morphing_unallocated.so
+/usr/share/doc/xmount/NEWS.gz
+/usr/share/doc/xmount/README.gz
+/usr/share/doc/xmount/changelog.Debian.gz
+/usr/share/doc/xmount/changelog.gz
+/usr/share/doc/xmount/copyright
+/usr/share/man/man1/xmount.1.gz
+
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+EAPI=5
+
+PYTHON_COMPAT=( python2_7 )
+inherit flag-o-matic python-any-r1 eutils unpacker
+
+DESCRIPTION="A hackable text editor for the 21st Century."
+HOMEPAGE="https://atom.io"
+SRC_URI="https://github.com/atom/atom/releases/download/v${PV}/atom-amd64.deb -> atom-amd64-${PV}.deb"
+
+RESTRICT="primaryuri"
+
+KEYWORDS="~amd64"
+SLOT="0"
+LICENSE="MIT"
+
+IUSE=""
+
+MY_PN="atom"
+
+DEPEND="${PYTHON_DEPS}
+	media-fonts/inconsolata
+	!!dev-util/atom-shell
+	!app-editors/atom"
+
+RDEPEND="${DEPEND}
+	x11-libs/gtk+:2
+	x11-libs/libnotify
+	gnome-base/libgnome-keyring
+	dev-libs/nss
+	dev-libs/nspr
+	gnome-base/gconf
+	media-libs/alsa-lib
+	net-print/cups
+	sys-libs/libcap
+	x11-libs/libXtst
+	x11-libs/pango"
+
+QA_PRESTRIPPED="
+	/usr/share/atom/atom
+	/usr/share/atom/chromedriver/chromedriver
+	/usr/share/atom/libffmpegsumo.so
+	/usr/share/atom/libnotify.so.4
+	/usr/share/atom/libchromiumcontent.so
+	/usr/share/atom/libgcrypt.so.11
+	/usr/share/atom/resources/app.asar.unpacked/node_modules/symbols-view/vendor/ctags-linux"
+
+pkg_setup() {
+	python-any-r1_pkg_setup
+}
+
+src_unpack() {
+	unpacker_src_unpack
+	mkdir -p "${S}"
+	mv "${WORKDIR}/usr" "${S}"
+}
+
+src_prepare() {
+	rm -r "${S}/usr/share/applications"
+}
+
+src_install() {
+	into /
+	insinto /
+	doins -r .
+
+	# Fixes permissions
+	fperms +x /usr/bin/atom
+	fperms +x /usr/share/${MY_PN}/${MY_PN}
+	fperms +x /usr/share/${MY_PN}/resources/app/atom.sh
+	fperms +x /usr/share/${MY_PN}/resources/app/apm/bin/apm
+	fperms +x /usr/share/${MY_PN}/resources/app/apm/bin/node
+	fperms +x /usr/share/${MY_PN}/resources/app/apm/node_modules/npm/bin/node-gyp-bin/node-gyp
+	fperms +x /usr/share/${MY_PN}/resources/app.asar.unpacked/node_modules/symbols-view/vendor/ctags-linux
+
+	make_desktop_entry "/usr/bin/atom %U" "Atom" "atom" \
+		"GNOME;GTK;Utility;TextEditor;Development;" \
+		"GenericName=Text Editor\nMimeType=text/plain;\nStartupNotify=true\nStartupWMClass=Atom"
+}
