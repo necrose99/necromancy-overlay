@@ -33,14 +33,18 @@ RDEPEND="sys-fs/fuse
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
-src_prepare(){
-unpack_deb
-
+src_unpack() {
+  unpacker_src_unpack
+	mkdir -p "${S}"
+	mv "${WORKDIR}/usr" "${S}"
+  mv "${WORKDIR}/etc" "${S}"
 }
-src_configure() {
-	use aff || export ac_cv_lib_afflib_af_open=no
-	use ewf || export ac_cv_lib_ewf_libewf_open=no
-	econf
+
+src_install() {
+	into /
+	insinto /
+	doins -r .
+}
 
 
 /usr/bin/xmount
