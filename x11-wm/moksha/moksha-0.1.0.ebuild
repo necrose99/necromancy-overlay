@@ -1,73 +1,51 @@
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
 EAPI=5
-inherit autotools-utils
-EAPI=5
 
-if [[ ${PV} = 9999 ]]; then
-	inherit git-2
-fi
+inherit flag-o-matic eutils unpacker
 
-DESCRIPTION="Moksha  window manager a fork of Enlightenment 17 with fixes"
-HOMEPAGE="https://github.com/vivien/i3blocks"
-if [[ ${PV} = 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/JeffHoogland/${PN}.git"
-	EGIT_BOOTSTRAP=""
-	KEYWORDS=""
-else
-	SRC_URI="https://github.com/JeffHoogland/${PN}/archive/v${PV}.tar.gz -> {PN}-${PV}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+DESCRIPTION="Lightweight Window Manager forked from E17"
+HOMEPAGE="http://mokshadesktop.org"
+SRC_URI="
+    x86?   ( http://packages.bodhilinux.com/bodhi/pool/main/m/moksha/moksha_20150806.3-1_i386.deb -> moksha-${PV}.deb )
+    AMD64? ( http://packages.bodhilinux.com/bodhi/pool/main/m/moksha/moksha_20150806.3-1_amd64.deb -> moksha-${PV}.deb)
+    "
 
+RESTRICT="mirror"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
-IUSE="pam spell static-libs +udev ukit ${IUSE_E_MODULES}"
-S=${WORKDIR}/${P%%_*}
-# add normal Depends atoms. To Do... 
-RDEPEND="
-  >=dev-libs/efl-1.15.1
-	>=dev-libs/e_dbus-1.7.10
-	=media-plugins/evas_generic_loaders-1.15.0
-	x11-libs/xcb-util-keysyms"
-DEPEND="${RDEPEND}"
+LICENSE="BSD"
+IUSE=""
+DEPEND=">=dev-libs/efl-1.15.1
+      >=dev-libs/e_dbus-1.7.10
+      >=media-libs/elementary-1.5.1
+      media-plugins/evas_generic_loaders
+      x11-libs/xcb-util-keysyms"
 
-AUTOTOOLS_IN_SOURCE_BUILD=1
+RDEPEND="${DEPEND}
+      	x11-libs/gtk+:2
+      	x11-libs/libnotify
+      	gnome-base/libgnome-keyring
+      	dev-libs/nss
+      	dev-libs/nspr
+      	gnome-base/gconf
+      	media-libs/alsa-lib
+      	net-print/cups
+      	sys-libs/libcap
+      	x11-libs/libXtst
+      	x11-libs/pango"
 
-DOCS=(AUTHORS ChangeLog README "Read me.txt" TODO)
-
-src_configure() {
-        local myeconfargs=(
-                $(use_enable debug)
-                $(use_with qt4)
-                $(use_enable threads multithreading)
-                $(use_with tiff)
-        )
-        autotools-utils_src_configure
-}
-
-src_compile() {
-        autotools-utils_src_compile
-        use doc && autotools-utils_src_compile docs
-}
-
-src_install() {
-        use doc && HTML_DOCS=("${BUILD_DIR}/apidocs/html/")
-        autotools-utils_src_install
-        if use examples; then
-                dobin "${BUILD_DIR}"/foo_example{1,2,3} \
-                        || die 'dobin examples failed'
-        fi
-}
-src_prepare() {
-	sed -i "s:1.7.10:1.7.9:g" configure.ac
-	eautoreconf
-	epatch "${FILESDIR}"/quickstart.diff
-	enlightenment_src_prepare
-}
-
-src_configure() {
-	enlightenment_src_configure
+src_unpack() {
+  unpacker_src_unpack
+	mkdir -p "${S}"
+	mv "${WORKDIR}/usr" "${S}"
+  mv "${WORKDIR}/etc" "${S}"
 }
 
 src_install() {
-	enlightenment_src_install
-	insinto /etc/enlightenment
-	newins "${FILESDIR}"/gentoo-sysactions.conf sysactions.conf
+	into /
+	insinto /
+	doins -r .
 }
