@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit flag-o-matic eutils unpacker
+inherit flag-o-matic eutils unpacker versionator
 
 DESCRIPTION="Lightweight Window Manager forked from E17"
 HOMEPAGE="http://mokshadesktop.org"
