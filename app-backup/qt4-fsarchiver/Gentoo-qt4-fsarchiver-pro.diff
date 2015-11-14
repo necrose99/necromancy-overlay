@@ -1,0 +1,27 @@
+138c138
+<  icon.path = /usr/share/qt4-fsarchiver
+---
+>  icon.path = /usr/share/app-install/icons
+6c6
+< Icon=/usr/share/qt4-fsarchiver/harddrive.png
+---
+> Icon=/usr/share/app-install/icons/harddrive.png
+11c11
+< OnlyShowIn=KDE;LXQT;
+---
+> OnlyShowIn=KDE
+6c6
+< Icon=/usr/share/qt4-fsarchiver/harddrive.png
+---
+> Icon=/usr/share/app-install/icons/harddrive.png
+11c11
+< Icon=/usr/share/qt4-fsarchiver/harddrive.png
+---
+> Icon=/usr/share/app-install/icons/harddrive.png
+< OnlyShowIn=XFCE;Unity;MATE;Cinnamon;LXDE,Enlightenment;MOKSHA;
+---
+> OnlyShowIn=XFCE;Unity;MATE;Cinnamon;LXDE
+1,11c1,12
+< Icon=/usr/share/qt4-fsarchiver/harddrive.png
+---
+> Icon=/usr/share/app-install/icons/harddrive.png
