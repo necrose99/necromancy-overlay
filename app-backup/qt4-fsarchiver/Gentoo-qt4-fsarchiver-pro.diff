@@ -1,7 +1,29 @@
-138c138
-<  icon.path = /usr/share/qt4-fsarchiver
+1,11c1,12
+< [Desktop Entry]
+< Name=qt4-fsarchiver
+< Name[de_DE]=qt4-fsarchiver
+< Comment=Qt GUI for fsarchiver
+< Exec=/usr/sbin/qt4-fsarchiver_polkit %f
+< Icon=/usr/share/qt4-fsarchiver/harddrive.png
+< Terminal=false
+< Type=Application
+< Categories=Utility;Archiving;Qt;
+< StartupNotify=false
+< OnlyShowIn=GNOME
+<
 ---
->  icon.path = /usr/share/app-install/icons
+> [Desktop Entry]
+> Name=qt4-fsarchiver
+> Name[de_DE]=qt4-fsarchiver
+> Comment=Qt GUI for fsarchiver
+> Exec=/usr/sbin/qt4-fsarchiver_polkit %f
+> Icon=/usr/share/app-install/icons/harddrive.png
+> Terminal=false
+> Type=Application
+> Categories=Utility;Archiving;Qt;
+> StartupNotify=false
+> OnlyShowIn=GNOME
+>
 6c6
 < Icon=/usr/share/qt4-fsarchiver/harddrive.png
 ---
@@ -15,13 +37,10 @@
 ---
 > Icon=/usr/share/app-install/icons/harddrive.png
 11c11
-< Icon=/usr/share/qt4-fsarchiver/harddrive.png
----
-> Icon=/usr/share/app-install/icons/harddrive.png
-< OnlyShowIn=XFCE;Unity;MATE;Cinnamon;LXDE,Enlightenment;MOKSHA;
+< OnlyShowIn=XFCE;Unity;MATE;Cinnamon;LXDE,Enligetenment;MOKSHA;
 ---
 > OnlyShowIn=XFCE;Unity;MATE;Cinnamon;LXDE
-1,11c1,12
-< Icon=/usr/share/qt4-fsarchiver/harddrive.png
+138c138
+<  icon.path = /usr/share/qt4-fsarchiver
 ---
-> Icon=/usr/share/app-install/icons/harddrive.png
+>  icon.path = /usr/share/app-install/icons
