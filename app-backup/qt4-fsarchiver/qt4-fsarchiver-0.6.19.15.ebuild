@@ -40,14 +40,14 @@ src_prepare() {
 #epatch "${DISTDIR}"/Gentoo-qt4-fsarchiver-pro.diff
 #epatch "${DISTDIR}"starter/Gentoo-qt4-fsarchiver-pro.diff
 # fix .desktop file ~I dont sed well yet for all 3 desktop files,
-sed -i -e '/Encoding/d' starter/"${PN}".desktop || die "sed on qt4-fsarchiver.desktop failed"
+sed -i -e '/Encoding/d' starter/*.desktop || die "sed on qt4-fsarchiver.desktop failed"
 	# fix .desktop file
 	sed -e '/Encoding/d' -i starter/*.desktop || die
 	# fix icon installation location
 	sed -i \
 		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
 	|| die "sed on ${PN}.pro failed"
-}
+}	
 src_configure() {
 	eqmake
 }
