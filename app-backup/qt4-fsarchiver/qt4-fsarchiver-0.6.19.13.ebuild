@@ -4,7 +4,7 @@
 #ssh-fs & cifs / samba are highly recomened for network backups and LIVE rescue type disk/s
 EAPI=5
 
-inherit qt4-r2 eutils versionator qmake-utils
+inherit qt4-r2 eutils versionator qmake-utils qt4-build #qt5-build unknow test case,
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 MIN_PV="$(get_version_component_range 1-3)"
