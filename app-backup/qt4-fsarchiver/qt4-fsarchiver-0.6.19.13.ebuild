@@ -4,7 +4,7 @@
 #ssh-fs & cifs / samba are highly recomened for network backups and LIVE rescue type disk/s
 EAPI=5
 
-inherit qt4-build qt5-build versionator qmake-utils
+inherit qt4-r2 eutils versionator qmake-utils
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 MIN_PV="$(get_version_component_range 1-3)"
@@ -36,10 +36,7 @@ DEPEND="${CDEPEND}"
 S="${WORKDIR}/${PN}"
 
 src_prepare() {
-#epatch test on pro / Desktop files
-#epatch "${DISTDIR}"/Gentoo-qt4-fsarchiver-pro.diff
-#epatch "${DISTDIR}"starter/Gentoo-qt4-fsarchiver-pro.diff
-# fix .desktop file ~I dont sed well yet for all 3 desktop files,
+
 sed -i -e '/Encoding/d' starter/*.desktop || die "sed on qt4-fsarchiver.desktop failed"
 	# fix .desktop file
 	sed -e '/Encoding/d' -i starter/*.desktop || die
