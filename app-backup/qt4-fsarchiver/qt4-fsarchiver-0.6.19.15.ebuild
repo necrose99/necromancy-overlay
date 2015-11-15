@@ -42,7 +42,7 @@ src_prepare() {
 # fix .desktop file ~I dont sed well yet for all 3 desktop files,
 sed -i -e '/Encoding/d' starter/"${PN}".desktop || die "sed on qt4-fsarchiver.desktop failed"
 	# fix .desktop file
-	sed -e '/Encoding/d' starter/"${PN}".desktop -i starter/{kde-qt4-fsarchiver.desktop,mate-qt4-fsarchiver.desktop,gnome-qt4-fsarchiver.desktop} || die
+	sed -e '/Encoding/d' -i starter/*.desktop || die
 	# fix icon installation location
 	sed -i \
 		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
