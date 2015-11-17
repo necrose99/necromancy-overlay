@@ -26,7 +26,7 @@ DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmy
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
 SRC_URI=""
 
-LICENSE="Apache-2.0"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
