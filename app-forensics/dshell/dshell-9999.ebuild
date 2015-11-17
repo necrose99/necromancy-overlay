@@ -14,18 +14,16 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_CHECKOUT_DIR="${WORKDIR}/refpolicy"
 
 	inherit git-r3
-
-
-#else
+#else #no realse versions yet.....
 #	SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/v${PV}.tar.gz -> dhell-${PV}.tar.gz""
-	KEYWORDS="~*" #~amd64 ~x86 
-fi
 
+fi
+#SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/master.zip -> dhell-${PV}.zip" #dirty but effective
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
 SRC_URI=""
-
+KEYWORDS="~*" #~amd64 ~x86 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -39,7 +37,7 @@ DEPEND="dev-lang/python/python-2.*
  doc? (dev-python/epydoc)"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}/"
+S="${WORKDIR}/${PN}/${PV}"
 
 src_install() {
 	distutils-r1_src_install
