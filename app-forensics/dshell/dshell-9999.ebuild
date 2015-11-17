@@ -19,6 +19,7 @@ if [[ ${PV} == 9999* ]]; then
 
 fi
 #SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/master.zip -> dhell-${PV}.zip" #dirty but effective
+# however the hash will change F'ng offten Manifest Q/A will ||DIE 
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
