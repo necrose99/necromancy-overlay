@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>xen</herd>
+	<maintainer>
+		<email>idella4@gentoo.org</email>
+		<name>Ian Delaney</name>
+	</maintainer>
+	<maintainer>
+		<email>spookyghost@blueyonder.co.uk</email>
+		<name>James Dingwall</name>
+	</maintainer>
+	<use>
+		<flag name='custom-cflags'>Build with user-specified CFLAGS</flag>	
+	</use>
+</pkgmetadata>
