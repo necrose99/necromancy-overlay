@@ -17,7 +17,8 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
-ewarn"now sligly derpy and depricated. so sayeth the Gentoo devs , however an alias to list ALL packages even unlisted with flags"
+einfo"now a touch depricated. so sayeth the Gentoo devs , however an alias to list ALL packages even unlisted,Libs EVERYTHING with flags"
+einfo"Even Still its Very Damned handy fro the average user,"
 
 src_install() {
 	echo enalyze analyze -u packages >> /usr/bin/list-gentoo-packages.sh
