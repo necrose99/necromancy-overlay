@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $ # necrose99 and yes this is so blasted handy for support issues. 
 # http://nikita.melnichenko.name/blog.php?id=13&topic=gentoo-list-installed-packages-with-use-flags was inspired by.
-EAPI=2
+EAPI=5
 
 inherit eutils
 
