@@ -5,7 +5,7 @@ Close
 # $Header: /var/cvsroot/gentoo-x86/dev-util/monkeystudio/monkeystudio-1.9.0.4.ebuild,v 1.4 2014/11/20 00:27:01 pesa Exp $
 
 EAPI=5
-LANGS="be es fr ru"
+LANGS="en be es fr ru"
 
 inherit eutils qt4-build-multilib
 
