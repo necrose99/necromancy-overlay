@@ -8,8 +8,7 @@ inherit eutils
 
 DESCRIPTION="List all installed Gentoo packages with USE flags (easy to rember alias of enalyze..) for novice users"
 HOMEPAGE="https://github.com/necrose99/necromancy-overlay"
-#SRC_URI="http://nikita.melnichenko.name/download.php?q=list-gentoo-packages.sh-v0.2 now sligly derpy and depricated.
-#so sayeth the Gentoo devs 
+SRC_URI="http://nikita.melnichenko.name/download.php?q=list-gentoo-packages.sh-v0.2 
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,7 +17,7 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
-
+ewarn"now sligly derpy and depricated. so sayeth the Gentoo devs , however an alias to list ALL packages even unlisted with flags"
 
 src_install() {
 	echo enalyze analyze -u packages >> /usr/bin/list-gentoo-packages.sh
