@@ -1,4 +1,5 @@
 # necromancy-overlay
+**Current build status:** [![Build Status](https://travis-ci.org/necrose99/necromancy-overlay.svg)](https://travis-ci.org/necrose99/necromancy-overlay)
 ## Necrose's work space for ebuilds & personal overlay note
 ##some ebuild may get moved to orginizational repos when  more stable.
 #### Licence GPL2 , 
