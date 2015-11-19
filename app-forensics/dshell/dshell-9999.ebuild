@@ -4,22 +4,15 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( >=python2_0  =<python3_0 ) # Any python Greater than 2.x however NOT >=3.0 Curently. 
-inherit distutils-r1 git-r3 eutils
+PYTHON_COMPAT=( python{2_5,2_6,2_7,2_*} pypy2_0)
+
+inherit distutils-r1 git-r3 eutils python-single-r1.eclass
+
 USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
 
-if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
 	EGIT_BRANCH="master"
-	EGIT_CHECKOUT_DIR="${WORKDIR}/refpolicy"
-
-	inherit git-r3
-#else #no realse versions yet.....
-#	SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/v${PV}.tar.gz -> dhell-${PV}.tar.gz""
-
-fi
-#SRC_URI="https://github.com/USArmyResearchLab/Dshell/archive/master.zip -> dhell-${PV}.zip" #dirty but effective
-# however the hash will change F'ng offten Manifest Q/A will ||DIE 
+	EGIT_CHECKOUT_DIR=${WORKDIR}/${PN}
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
@@ -34,17 +27,16 @@ DEPEND="dev-lang/python/python-2.*
  dev-python/ipy
  dev-python/dpkt
  dev-python/pypcap
- dev-python/pycrypto 
- doc? (dev-python/epydoc)"
-RDEPEND="${DEPEND}"
+ dev-python/pycrypto"
+RDEPEND="${DEPEND}
+	doc? ( dev-python/epydoc[$(python_gen_usedep 'python2*')] )"
 
-S="${WORKDIR}/${PN}/${PV}"
+S="${WORKDIR}/${PN}/"
 
+src_unpack() {
+git-r3_src_unpack
+}
 src_install() {
-	distutils-r1_src_install
-	emake rc
-	emake initpy
-	if use doc; then
-cd ${WORKDIR}/${PN}/doc && ./generate-doc.sh
-	fi
+	cd ${WORKDIR}/${PN}/
+	emake make all
 }
