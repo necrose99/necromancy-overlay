@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>x11-wm</herd>
+	<herd>proxy-maintainers</herd>
+	  <maintainer>
+    <email>brentonhorne77@gmail.com</email>
+		<name>Brenton Horne</name>
+		<description>Proxied maintainer. Assign bugs to him</description>
+	</maintainer>
+</pkgmetadata>
+<maintainer>
+    <email>enlightenment@gentoo.org</email>
+    <description>Maintainer for enlightenment:0.17</description>
+  </maintainer>
+  <longdescription>
+Moksha (A Fork of Enlightenment D17) is a completely themeable, highly configurable Window Manager for 
+the X Window System, traditionally used in Unix environments.
+
+Moksha  Features:
+* Fully configurable window borders
+* Iconboxes to store icons in
+* Graphical Pager that also does miniature snapshots of your screen
+* IPC mechanism to remote-control Moksha 
+* Theme support
+* Menus
+* Translucent moving of windows
+* Window groups
+* Virtual Desktops
+* Multiple Desktops (more than one desktop of Virtual Desktops)
+* Desktop Background selection and management
+* Sound support
+* Multiple focus modes
+* Many resize and move mode settings
+* Manual placement of windows option
+* Autoraising of windows option
+* Tooltips
+* Configurable keybindings
+* Configurable desktop bindings
+* DGA support for fullscreen client zoom
+* Window shading
+* Miniature snapshot icons
+* Multiple border styles at once
+* Window layers
+* Array menus
+* Internal configuration dialogs
+* Auto-scrolling menus
+* KDE hint support
+* GNOME hint support
+* Primitive Windowmaker/Afterstep dock App support.
+* X11R6 session management support
+* Internal per-app based session and property management.
+* Background auto scanning support
+* Truetype anti-aliased font support
+* Window auto-cleanup support
+* Graphical on-line help.
+</longdescription>
+  <use>
+    <flag name="pango">Enable pango font rendering</flag>
+    <flag name="xrandr">Enable support for the X xrandr extension</flag>
+    <flag name="udev">Use sys-fs/udev to determine available devices</flag>
+    <flag name="ukit">Use upower/udisks to automount devices</flag>
+    <flag name="moksha_modules_access">Accessibility module designed to improve ease of use for the vision impaired and the blind</flag>
+    <flag name="moksha_modules_appmenu">Gadget that hold the toolbar of the foreground application</flag>
+    <flag name="moksha_modules_backlight">Backlight control slider gadget</flag>
+    <flag name="moksha_modules_battery">A gadget to visualize your battery status</flag>
+    <flag name="moksha_modules_bluez4">Configure Bluetooth devices</flag>
+    <flag name="moksha_modules_clock">Nice clock gadget to show current time</flag>
+    <flag name="moksha_modules_connman">Control Wifi and wired networks as a user</flag>
+    <flag name="moksha_modules_contact">Enable the contact module</flag>
+    <flag name="moksha_modules_cpufreq">Gadget to monitor and change the CPU frequency</flag>
+    <flag name="moksha_modules_everything">The run command module provides an application launcher dialog</flag>
+    <flag name="moksha_modules_fileman">moksha's integrated file manager</flag>
+    <flag name="moksha_modules_fileman-opinfo">Can be placed on the desktop or in a shelf</flag>
+    <flag name="moksha_modules_gadman">Module to manage gadgets on the desktop</flag>
+    <flag name="moksha_modules_ibar">Iconic application launcher</flag>
+    <flag name="moksha_modules_ibox">A home for your iconified applications</flag>
+    <flag name="moksha_modules_illume2">Illume2 - next generation of illume - special WM mode for embedded devices and set of plugins with same purpose</flag>
+    <flag name="moksha_modules_mixer">A module to provide a mixer for changing volume</flag>
+    <flag name="moksha_modules_msgbus">DBus Extension</flag>
+    <flag name="moksha_modules_music-control">Control your music in your shelf</flag>
+    <flag name="moksha_modules_notification">notification-daemon alternative. Popup if an event occur</flag>
+    <flag name="moksha_modules_pager">Gadget to allow you to visualize your virtual desktops and the windows they contain</flag>
+    <flag name="moksha_modules_quickaccess">moksha Quickaccess Launcher</flag>
+    <flag name="moksha_modules_shot">Simple screenshot+save/upload module</flag>
+    <flag name="moksha_modules_start">moksha's "Start" button equivalent</flag>
+    <flag name="moksha_modules_syscon">This module provides a unified popup dialog for all the system actions in moksha</flag>
+    <flag name="moksha_modules_systray">system tray that hold applications icons like Skype, Pidgin, Kopete and others</flag>
+    <flag name="moksha_modules_tasks">Gadget to allow you to switch tasks</flag>
+    <flag name="moksha_modules_teamwork">Enable teamwork module</flag>
+    <flag name="moksha_modules_temperature">Temperature monitor</flag>
+    <flag name="moksha_modules_tiling">Positions/resizes your windows tilingly</flag>
+    <flag name="moksha_modules_winlist">A module to show the list of client applications presently running</flag>
+    <flag name="moksha_modules_wizard">First Run Wizard</flag>
+    <flag name="moksha_modules_wl-desktop-shell">moksha Wayland Desktop Shell</flag>
+    <flag name="moksha_modules_wl-screenshot">moksha Wayland Screenshot module</flag>
+    <flag name="moksha_modules_xkbswitch">Keyboard layout configuration and switcher</flag>
+    <flag name="moksha_modules_conf-applications">Allows configuration of Ibar, Restart, and Startup applications</flag>
+    <flag name="moksha_modules_conf-comp">Configure default dialog properties</flag>
+    <flag name="moksha_modules_conf-dialogs">Configure default dialog properties</flag>
+    <flag name="moksha_modules_conf-display">Used to configure your screen</flag>
+    <flag name="moksha_modules_conf-interaction">Configure Mouse and Touch input</flag>
+    <flag name="moksha_modules_conf-intl">Used to select a default language</flag>
+    <flag name="moksha_modules_conf-menus">Configures menu behavior</flag>
+    <flag name="moksha_modules_conf-paths">Specifies the moksha search paths and default directories</flag>
+    <flag name="moksha_modules_conf-performance">Used to configure certain performance related items as frame rates and cache settings</flag>
+    <flag name="moksha_modules_conf-randr">Used to configure your screen's resolution</flag>
+    <flag name="moksha_modules_conf-shelves">Shelf configuration dialog</flag>
+    <flag name="moksha_modules_conf-theme">Used to configure your theme preferences</flag>
+    <flag name="moksha_modules_conf-wallpaper2">Used to configure your theme preferences</flag>
+    <flag name="moksha_modules_conf-window-manipulation">Configures window raise, resistance, and maximize policies</flag>
+    <flag name="moksha_modules_conf-window-remembers">Delete existing window remembers</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">Moksha</remote-id>
+  </upstream>
+</pkgmetadata>
