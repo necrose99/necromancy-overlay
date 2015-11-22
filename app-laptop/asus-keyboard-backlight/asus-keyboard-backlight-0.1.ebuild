@@ -1,22 +1,26 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI=4
+EAPI=5
 
 DESCRIPTION="Configure the brightness of the keyboard's backlight on ASUS
 laptops."
 HOMEPAGE="http://projects.flogisoft.com/asus-keyboard-backlight/"
-SRC_URI="http://projects.flogisoft.com/${PN}/download/${PN}_${PV}_src.tar.gz"
+SRC_URI="http://projects.flogisoft.com/${PN}/download/${PN}_${PV}_src.tar.gz
+https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/app-laptop/asus-keyboard-backlight/Files/asus-kbd-backlight.service"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="-sys-apps/systemd"
 
 RDEPEND="${DEPEND}
 	dev-lang/python
-	sys-power/acpid"
+	sys-power/acpid
+	DEPEND="systemd? ( sys-apps/systemd )"
+
+	?sys-apps/systemd"
 
 S="${WORKDIR}/asus-kbd-backlight-${PV}"
 
@@ -42,10 +46,14 @@ src_install(){
 	dodir /var/lib/asus-kbd-backlight/
 	echo 1 > "$D"/var/lib/asus-kbd-backlight/brightness
 }
-## ADD In Systemd Gentoo Devs Say its better to Install them all. 
+if USE="systemd?"
+pkg_postinst
+else EOF
+fi
+}
+## ADD In Systemd Gentoo Devs Say its better to Install them all. sys-apps/
 pkg_postinst() {
-cd /usr/lib/systemd/system/
-wget "https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/app-laptop/asus-keyboard-backlight/Files/asus-kbd-backlight.service"
-fixperms +x asus-kbd-backlight.service
+doexe ${s}/asus-kbd-backlight.service /usr/lib/systemd/system/asus-kbd-backlight.service
 ln -s /usr/lib/systemd/system/asus-kbd-backlight.service /etc/systemd/system/multi-user.target.wants/asus-kbd-backlight.service
 }
+EOF
