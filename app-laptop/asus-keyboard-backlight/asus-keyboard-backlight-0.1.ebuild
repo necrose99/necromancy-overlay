@@ -47,7 +47,7 @@ src_install(){
 if USE="systemd?"
 	inherit systemd
 	pkg_postinst
-	else EOF
+	else
 	fi
 }
 ## ADD In Systemd Gentoo Devs Say its better to Install them all.
@@ -57,4 +57,3 @@ systemd_install_serviced ${s}/asus-kbd-backlight.service /usr/lib/systemd/system
 systemd_enable_service /usr/lib/systemd/system/asus-kbd-backlight.service 
 
 }
-EOF
