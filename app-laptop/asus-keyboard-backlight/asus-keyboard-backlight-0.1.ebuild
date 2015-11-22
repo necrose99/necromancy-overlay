@@ -45,13 +45,16 @@ src_install(){
 	echo 1 > "$D"/var/lib/asus-kbd-backlight/brightness
 }
 if USE="systemd?"
-pkg_postinst
-else EOF
-fi
+	inherit systemd
+	pkg_postinst
+	else EOF
+	fi
 }
 ## ADD In Systemd Gentoo Devs Say its better to Install them all.
 pkg_postinst() {
-doexe ${s}/asus-kbd-backlight.service /usr/lib/systemd/system/asus-kbd-backlight.service
-ln -s /usr/lib/systemd/system/asus-kbd-backlight.service /etc/systemd/system/multi-user.target.wants/asus-kbd-backlight.service
+	systemd_enable_service
+systemd_install_serviced ${s}/asus-kbd-backlight.service /usr/lib/systemd/system/asus-kbd-backlight.service
+systemd_enable_service /usr/lib/systemd/system/asus-kbd-backlight.service 
+
 }
 EOF
