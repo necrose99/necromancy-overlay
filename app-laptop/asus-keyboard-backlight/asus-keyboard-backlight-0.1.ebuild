@@ -20,8 +20,6 @@ RDEPEND="${DEPEND}
 	sys-power/acpid
 	systemd? ( sys-apps/systemd )"
 
-	?sys-apps/systemd"
-
 S="${WORKDIR}/asus-kbd-backlight-${PV}"
 
 src_install(){
