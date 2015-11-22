@@ -18,7 +18,7 @@ IUSE="-sys-apps/systemd"
 RDEPEND="${DEPEND}
 	dev-lang/python
 	sys-power/acpid
-	DEPEND="systemd? ( sys-apps/systemd )"
+	systemd? ( sys-apps/systemd )"
 
 	?sys-apps/systemd"
 
