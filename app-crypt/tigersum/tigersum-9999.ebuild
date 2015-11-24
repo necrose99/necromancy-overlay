@@ -12,13 +12,13 @@ EGIT_CHECKOUT_DIR=${WORKDIR}/${PN}
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="+dlang"
+IUSE=""
 DEPEND="${RDEPEND}
 	>=app-admin/eselect-dlang-20140709
 	virtual/pkgconfig"
 
 RDEPEND="${DEPEND}
-dlang? ( || ( dev-lang/dmd  dev-lang/dmd-bin dev-util/gdmd ) )"
+|| ( dev-lang/dmd  dev-lang/dmd-bin dev-util/gdmd )"
 #@ bitbucket.org/King_DuckZ/tigersum Any D-Compiler will do.
 
 
