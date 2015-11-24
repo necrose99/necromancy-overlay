@@ -11,19 +11,19 @@ SRC_URI="
     x86?   ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_i386.deb -> xmount-0.7.3-1.deb )
     AMD64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_amd64.deb -> xmount-0.7.3-1.deb )
     arm64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_arm64.deb-> xmount-0.7.3-1.deb )
-           ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armel.deb -> xmount-0.7.3-1.deb )
-ppc?       ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_powerpc.deb -> xmount-0.7.3-1.deb)
-ppc64?     ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_ppc64el.deb -> xmount-0.7.3-1.deb)"
-#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armhf.deb
-#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mips.deb
-#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mipsel.deb
+    ppc? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_powerpc.deb -> xmount-0.7.3-1.deb)
+	ppc64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_ppc64el.deb -> xmount-0.7.3-1.deb)
+	armfl?	(#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armhf.deb -> xmount-0.7.3-1.deb)
+	mips?  (#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mips.deb -> xmount-0.7.3-1.deb)"
+#http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mipsel.deb -> xmount-0.7.3-1.deb)
+#( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armel.deb -> xmount-0.7.3-1.deb )
 
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="+aff +ewf"
 
 #unable to build, see the upstream bug: https://www.pinguin.lu/node/16
-KEYWORDS="~alpha ~arm ~arm64-Linux  ~mips-linux ~ppc-linux ~ppc64-linux  ~amd64-linux ~ia64-linux ~x86-linux "
+KEYWORDS="~amd64-linux ~x86-linux ~arm-Linux  ~arm64-Linux  ~mips-linux ~ppc-linux ~ppc64-linux  ~ia64-linux "
 
 RDEPEND="sys-fs/fuse
 	aff? ( app-forensics/afflib )
