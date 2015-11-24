@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Tor Browser
+GenericName=Tor Browser
+Comment=The Tor Browser lets you use Tor without needing to install any software.
+Encoding=UTF-8
+Exec=/opt/tor-browser/start-tor-browser
+Icon=/usr/share/pixmaps/torbrowser.png
+Type=Application
+Categories=Network;
+Version=1.0

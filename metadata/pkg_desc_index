@@ -1,0 +1,104 @@
+app-arch/engrampa 1.12.0: Engrampa archive manager for MATE
+app-editors/pluma 1.12.0: Pluma text editor for the MATE desktop
+app-emulation/genymotion 9999: Genymotion Emulator
+app-emulation/virtualbox 4.3.12: Family of powerful x86 virtualization products for enterprise as well as home use
+app-emulation/virtualbox-additions 4.3.12: CD image containing guest additions for VirtualBox
+app-emulation/virtualbox-bin 4.3.12.93733: Family of powerful x86 virtualization products for enterprise as well as home use
+app-emulation/virtualbox-extpack-oracle 4.3.12.93733: PUEL extensions for VirtualBox
+app-emulation/virtualbox-modules 4.3.12: Kernel Modules for Virtualbox
+app-misc/mc 4.8.15: GNU Midnight Commander is a text based file manager
+app-misc/subsurface 4.5.1 9999-r9999: An open source dive log program
+app-text/atril 1.12.0: Atril document viewer for MATE
+app-text/sublime-text 2.0.2: Sublime Text is a sophisticated text editor for code, html and prose
+dev-libs/libmateweather 1.12.0: MATE library to access weather information from online services
+dev-python/python-caja 1.12.0: Python bindings for the Caja file manager
+dev-util/android-sdk-update-manager 24.4.1: Open Handset Alliance's Android SDK
+dev-util/android-studio 1.5.0.3.141.2415497: A new Android development environment based on IntelliJ IDEA
+dev-util/eclipse-cpp-bin 4.5.1 4.6.0_p3: Eclipse IDE for C/C++
+dev-util/eclipse-jee-bin 4.5.1 4.6.0_p3: Eclipse IDE for Java EE Developers
+dev-util/eclipse-jse-bin 4.5.1 4.6.0_p3: Eclipse IDE for Java SE Developers
+dev-util/idea-community 15.0.1.143.382.35: IntelliJ IDEA is an intelligent Java IDE (Community Edition)
+dev-util/idea-ultimate 15.0.1.143.382.35: IntelliJ IDEA is an intelligent Java IDE (Ultimate Edition)
+dev-util/kivy-designer 9999: Kivy Designer is Kivy's tool for designing graphical user interfaces (GUIs) from Kivy Widgets.
+dev-util/libgdx 1.7.1: Desktop/Android/BlackBerry/iOS/HTML5 Java game development framework
+dev-util/pycharm-community 5.0.1: PyCharm
+dev-util/pycharm-professional 5.0.1: PyCharm
+gnome-extra/cinnamon 2.8.4: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon-control-center 2.8.1: Cinnamons's main interface to configure various aspects of the desktop
+gnome-extra/cinnamon-desktop 2.8.0: A collection of libraries and utilites used by Cinnamon
+gnome-extra/cinnamon-menus 2.8.0: Cinnamon's library for the Desktop Menu fd.o specification
+gnome-extra/cinnamon-screensaver 2.8.0: Screensaver for Cinnamon
+gnome-extra/cinnamon-session 2.8.2: Cinnamon session manager
+gnome-extra/cinnamon-settings-daemon 2.8.1: Cinnamon's settings daemon
+gnome-extra/cinnamon-translations 2.8.1: Translation data for Cinnamon
+gnome-extra/cjs 2.8.0: Linux Mint's fork of gjs for Cinnamon
+gnome-extra/nemo 2.8.3: A file manager for Cinnamon, forked from Nautilus
+grub2-themes/grub2-matrix-theme 9999: Grub2 matrix theme
+grub2-themes/stylish-dark-theme 9999: Stylish Dark Grub2 Theme
+grub2-themes/tuxkiller-grub2-theme 9999: Tuxkiller V2 Grub2 Theme
+mate-base/caja 1.12.0: Caja file manager for the MATE desktop
+mate-base/libmatekbd 1.12.0: MATE keyboard configuration library
+mate-base/mate 1.12.0: Meta ebuild for MATE, a traditional desktop environment
+mate-base/mate-applets 1.12.0: Applets for the MATE Desktop and Panel
+mate-base/mate-common 1.12.0: Common files for development of MATE packages
+mate-base/mate-control-center 1.12.0: The MATE Desktop configuration tool
+mate-base/mate-desktop 1.12.0: Libraries for the MATE desktop that are not part of the UI
+mate-base/mate-menus 1.12.0: MATE menu system, implementing the F.D.O cross-desktop spec
+mate-base/mate-panel 1.12.0: The MATE panel
+mate-base/mate-session-manager 1.12.0: MATE session manager
+mate-base/mate-settings-daemon 1.12.0: MATE Settings Daemon
+mate-base/mdm 2.0.4: Mate Display Manager
+mate-extra/caja-dropbox 1.12.0: Store, Sync and Share Files Online
+mate-extra/caja-extensions 1.12.0: Several Caja extensions
+mate-extra/mate-media 1.12.0: Multimedia related programs for the MATE desktop
+mate-extra/mate-polkit 1.12.0: A MATE specific DBUS session bus service that is used to bring up authentication dialogs
+mate-extra/mate-power-manager 1.12.0: A session daemon for MATE that makes it easy to manage your laptop or desktop system
+mate-extra/mate-screensaver 1.12.0: Replaces xscreensaver, integrating with the MATE desktop
+mate-extra/mate-sensors-applet 1.12.0: MATE panel applet to display readings from hardware sensors
+mate-extra/mate-system-monitor 1.12.0: The MATE System Monitor
+mate-extra/mate-user-guide 1.12.0: MATE user-guide
+mate-extra/mate-user-share 1.12.0: Personal file sharing for the MATE desktop
+mate-extra/mate-utils 1.12.0: Utilities for the MATE desktop
+mate-extra/mintmenu 5.6.4: MintMenu supports filtering, favorites, easy-uninstallation, autosession, and many other features.
+media-gfx/eom 1.12.0: The MATE image viewer
+media-gfx/simple-scan 3.18.0: Simple document scanning utility
+media-libs/alsa-lib 1.1.0: Advanced Linux Sound Architecture Library
+media-libs/libmatemixer 1.12.0: Mixer library for MATE Desktop
+media-sound/alsa-tools 1.1.0: Advanced Linux Sound Architecture tools
+media-sound/alsa-utils 1.1.0: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
+media-sound/banshee 2.9.1: Import, organize, play, and share your music using a simple and powerful interface
+media-video/kazam 1.4.5: A screencasting program created with design in mind
+media-video/lightworks 12.5.0: Lightworks is the fastest, most accessible and focused NLE in the industry
+net-analyzer/mate-netspeed 1.12.0: Applet showing network traffic for MATE
+net-im/viber 9999-r9999: Free calls, text and picture sharing with anyone, anywhere!
+net-libs/webkit-gtk 2.11.1: Open source web browser engine
+sys-kernel/git-sources 9999: Live -git version of the Linux kernel
+sys-kernel/longterm-sources 2.6.32.68: Longterm full sources for the Linux kernel
+sys-kernel/raspberrypi-sources 4.1.9999 4.2.9999 4.3.9999: Raspberry PI kernel sources
+sys-kernel/reiser4-sources 3.19.5 4.1.7 4.2.2 4.2.3: Full sources for the Linux kernel with reiser4 patch
+sys-power/cpupower 4.3: Shows and sets processor power related values
+www-client/firefox 43.0_beta3: Firefox Web Browser
+www-client/firefox-bin 43.0_beta3: Firefox Web Browser
+www-client/firefox-developer-bin 44.0_alpha2: Firefox Developer Edition
+www-client/tor-browser 5.5_alpha4: The Tor Browser lets you use Tor on Windows, Mac OS X, or Linux without needing to install any software.
+www-client/vivaldi 1.0.303.52_p5: A new browser for our friends
+x11-base/xorg-drivers 1.18: Meta package containing deps on all xorg drivers
+x11-base/xorg-server 1.18.0: X.Org X servers
+x11-drivers/xf86-video-virtualbox 4.3.12: VirtualBox video driver
+x11-misc/mate-notification-daemon 1.12.0: MATE Notification daemon
+x11-misc/mozo 1.12.0: Mozo menu editor for MATE
+x11-terms/mate-terminal 1.12.0: The MATE Terminal
+x11-themes/bee-cell-icon-theme 9999: Fork dalisha icon theme.
+x11-themes/breezeremix-icon-theme 1.0: Mix of Breeze and FaenzaFlattr icon themes.
+x11-themes/dalisha-icon-theme 9999: Dalisha icon theme.
+x11-themes/faenza-icon-theme 2.0.2: This icon theme is for KDE
+x11-themes/macos-xcursor-theme 0.20: Official icon xcursor theme MacOSX.
+x11-themes/mate-backgrounds 1.12.0: A set of backgrounds packaged with the MATE desktop
+x11-themes/mate-icon-theme 1.12.0: MATE default icon themes
+x11-themes/mate-icon-theme-faenza 1.12.0: Faenza icon theme, that was adapted for MATE desktop
+x11-themes/mate-themes 1.12.0: A set of MATE themes, with sets for users with limited or low vision
+x11-themes/mint-mdm-themes 9999: Mint Mate Display Manager Themes
+x11-themes/vibrancy-icon-theme 9999: Official icon theme vibrancy.
+x11-wm/clfswm 1212: 100% Common Lisp X11 window manager (based on Tinywm and Stumpwm)
+x11-wm/marco 1.12.0: MATE default window manager
+x11-wm/muffin 2.8.3: Compositing window manager forked from Mutter for use with Cinnamon

@@ -1,3 +1,7 @@
 amd64
 arm
+arm64
 x86
+ppc64
+ppc
+mips

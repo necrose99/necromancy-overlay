@@ -2,7 +2,9 @@ dev-go
 dev-nodejs
 app-fuzz
 app-exploits
-net-seim 
+net-seim
+grub2-themes
+
 # varrient of net-analyzer for SEIM tools and much easier for local ebuild mantinace/s
 # also for net-seim or net-security I wish was a branh upstream at Gentoo thats just me.
 

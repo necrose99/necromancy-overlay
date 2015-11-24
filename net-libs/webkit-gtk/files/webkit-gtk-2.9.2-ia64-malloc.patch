@@ -1,0 +1,17 @@
+--- a/Source/WTF/wtf/Platform.h	2015-06-18 08:21:55.000972496 +0000
++++ b/Source/WTF/wtf/Platform.h	2015-06-18 08:30:08.497951742 +0000
+@@ -683,7 +683,14 @@
+ #else
+ #define USE_JSVALUE32_64 1
+ #endif
++
+ #endif /* !defined(USE_JSVALUE64) && !defined(USE_JSVALUE32_64) */
++/* FIXME: The fast malloc implementation is broken on Itanium / IA64 because
++   some memory barriers are missing in the thread-unsafe code around the
++   pagemap_cache_ object. */
++#if CPU(IA64) || CPU(IA64_32)
++#define USE_SYSTEM_MALLOC 1
++#endif
+ 
+ /* The JIT is enabled by default on all x86, x86-64, ARM & MIPS platforms except ARMv7k. */
+ #if !defined(ENABLE_JIT) \
