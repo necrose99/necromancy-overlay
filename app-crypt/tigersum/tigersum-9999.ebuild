@@ -14,18 +14,15 @@ EGIT_CHECKOUT_DIR=${WORKDIR}/${PN}
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
+IUSE="+dlang"
 DEPEND="${RDEPEND}
 	>=app-admin/eselect-dlang-20140709
 	virtual/pkgconfig"
+
 RDEPEND="${DEPEND}
-DDEPEND={"dev-lang/dmd 
-else
-dev-lang/dmd-bin
-else
-dev-util/gdmd
-fi "
-}
+dlang? ( || ( dev-lang/dmd  dev-lang/dmd-bin dev-util/gdmd ) )"
+#@ bitbucket.org/King_DuckZ/tigersum Any D-Compiler will do.
+
 
 S="${WORKDIR}/${PN}"
 PREFIX="/usr/bin/${PN}-${SLOT}"
@@ -46,4 +43,6 @@ src_install() {
     # udev rules
     insinto /usr/bin/tigersum
     doins "${S}"/usr/bin/tigersum
-
+    }
+    
+    elog="tigersum installed"
