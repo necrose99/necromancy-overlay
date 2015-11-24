@@ -1,5 +1,3 @@
-## !!! Warning ebuild is speculative and in pre-alpha template stage... 
-
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$  live ebuild Necrose99 
