@@ -1,0 +1,24 @@
+Author: Niko Tyni <ntyni@debian.org>
+Subject: APACHE_TEST_EXTRA
+ Honour $(APACHE_TEST_EXTRA_ARGS); Makefile.PL has apparently not been updated
+ since this was added to Apache::Test.
+Forwarded: http://www.gossamer-threads.com/lists/modperl/dev/105354
+Last-Update: 2012-05-19
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -788,12 +788,12 @@ TEST_FILES =
+ 
+ test_clean :
+ 	$(FULLPERL) -I$(INST_ARCHLIB) -I$(INST_LIB) \
+-	t/TEST -clean
++	t/TEST $(APACHE_TEST_EXTRA_ARGS) -clean
+ 
+ run_tests : test_clean
+ 	$(PASSENV) \
+ 	$(FULLPERL) -I$(INST_ARCHLIB) -I$(INST_LIB) \
+-	t/TEST -bugreport -verbose=$(TEST_VERBOSE) $(TEST_FILES)
++	t/TEST $(APACHE_TEST_EXTRA_ARGS) -bugreport -verbose=$(TEST_VERBOSE) $(TEST_FILES)
+ 
+ run_subtests ::
+ 	cd ModPerl-Registry && $(MAKE) test

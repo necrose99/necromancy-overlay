@@ -1,0 +1,112 @@
+*visual-paradigm-for-uml-10.0.1.20130202 (15 Feb 2013)
+
+  15 Feb 2013; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.1.20130202.ebuild,
+  -visual-paradigm-for-uml-10.0.1.20121204.ebuild:
+  Version bump; get the file from the archive since this is the old version.
+
+*visual-paradigm-for-uml-10.0.1.20121204 (10 Dec 2012)
+
+  10 Dec 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.1.20121204.ebuild,
+  -visual-paradigm-for-uml-10.0.1.20121106.ebuild,
+  -visual-paradigm-for-uml-9.0.20120418.ebuild:
+  Version bump; remove version 9.
+
+*visual-paradigm-for-uml-10.0.1.20121106 (19 Nov 2012)
+
+  19 Nov 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.1.20121106.ebuild,
+  -visual-paradigm-for-uml-10.0.20120812.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-10.0.20120812 (21 Aug 2012)
+
+  21 Aug 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.20120812.ebuild,
+  -visual-paradigm-for-uml-10.0.20120804.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-10.0.20120804 (06 Aug 2012)
+
+  06 Aug 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.20120804.ebuild,
+  -visual-paradigm-for-uml-10.0.20120735.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-10.0.20120735 (23 Jul 2012)
+
+  23 Jul 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.20120735.ebuild,
+  -visual-paradigm-for-uml-10.0.20120725.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-10.0.20120725 (10 Jul 2012)
+
+  10 Jul 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.20120725.ebuild,
+  -visual-paradigm-for-uml-10.0.20120712.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-10.0.20120712 (27 Jun 2012)
+
+  27 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.20120712.ebuild,
+  -visual-paradigm-for-uml-10.0.20120709.ebuild:
+  Version bump.
+
+  22 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  visual-paradigm-for-uml-10.0.20120709.ebuild:
+  Fix SRC_URI entries.
+
+*visual-paradigm-for-uml-10.0.20120709 (22 Jun 2012)
+
+  22 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.20120709.ebuild,
+  -visual-paradigm-for-uml-10.0.20120625.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-10.0.20120625 (18 Jun 2012)
+
+  18 Jun 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-10.0.20120625.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-9.0.20120418 (28 Apr 2012)
+
+  28 Apr 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-9.0.20120418.ebuild,
+  -visual-paradigm-for-uml-9.0.20120412.ebuild:
+  Version bump.
+
+*visual-paradigm-for-uml-9.0.20120412 (16 Apr 2012)
+
+  16 Apr 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-9.0.20120412.ebuild,
+  -visual-paradigm-for-uml-9.0.20120328.ebuild:
+  Version bump, fix the env.d file for CONFIG_PROTECT, and the icon on the
+  .desktop file.
+
+  04 Apr 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  -visual-paradigm-for-uml-9.0.20120325.ebuild,
+  visual-paradigm-for-uml-9.0.20120328.ebuild:
+  Use CONFIG_PROTECT to avoid overwriting every time the product selection.
+
+*visual-paradigm-for-uml-9.0.20120328 (02 Apr 2012)
+
+  02 Apr 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-9.0.20120328.ebuild:
+  Version bump for new release.
+
+*visual-paradigm-for-uml-9.0.20120325 (27 Mar 2012)
+
+  27 Mar 2012; Diego E. Pettenò <flameeyes@gentoo.org>
+  +visual-paradigm-for-uml-9.0.20120325.ebuild,
+  -visual-paradigm-for-uml-9.0.20120310.ebuild:
+  Updated to latest version available.
+
+*visual-paradigm-for-uml-9.0.20120310 (13 Mar 2012)
+
+  13 Mar 2012; Diego E. Pettenò <flameeyes@gentoo.org> +metadata.xml,
+  +visual-paradigm-for-uml-9.0.20120310.ebuild:
+  Initial import of the new VP for UML 9.0.

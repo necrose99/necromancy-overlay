@@ -1,0 +1,14 @@
+diff -ur httpd24-orig/ModPerl-Registry/t/conf/extra.conf.in httpd24/ModPerl-Registry/t/conf/extra.conf.in
+--- httpd24-orig/ModPerl-Registry/t/conf/extra.conf.in	2013-06-21 15:02:19.747710142 +0000
++++ httpd24/ModPerl-Registry/t/conf/extra.conf.in	2013-06-21 15:11:42.695660587 +0000
+@@ -218,8 +218,8 @@
+ <IfModule mod_rewrite.c>
+ 
+     RewriteEngine On
+-    RewriteLogLevel 9
+-    RewriteLog @ServerRoot@/logs/rewrite_log
++    LogLevel rewrite:trace8
++    ErrorLog @ServerRoot@/logs/rewrite_log
+     RewriteRule /rewritetest /rewrite_env/env_val.pl?REWRITE_TEST [E=REWRITE_TEST:GOTCHA,PT,NS,L]
+ 
+     <Location /rewrite_env>

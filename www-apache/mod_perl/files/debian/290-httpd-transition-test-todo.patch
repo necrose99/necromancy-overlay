@@ -1,0 +1,20 @@
+Description: Mark individual failing tests as TODO rather than ignore the overall test suite exit status
+Origin: vendor
+Forwarded: no
+Author: Dominic Hargreaves <dom@earth.li>
+Reviewed-by: gregor herrmann <gregoa@debian.org>
+Last-Update: 2013-06-03
+
+diff --git a/t/directive/perlloadmodule3.t b/t/directive/perlloadmodule3.t
+index 8c1d0dc..92d7199 100644
+--- a/t/directive/perlloadmodule3.t
++++ b/t/directive/perlloadmodule3.t
+@@ -14,7 +14,7 @@ my $path = Apache::TestRequest::module2path($module);
+ # smaller portions of information, but requires a more elaborate
+ # logic. Alternatively could use diff($expected, $received).
+ 
+-plan tests => 3;
++plan tests => 3, todo => [1];
+ 
+ t_debug("connecting to $base_hostport");
+ {

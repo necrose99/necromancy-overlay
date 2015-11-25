@@ -1,0 +1,33 @@
+Description: Since Apache 2.4, DefaultRuntimeDir needs to be set,
+ otherwise mod_auth_digest tries to write to /var/run and fails (depending
+ on permissions). Set DefaultRuntimeDir in the generated httpd.conf of
+ Apache::Test conditionally.
+ This also means we don't need the extra DefaultRuntimeDir in t/conf/extra.conf.in.
+Origin: vendor
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>,
+ Niko Tyni <ntyni@debian.org>
+Last-Update: 2013-06-04
+
+--- a/Apache-Test/lib/Apache/TestConfig.pm
++++ b/Apache-Test/lib/Apache/TestConfig.pm
+@@ -2148,6 +2148,10 @@
+ ErrorLog    @t_logs@/error_log
+ LogLevel    debug
+ 
++<IfVersion > 2.4.1>
++    DefaultRunTimeDir "@t_logs@"
++</IfVersion>
++
+ <IfModule mod_log_config.c>
+     TransferLog @t_logs@/access_log
+ </IfModule>
+--- a/t/conf/extra.conf.in
++++ b/t/conf/extra.conf.in
+@@ -1,6 +1,5 @@
+ # needed to test $r->psignature
+ ServerSignature On
+-DefaultRuntimeDir run/
+ 
+ # The following tests require more than one interpreter during the
+ # same request:

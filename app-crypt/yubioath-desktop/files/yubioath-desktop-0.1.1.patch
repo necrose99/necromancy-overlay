@@ -1,0 +1,497 @@
+diff -Naur yubioath-desktop-0.1.1.old/resources/qt.conf yubioath-desktop-0.1.1/resources/qt.conf
+--- yubioath-desktop-0.1.1.old/resources/qt.conf	1970-01-01 01:00:00.000000000 +0100
++++ yubioath-desktop-0.1.1/resources/qt.conf	2014-02-18 14:55:09.000000000 +0100
+@@ -0,0 +1,2 @@
++[Paths]
++Plugins = plugins
+\ Brak znaku nowej linii na końcu pliku
+diff -Naur yubioath-desktop-0.1.1.old/resources/yubicoauthenticator.desktop yubioath-desktop-0.1.1/resources/yubicoauthenticator.desktop
+--- yubioath-desktop-0.1.1.old/resources/yubicoauthenticator.desktop	1970-01-01 01:00:00.000000000 +0100
++++ yubioath-desktop-0.1.1/resources/yubicoauthenticator.desktop	2014-04-15 09:59:10.000000000 +0200
+@@ -0,0 +1,10 @@
++[Desktop Entry]
++Name=Yubico Authenticator
++GenericName=Yubico Authenticator 
++Comment=Graphical interface for generating TOTP & HOTP codes
++Exec=yubicoauthenticator
++Icon=yubicoauthenticator
++StartupNotify=true
++Terminal=false
++Type=Application
++Categories=Utility;
+diff -Naur yubioath-desktop-0.1.1.old/resources/yubicoauthenticator.nsi yubioath-desktop-0.1.1/resources/yubicoauthenticator.nsi
+--- yubioath-desktop-0.1.1.old/resources/yubicoauthenticator.nsi	1970-01-01 01:00:00.000000000 +0100
++++ yubioath-desktop-0.1.1/resources/yubicoauthenticator.nsi	2014-04-02 13:30:41.000000000 +0200
+@@ -0,0 +1,142 @@
++# Copyright (c) 2013-2014 Yubico AB
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful, but
++# WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++# General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++!include "MUI2.nsh"
++
++!define MUI_ICON "../yubico.ico"
++
++; The name of the installer
++Name "yubico-authenticator-"
++
++; The file to write
++OutFile "../dist/Yubico Authenticator/yubioath-desktop-${YUBICOAUTHENTICATOR_VERSION}.exe"
++
++; The default installation directory
++InstallDir "$PROGRAMFILES\Yubico\Yubico Authenticator"
++
++; Registry key to check for directory (so if you install again, it will 
++; overwrite the old one automatically)
++InstallDirRegKey HKLM "Software\Yubico\yubico-authenticator" "Install_Dir"
++
++SetCompressor /SOLID lzma
++ShowInstDetails show
++
++Var MUI_TEMP
++Var STARTMENU_FOLDER
++
++;Interface Settings
++
++  !define MUI_ABORTWARNING
++
++;--------------------------------
++
++; Pages
++  !insertmacro MUI_PAGE_WELCOME
++  !insertmacro MUI_PAGE_DIRECTORY
++  ;Start Menu Folder Page Configuration
++  !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Yubico\Yubico Authenticator"
++  !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU"
++  !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\Yubico\Yubico Authenticator"
++  !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
++  !insertmacro MUI_PAGE_STARTMENU Application $STARTMENU_FOLDER
++  !insertmacro MUI_PAGE_INSTFILES
++  !insertmacro MUI_PAGE_FINISH
++
++  !insertmacro MUI_UNPAGE_CONFIRM
++  !insertmacro MUI_UNPAGE_INSTFILES
++
++;Languages
++  !insertmacro MUI_LANGUAGE "English"
++
++;--------------------------------
++
++Section "Yubico Authenticator"
++  SectionIn RO
++  SetOutPath $INSTDIR
++  FILE /r "..\dist\Yubico Authenticator\*"
++SectionEnd
++
++Var MYTMP
++
++# Last section is a hidden one.
++Section
++  WriteUninstaller "$INSTDIR\uninstall.exe"
++
++  ; Write the installation path into the registry
++  WriteRegStr HKLM "Software\Yubico\yubco-authenticator" "Install_Dir" "$INSTDIR"
++
++  # Windows Add/Remove Programs support
++  StrCpy $MYTMP "Software\Microsoft\Windows\CurrentVersion\Uninstall\yubico-authenticator"
++  WriteRegStr       HKLM $MYTMP "DisplayName"     "Yubico Authenticator"
++  WriteRegExpandStr HKLM $MYTMP "UninstallString" '"$INSTDIR\uninstall.exe"'
++  WriteRegExpandStr HKLM $MYTMP "InstallLocation" "$INSTDIR"
++  WriteRegStr       HKLM $MYTMP "DisplayVersion"  "${YUBICOAUTHENTICATOR_VERSION}"
++  WriteRegStr       HKLM $MYTMP "Publisher"       "Yubico AB"
++  WriteRegStr       HKLM $MYTMP "URLInfoAbout"    "http://www.yubico.com"
++  WriteRegDWORD     HKLM $MYTMP "NoModify"        "1"
++  WriteRegDWORD     HKLM $MYTMP "NoRepair"        "1"
++
++!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
++    
++;Create shortcuts
++  SetShellVarContext all
++  SetOutPath "$SMPROGRAMS\$STARTMENU_FOLDER"
++  CreateShortCut "Yubico Authenticator.lnk" "$INSTDIR\Yubico Authenticator.exe" "" "$INSTDIR\Yubico Authenticator.exe" 0
++  CreateShortCut "Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 1
++  WriteINIStr "$SMPROGRAMS\$STARTMENU_FOLDER\Yubico Web page.url" \
++                   "InternetShortcut" "URL" "http://www.yubico.com/"
++!insertmacro MUI_STARTMENU_WRITE_END
++
++SectionEnd
++
++
++
++; Uninstaller
++
++Section "Uninstall"
++  
++  ; Remove registry keys
++  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\yubico-authenticator"
++  DeleteRegKey HKLM "Software\Yubico\yubico-authenticator"
++
++  ; Remove all
++  DELETE "$INSTDIR\*"
++
++  ; Remove shortcuts, if any
++  !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
++  SetShellVarContext all
++
++  Delete "$SMPROGRAMS\$MUI_TEMP\Uninstall.lnk"
++  Delete "$SMPROGRAMS\$MUI_TEMP\Yubico Web page.url"
++  Delete "$SMPROGRAMS\$MUI_TEMP\Yubico Authenticator.lnk"
++
++  ;Delete empty start menu parent diretories
++  StrCpy $MUI_TEMP "$SMPROGRAMS\$MUI_TEMP"
++
++  startMenuDeleteLoop:
++	ClearErrors
++    RMDir $MUI_TEMP
++    GetFullPathName $MUI_TEMP "$MUI_TEMP\.."
++
++    IfErrors startMenuDeleteLoopDone
++
++    StrCmp $MUI_TEMP $SMPROGRAMS startMenuDeleteLoopDone startMenuDeleteLoop
++  startMenuDeleteLoopDone:
++
++  DeleteRegKey /ifempty HKCU "Software\Yubico\yubico-authenticator"
++
++  ; Remove directories used
++  RMDir "$INSTDIR"
++SectionEnd
+\ Brak znaku nowej linii na końcu pliku
+diff -Naur yubioath-desktop-0.1.1.old/resources/yubicoauthenticator.xpm yubioath-desktop-0.1.1/resources/yubicoauthenticator.xpm
+--- yubioath-desktop-0.1.1.old/resources/yubicoauthenticator.xpm	1970-01-01 01:00:00.000000000 +0100
++++ yubioath-desktop-0.1.1/resources/yubicoauthenticator.xpm	2014-04-15 09:59:10.000000000 +0200
+@@ -0,0 +1,37 @@
++/* XPM */
++static char * icon_xpm[] = {
++"32 32 2 1",
++" 	c None",
++".	c #8BBF41",
++"            ........            ",
++"          ....    ....          ",
++"        ...          ...        ",
++"      ...              ...      ",
++"     ..                  ..     ",
++"    ..                    ..    ",
++"    .                      .    ",
++"   ..                      ..   ",
++"  ..      ....     ...      ..  ",
++"  ..      ....    ....      ..  ",
++"  .        ...    ....       .  ",
++" ..        ....   ...        .. ",
++" ..         ...  ....        .. ",
++" .          ...  ...          . ",
++"..          .... ...          ..",
++"..           .......          ..",
++"..           ......           ..",
++" .           ......           . ",
++" ..           .....          .. ",
++" ..           ....           .. ",
++" ..           ....           .. ",
++"  .          ....            .  ",
++"  ..         ....           ..  ",
++"   .        .....           .   ",
++"   ..                      ..   ",
++"    ..                    ..    ",
++"     ..                  ..     ",
++"      ..                ..      ",
++"       ...            ...       ",
++"         ....      ....         ",
++"            ........            ",
++"                                "};
+diff -Naur yubioath-desktop-0.1.1.old/scripts/yubicoauthenticator yubioath-desktop-0.1.1/scripts/yubicoauthenticator
+--- yubioath-desktop-0.1.1.old/scripts/yubicoauthenticator	1970-01-01 01:00:00.000000000 +0100
++++ yubioath-desktop-0.1.1/scripts/yubicoauthenticator	2014-04-27 23:47:56.859827765 +0200
+@@ -0,0 +1,19 @@
++#!/usr/bin/python
++
++import os
++import sys
++import signal
++
++from PySide import QtGui, QtCore
++from yubicoauthenticator import ui_systray
++
++if __name__ == '__main__':
++    signal.signal(signal.SIGINT, signal.SIG_DFL)
++    app = QtGui.QApplication(sys.argv)
++    app.setQuitOnLastWindowClosed(False)
++
++    trayIcon = ui_systray.SystemTrayIcon()
++    QtCore.QObject.connect(trayIcon, QtCore.SIGNAL("activated(QSystemTrayIcon::ActivationReason)"), trayIcon.iconActivated)
++    trayIcon.show()
++
++    sys.exit(app.exec_())
+diff -Naur yubioath-desktop-0.1.1.old/setup.py yubioath-desktop-0.1.1/setup.py
+--- yubioath-desktop-0.1.1.old/setup.py	2014-04-27 22:42:28.158290888 +0200
++++ yubioath-desktop-0.1.1/setup.py	2014-04-27 23:03:25.827664012 +0200
+@@ -39,6 +39,7 @@
+     license='BSD 2 clause',
+ 	description='Crossplatform tool for generating TOTP & HOTP codes with a Yubikey NEO',
+     packages=['yubicoauthenticator'],
++    scripts=['scripts/yubicoauthenticator'],
+     include_package_data=True,
+ 	#scripts=['scripts/yubicoauthenticator'],
+     setup_requires=['nose>=1.0'],
+diff -Naur yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/qt.conf yubioath-desktop-0.1.1/yubicoauthenticator/resources/qt.conf
+--- yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/qt.conf	2014-04-27 22:42:28.123290850 +0200
++++ yubioath-desktop-0.1.1/yubicoauthenticator/resources/qt.conf	1970-01-01 01:00:00.000000000 +0100
+@@ -1,2 +0,0 @@
+-[Paths]
+-Plugins = plugins
+\ Brak znaku nowej linii na końcu pliku
+diff -Naur yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/yubicoauthenticator.desktop yubioath-desktop-0.1.1/yubicoauthenticator/resources/yubicoauthenticator.desktop
+--- yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/yubicoauthenticator.desktop	2014-04-27 22:42:28.153290883 +0200
++++ yubioath-desktop-0.1.1/yubicoauthenticator/resources/yubicoauthenticator.desktop	1970-01-01 01:00:00.000000000 +0100
+@@ -1,10 +0,0 @@
+-[Desktop Entry]
+-Name=Yubico Authenticator
+-GenericName=Yubico Authenticator 
+-Comment=Graphical interface for generating TOTP & HOTP codes
+-Exec=yubicoauthenticator
+-Icon=yubicoauthenticator
+-StartupNotify=true
+-Terminal=false
+-Type=Application
+-Categories=Utility;
+diff -Naur yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/yubicoauthenticator.nsi yubioath-desktop-0.1.1/yubicoauthenticator/resources/yubicoauthenticator.nsi
+--- yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/yubicoauthenticator.nsi	2014-04-27 22:42:28.122290849 +0200
++++ yubioath-desktop-0.1.1/yubicoauthenticator/resources/yubicoauthenticator.nsi	1970-01-01 01:00:00.000000000 +0100
+@@ -1,142 +0,0 @@
+-# Copyright (c) 2013-2014 Yubico AB
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful, but
+-# WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-# General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-!include "MUI2.nsh"
+-
+-!define MUI_ICON "../yubico.ico"
+-
+-; The name of the installer
+-Name "yubico-authenticator-"
+-
+-; The file to write
+-OutFile "../dist/Yubico Authenticator/yubioath-desktop-${YUBICOAUTHENTICATOR_VERSION}.exe"
+-
+-; The default installation directory
+-InstallDir "$PROGRAMFILES\Yubico\Yubico Authenticator"
+-
+-; Registry key to check for directory (so if you install again, it will 
+-; overwrite the old one automatically)
+-InstallDirRegKey HKLM "Software\Yubico\yubico-authenticator" "Install_Dir"
+-
+-SetCompressor /SOLID lzma
+-ShowInstDetails show
+-
+-Var MUI_TEMP
+-Var STARTMENU_FOLDER
+-
+-;Interface Settings
+-
+-  !define MUI_ABORTWARNING
+-
+-;--------------------------------
+-
+-; Pages
+-  !insertmacro MUI_PAGE_WELCOME
+-  !insertmacro MUI_PAGE_DIRECTORY
+-  ;Start Menu Folder Page Configuration
+-  !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Yubico\Yubico Authenticator"
+-  !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU"
+-  !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\Yubico\Yubico Authenticator"
+-  !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
+-  !insertmacro MUI_PAGE_STARTMENU Application $STARTMENU_FOLDER
+-  !insertmacro MUI_PAGE_INSTFILES
+-  !insertmacro MUI_PAGE_FINISH
+-
+-  !insertmacro MUI_UNPAGE_CONFIRM
+-  !insertmacro MUI_UNPAGE_INSTFILES
+-
+-;Languages
+-  !insertmacro MUI_LANGUAGE "English"
+-
+-;--------------------------------
+-
+-Section "Yubico Authenticator"
+-  SectionIn RO
+-  SetOutPath $INSTDIR
+-  FILE /r "..\dist\Yubico Authenticator\*"
+-SectionEnd
+-
+-Var MYTMP
+-
+-# Last section is a hidden one.
+-Section
+-  WriteUninstaller "$INSTDIR\uninstall.exe"
+-
+-  ; Write the installation path into the registry
+-  WriteRegStr HKLM "Software\Yubico\yubco-authenticator" "Install_Dir" "$INSTDIR"
+-
+-  # Windows Add/Remove Programs support
+-  StrCpy $MYTMP "Software\Microsoft\Windows\CurrentVersion\Uninstall\yubico-authenticator"
+-  WriteRegStr       HKLM $MYTMP "DisplayName"     "Yubico Authenticator"
+-  WriteRegExpandStr HKLM $MYTMP "UninstallString" '"$INSTDIR\uninstall.exe"'
+-  WriteRegExpandStr HKLM $MYTMP "InstallLocation" "$INSTDIR"
+-  WriteRegStr       HKLM $MYTMP "DisplayVersion"  "${YUBICOAUTHENTICATOR_VERSION}"
+-  WriteRegStr       HKLM $MYTMP "Publisher"       "Yubico AB"
+-  WriteRegStr       HKLM $MYTMP "URLInfoAbout"    "http://www.yubico.com"
+-  WriteRegDWORD     HKLM $MYTMP "NoModify"        "1"
+-  WriteRegDWORD     HKLM $MYTMP "NoRepair"        "1"
+-
+-!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+-    
+-;Create shortcuts
+-  SetShellVarContext all
+-  SetOutPath "$SMPROGRAMS\$STARTMENU_FOLDER"
+-  CreateShortCut "Yubico Authenticator.lnk" "$INSTDIR\Yubico Authenticator.exe" "" "$INSTDIR\Yubico Authenticator.exe" 0
+-  CreateShortCut "Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 1
+-  WriteINIStr "$SMPROGRAMS\$STARTMENU_FOLDER\Yubico Web page.url" \
+-                   "InternetShortcut" "URL" "http://www.yubico.com/"
+-!insertmacro MUI_STARTMENU_WRITE_END
+-
+-SectionEnd
+-
+-
+-
+-; Uninstaller
+-
+-Section "Uninstall"
+-  
+-  ; Remove registry keys
+-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\yubico-authenticator"
+-  DeleteRegKey HKLM "Software\Yubico\yubico-authenticator"
+-
+-  ; Remove all
+-  DELETE "$INSTDIR\*"
+-
+-  ; Remove shortcuts, if any
+-  !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
+-  SetShellVarContext all
+-
+-  Delete "$SMPROGRAMS\$MUI_TEMP\Uninstall.lnk"
+-  Delete "$SMPROGRAMS\$MUI_TEMP\Yubico Web page.url"
+-  Delete "$SMPROGRAMS\$MUI_TEMP\Yubico Authenticator.lnk"
+-
+-  ;Delete empty start menu parent diretories
+-  StrCpy $MUI_TEMP "$SMPROGRAMS\$MUI_TEMP"
+-
+-  startMenuDeleteLoop:
+-	ClearErrors
+-    RMDir $MUI_TEMP
+-    GetFullPathName $MUI_TEMP "$MUI_TEMP\.."
+-
+-    IfErrors startMenuDeleteLoopDone
+-
+-    StrCmp $MUI_TEMP $SMPROGRAMS startMenuDeleteLoopDone startMenuDeleteLoop
+-  startMenuDeleteLoopDone:
+-
+-  DeleteRegKey /ifempty HKCU "Software\Yubico\yubico-authenticator"
+-
+-  ; Remove directories used
+-  RMDir "$INSTDIR"
+-SectionEnd
+\ Brak znaku nowej linii na końcu pliku
+diff -Naur yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/yubicoauthenticator.xpm yubioath-desktop-0.1.1/yubicoauthenticator/resources/yubicoauthenticator.xpm
+--- yubioath-desktop-0.1.1.old/yubicoauthenticator/resources/yubicoauthenticator.xpm	2014-04-27 22:42:28.152290882 +0200
++++ yubioath-desktop-0.1.1/yubicoauthenticator/resources/yubicoauthenticator.xpm	1970-01-01 01:00:00.000000000 +0100
+@@ -1,37 +0,0 @@
+-/* XPM */
+-static char * icon_xpm[] = {
+-"32 32 2 1",
+-" 	c None",
+-".	c #8BBF41",
+-"            ........            ",
+-"          ....    ....          ",
+-"        ...          ...        ",
+-"      ...              ...      ",
+-"     ..                  ..     ",
+-"    ..                    ..    ",
+-"    .                      .    ",
+-"   ..                      ..   ",
+-"  ..      ....     ...      ..  ",
+-"  ..      ....    ....      ..  ",
+-"  .        ...    ....       .  ",
+-" ..        ....   ...        .. ",
+-" ..         ...  ....        .. ",
+-" .          ...  ...          . ",
+-"..          .... ...          ..",
+-"..           .......          ..",
+-"..           ......           ..",
+-" .           ......           . ",
+-" ..           .....          .. ",
+-" ..           ....           .. ",
+-" ..           ....           .. ",
+-"  .          ....            .  ",
+-"  ..         ....           ..  ",
+-"   .        .....           .   ",
+-"   ..                      ..   ",
+-"    ..                    ..    ",
+-"     ..                  ..     ",
+-"      ..                ..      ",
+-"       ...            ...       ",
+-"         ....      ....         ",
+-"            ........            ",
+-"                                "};
+diff -Naur yubioath-desktop-0.1.1.old/yubicoauthenticator/ui_systray.py yubioath-desktop-0.1.1/yubicoauthenticator/ui_systray.py
+--- yubioath-desktop-0.1.1.old/yubicoauthenticator/ui_systray.py	2014-04-27 22:42:28.109290835 +0200
++++ yubioath-desktop-0.1.1/yubicoauthenticator/ui_systray.py	2014-04-27 23:49:13.728930893 +0200
+@@ -175,15 +175,3 @@
+     def closeEvent(self, event):
+     	#handle the close event (x) top right corner
+         self.ui.closeEvent()
+-
+-
+-
+-if __name__ == "__main__":
+-	app = QtGui.QApplication(sys.argv)
+-	app.setQuitOnLastWindowClosed(False)
+-	
+-	trayIcon = SystemTrayIcon()
+-	QtCore.QObject.connect(trayIcon, QtCore.SIGNAL("activated(QSystemTrayIcon::ActivationReason)"), trayIcon.iconActivated)
+-	trayIcon.show()
+-
+-	sys.exit(app.exec_())
+diff -Naur yubioath-desktop-0.1.1.old/yubioath_desktop.egg-info/SOURCES.txt yubioath-desktop-0.1.1/yubioath_desktop.egg-info/SOURCES.txt
+--- yubioath-desktop-0.1.1.old/yubioath_desktop.egg-info/SOURCES.txt	2014-04-27 22:42:28.161290891 +0200
++++ yubioath-desktop-0.1.1/yubioath_desktop.egg-info/SOURCES.txt	2014-04-27 22:49:39.084759298 +0200
+@@ -4,6 +4,11 @@
+ NEWS
+ README
+ release.py
++resources/qt.conf
++resources/yubicoauthenticator.desktop
++resources/yubicoauthenticator.nsi
++resources/yubicoauthenticator.xpm
++scripts/yubiauthenticator
+ setup.py
+ yubicoauthenticator/__init__.py
+ yubicoauthenticator/functions.py
+@@ -19,10 +24,6 @@
+ yubicoauthenticator/yubioath-128.png
+ yubicoauthenticator/yubioath-16.png
+ yubicoauthenticator/yubioath-48.png
+-yubicoauthenticator/resources/qt.conf
+-yubicoauthenticator/resources/yubicoauthenticator.desktop
+-yubicoauthenticator/resources/yubicoauthenticator.nsi
+-yubicoauthenticator/resources/yubicoauthenticator.xpm
+ yubioath_desktop.egg-info/PKG-INFO
+ yubioath_desktop.egg-info/SOURCES.txt
+ yubioath_desktop.egg-info/dependency_links.txt

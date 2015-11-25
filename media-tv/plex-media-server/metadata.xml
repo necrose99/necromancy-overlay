@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>maintainer-needed@gentoo.org</email>
+	</maintainer>
+	<longdescription lang="en">Plex Media Server is a service that scans directories given by the user for adjustable media types. It automatically searches and downloads metadata and artwork. The scanned data is provided as a library and can be streamed to clients that implement the PMS-API \(mainly Plex for OS X, iOS and Android as well as some LG TV sets and Apple TV, there are PlugIns for other MediaCenter software like XBMC available\).</longdescription>
+	<longdescription lang="de">Plex Media Server ist ein dienst welcher durch den Nutzer bestimmbare Ordner nach spezifischen Medien-Typen durchsucht, automatisch Metadaten sowie Artwork runterläd und als Bibliothek zur Verfügung stellt. Clients welche die PMS-API implementieren (wie Plex für OS X, iOS und Android, einige LG Fernsehgeräte sowie andere MediaCenter mit entsprechenden PlugIns wie z.B. XBMC) können diese Metadaten darstellen und die Filme direkt als stream wiedergeben. Die unterstützten Medien-Typen sind Filme, Fernsehserien sowie Musik.</longdescription>
+</pkgmetadata>

@@ -1,0 +1,17 @@
+Description: Fix link present on doc/index_top.html page
+Author: Dario Minnucci <midget@debian.org>
+Forwarded: no
+Last-Update: 2011-03-22
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+--- a/docs/index_top.html
++++ b/docs/index_top.html
+@@ -3,6 +3,6 @@
+     <title>index bottom</title>
+   </head>
+   <body bgcolor="white">
+-    <p>FYI: <a href="../../products/apache-modules.html#Porting_CPAN_modules_to_mod_perl_2_0_Status">Porting CPAN modules to mod_perl 2.0 Status</a></p>
++    <p>FYI: <a href="http://perl.apache.org/products/apache-modules.html#Porting_CPAN_modules_to_mod_perl_2_0_Status">Porting CPAN modules to mod_perl 2.0 Status</a></p>
+   </body>
+-</html>
+\ No newline at end of file
++</html>
