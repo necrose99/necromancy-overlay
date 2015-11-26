@@ -23,4 +23,18 @@ DEPEND=
 #"#-${PV}"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/veil-ordnance-${PV}/veil-ordnance"
+${S}="${WORKDIR}/veil-ordnance"
+src_unpack()	# This function unpacks our files
+{ git-r3_src_unpack
+}
+src_install()
+{
+	mkdir -p ${S}/opt/bin/veil-ordnance		# D is like a virtual / where we install our stuff, before emerge 
+					# merge it with the real /
+	cp unmask ${S}/opt/bin/veil-ordnance	# now we simply copy "unmask" to our target dir
+       chmod +x ${S}/opt/bin/veil-ordnance/unmask   # and make our script executable
+		dodoc doc /usr/share/doc/${P}
+		mkdir -p ${S}/usr/share/doc/${P}
+		cp ${FILESDIR}/README.md ${D}/usr/share/doc/${P}/
+	fi
+}
