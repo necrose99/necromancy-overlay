@@ -3,7 +3,7 @@
 # $Header: blshkv $ Necrose99 Since upstream Switched to CMake this is a quick and hasty hack. till I get Source to build.
 
 EAPI=5
-inherit  eutils unpacker  #flag-o-matic python-any-r1
+inherit  eutils unpacker  flag-o-matic
 
 DESCRIPTION="Convert on-the-fly between multiple input and output harddisk image types"
 HOMEPAGE="https://www.pinguin.lu/xmount"
