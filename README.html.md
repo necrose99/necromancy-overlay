@@ -39,7 +39,7 @@ id="and-after-all-though-ebuilds-are-just-a-sub-set-of-bash-getting-it-right-is-
 
 after all though Ebuilds are just a sub-set of bash , getting
 it right is a bit of "Dark Sorcery" as their is an <u>art</u>
-and a <u> science.</u></h4>
+and a <u> science.</u> </h4>
 <p><strong>Current build status:</strong><a
 href="https://app.wercker.com/project/bykey/3238852ffe293e22c29259e8483683eb"><img
 alt="Wercker status"
@@ -103,7 +103,7 @@ color="#ff0000">#jail</font> , #<font color="#ff0000">Prison
 as it can twist <a
 href="https://github.com/rapid7/metasploit-framework">Metasploit</a>
 payloads to be undetectable, thus causing damage to
-systems, <br>
+systems,if unsure, then play it safe.  <br>
 </strong></p>
 </li>
 <li><strong>Abuse May result in threats on your life, like
@@ -111,18 +111,13 @@ another prisoner wanting to kill you, death of a social
 life (going to prison 10-30 years could do that.)</strong><span
 id="eow-title" class="watch-title " dir="ltr" title="J.
 Robert Oppenheimer: &quot;I am become Death, the destroyer
-of worlds.&quot;"></span><b><span id="eow-title"
-class="watch-title " dir="ltr" title="J. Robert
+of worlds.&quot;"></span><b>
+<br><blockquote>"J. Robert
 Oppenheimer: &quot;I am become Death, the destroyer of
-worlds.&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-J. Robert Oppenheimer: "I am become Death, the destroyer
-of worlds."&nbsp;&nbsp;&nbsp; </span></b><strong><a
+worlds.&quot;</blockquote></b><strong><a
 href="https://www.veil-framework.com/">VEIL-FRAMWORK</a></strong>&nbsp;
-While
-
-I realize security Audits are a necessary evil,</li>
-&nbsp;I feel a moral weight packaging these tools <strong></strong>
+While I realize security Audits are a necessary evil,
+<br>I feel a moral weight packaging these tools</li> <strong></strong>
 <li>
 <p>Gentoo Proxy Maintainer ebuilds I (may) service,</p>
 </li>
