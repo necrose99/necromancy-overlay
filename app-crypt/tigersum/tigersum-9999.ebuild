@@ -5,6 +5,7 @@
 EAPI=5
 inherit eutils dlang versionator multilib-build git-r3 cmake-utils
 
+
 DESCRIPTION="A command line hashing program based on the tiger algorithm""
 HOMEPAGE="https://bitbucket.org/King_DuckZ/tigersum/"
 EGIT_REPO_URI="git@bitbucket.org:King_DuckZ/${PN}.git"
