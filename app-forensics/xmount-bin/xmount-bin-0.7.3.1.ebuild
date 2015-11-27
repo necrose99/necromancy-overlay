@@ -11,7 +11,7 @@ SRC_URI="
     x86?   ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_i386.deb -> xmount-0.7.3-1_i386.deb )
     AMD64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_amd64.deb -> xmount-0.7.3-1_amd64.deb )
     arm64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_arm64.deb -> xmount-0.7.3-1_amd64.deb )
-    ppc? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_powerpc.deb -> xmount-0.7.3-1_amd64.deb )
+    ppc? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_powerpc.deb -> xmount-0.7.3-1_powerpc.deb )
     ppc64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_ppc64el.deb -> xmount-0.7.3-1_ppc64el.deb )
     armfl? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armhf.deb -> xmount-0.7.3-1_armhf.deb ) 
     mips? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_mips.deb -> xmount-0.7.3-1_mips.deb )     
