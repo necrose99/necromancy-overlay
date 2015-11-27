@@ -34,12 +34,12 @@ DEPEND="${RDEPEND}
 	!!app-forensics/xmount
 	app-arch/dpkg"
 
+QA_PREBUILT="*"
+S=${WORKDIR}
 
-	src_unpack() {
-	unpack_deb ${A}
-	
-	}
-
+src_unpack() {
+        unpack_deb ${A}
+}
 src_install() {
 	into /
 	insinto /
@@ -47,21 +47,21 @@ src_install() {
 }
 
 # Fixes permissions
-	fperms +x /usr/bin/xmount
-	fperms +x /usr/lib/xmount/libxmount_input_aaff.so
-	fperms +x /usr/lib/xmount/libxmount_input_aewf.so
-	fperms +x /usr/lib/xmount/libxmount_input_aff.so
-	fperms +x /usr/lib/xmount/libxmount_input_ewf.so
-	fperms +x /usr/lib/xmount/libxmount_input_raw.so
-	fperms +x /usr/lib/xmount/libxmount_morphing_combine.so
-	fperms +x /usr/lib/xmount/libxmount_morphing_raid.so
-	fperms +x /usr/lib/xmount/libxmount_morphing_unallocated.so
-	fperms 044 /usr/share/doc/xmount/NEWS.gz
-	fperms 044 /usr/share/doc/xmount/README.gz
-	fperms 044 /usr/share/doc/xmount/changelog.Debian.gz
-	fperms 044 /usr/share/doc/xmount/changelog.gz
-	fperms 044 /usr/share/doc/xmount/copyright
-	fperms 044 /usr/share/man/man1/xmount.1.gz
+	fperms +x ${A}/usr/bin/xmount
+	fperms +x ${A}/usr/lib/xmount/libxmount_input_aaff.so
+	fperms +x ${A}/usr/lib/xmount/libxmount_input_aewf.so
+	fperms +x ${A}/usr/lib/xmount/libxmount_input_aff.so
+	fperms +x ${A}/usr/lib/xmount/libxmount_input_ewf.so
+	fperms +x ${A}/usr/lib/xmount/libxmount_input_raw.so
+	fperms +x ${A}/usr/lib/xmount/libxmount_morphing_combine.so
+	fperms +x ${A}/usr/lib/xmount/libxmount_morphing_raid.so
+	fperms +x ${A}/usr/lib/xmount/libxmount_morphing_unallocated.so
+	fperms 044 ${A}/usr/share/doc/xmount/NEWS.gz
+	fperms 044 ${A}/usr/share/doc/xmount/README.gz
+	fperms 044 ${A}/usr/share/doc/xmount/changelog.Debian.gz
+	fperms 044 ${A}/usr/share/doc/xmount/changelog.gz
+	fperms 044 ${A}/usr/share/doc/xmount/copyright
+	fperms 044 ${A}/usr/share/man/man1/xmount.1.gz
 
 elog "Xmount Binary from Debian Installed, a true from source bump is in the works"
 elog "Upstream switched over to Cmake, so 6.x to 7.3 and soon 7.4 has had to be compleatly refactored"
