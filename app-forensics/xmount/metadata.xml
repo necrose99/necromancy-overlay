@@ -1,0 +1,18 @@
+Usage: metagen [options]
+
+Options:
+  --version   show program's version number and exit
+  -h, --help  show this help message and exit
+  -H HERD     Name of herd. If not specified, It will be empty. This requires
+              either the -e or -m option.
+  -e EMAIL    Maintainer's email address
+  -n NAME     Maintainer's name
+  -m          Use name and email address from ECHANGELOG_USER environmental
+              variable. This is a shortcut for -e <email> -n <name>
+  -d DESC     Description of maintainership
+  -l LONG     Long description of package.
+  -o OUTPUT   Specify location of output file.
+  -f          Force overwrite of existing metadata.
+  -v          Verbose. Output of file to stdout. (default)
+  -q          Squelch output of file to stdout.
+  -Q          Do not write file to disk.
