@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit  eutils unpacker  flag-o-matic
+inherit  eutils unpacker
 
 DESCRIPTION="Convert on-the-fly between multiple input and output harddisk image types"
 HOMEPAGE="https://www.pinguin.lu/xmount"
