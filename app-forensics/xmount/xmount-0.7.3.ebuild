@@ -25,7 +25,8 @@ RDEPEND="sys-fs/fuse
 	aff? ( app-forensics/afflib )
 	ewf? ( app-forensics/libewf )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	dev-util/pkgconfig
+	!!xmount-bin"
 
 S=${WORKDIR}/${PV}
 
@@ -38,15 +39,12 @@ src_unpack() {
 		fi
 }
 
-src_configure() {
-    local mycmakeargs=(
-    	PREFIX ?= /usr/bin
-        $(cmake-utils_use_build bindist  REDIST_PACKAGE)
-        use aff || export cmake-utils_use_want afflib afflib
-        use ewf || export cmake-utils_use_want libewf libewf
-	cmake-utils_src_configure  -DCMAKE_BUILD_TYPE=Release
-	econf
+src_configure() 
+{ local mycmakeargs=(-DBUILD_REDIST_PACKAGE=$(usex bindist) -DWANT_afflib=$(usex afflib) -DWANT_libewf=$(usex libewf) -DCMAKE_BUILD_TYPE=Release); 
+cmake-utils_src_configure; 
+CMAKE_USE_DIR="${S}/src"
 }
+
 
 #mkdir build
 #cd build
