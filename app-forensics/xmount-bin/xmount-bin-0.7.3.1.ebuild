@@ -10,7 +10,7 @@ HOMEPAGE="https://www.pinguin.lu/xmount"
 SRC_URI="
     x86?   ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_i386.deb -> xmount-0.7.3-1_i386.deb )
     AMD64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_amd64.deb -> xmount-0.7.3-1_amd64.deb )
-    arm64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_arm64.deb -> xmount-0.7.3-1_amd64.deb )
+    arm64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_arm64.deb -> xmount-0.7.3-1_arm64.deb )
     ppc? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_powerpc.deb -> xmount-0.7.3-1_powerpc.deb )
     ppc64? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_ppc64el.deb -> xmount-0.7.3-1_ppc64el.deb )
     armfl? ( http://ftp.us.debian.org/debian/pool/main/x/xmount/xmount_0.7.3-1+b1_armhf.deb -> xmount-0.7.3-1_armhf.deb ) 
@@ -24,7 +24,7 @@ SLOT="0"
 IUSE="+aff +ewf"
 
 #unable to build, see the upstream bug: https://www.pinguin.lu/node/16
-KEYWORDS="~amd64-linux ~x86-linux ~arm-Linux  ~arm64-Linux  ~mips-linux ~ppc-linux ~ppc64-linux  ~ia64-linux ~armel-linux ~mipsel-linux"
+KEYWORDS="~amd64 ~x86 ~arm-  ~arm64  ~mips ~ppc ~ppc64  ~ia64 ~armel ~mipsel"
 
 RDEPEND="sys-fs/fuse
 	aff? ( app-forensics/afflib )
@@ -38,7 +38,7 @@ QA_PREBUILT="*"
 S=${WORKDIR}
 
 src_unpack() {
-        unpack_deb ${A}
+        unpack_deb xmount-${PV}_$(usex amd64 "amd64" "i386").deb ${A}
 }
 src_install() {
 	into /
