@@ -10,7 +10,6 @@ if [[ ${PV} = 9999 ]]; then
 	EGIT_REPO_URI="https://code.pinguin.lu/diffusion/XMOUNT/xmount.git"
 	EGIT_BOOTSTRAP=""
 fi
-CMAKE_BUILD_TYPE=Release
 
 inherit cmake-utils ${SCM} multilib
 
@@ -37,9 +36,13 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	sed -i -e "s#lib/xmount#$(get_libdir)/xmount#g" $(find -name CMakeLists.txt) || die
 }
-
+#/xmount/src/CMakeLists.txt
+#cmake -DCMAKE_BUILD_TYPE=Release ..
+#ake
+#make install
 src_configure() {
 	local mycmakeargs=(
+		CMAKE_BUILD_TYPE=Release
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibAFF=$(usex !aff)
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibEWF=$(usex !ewf)
 	)
