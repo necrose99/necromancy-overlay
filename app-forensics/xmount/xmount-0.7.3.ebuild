@@ -3,11 +3,12 @@
 # $Id$
 
 EAPI=5
-inherit cmake-utils git-3 multilib
+inherit cmake-utils git-r3 multilib
 DESCRIPTION="Convert on-the-fly between multiple input and output harddisk image types"
 HOMEPAGE="https://www.pinguin.lu/xmount"
-## https://code.pinguin.lu/diffusion/XMOUNT/browse/master/trunk/CMakeLists.txt
+
 if [[ ${PV} = 9999 ]]; then
+	SCM=git-r3
 	EGIT_REPO_URI="https://code.pinguin.lu/diffusion/XMOUNT/xmount.git"
 	EGIT_BOOTSTRAP=""
 	KEYWORDS=""
@@ -26,27 +27,38 @@ RDEPEND="sys-fs/fuse
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
-#src_configure() {
-#	use aff || export ac_cv_lib_afflib_af_open=no
-#	use ewf || export ac_cv_lib_ewf_libewf_open=no
-#	econf
-#}
+S=${WORKDIR}/${PV}
 
-#----------------- Need to Addapt to Xmount and replace above when time permits. upstream switched to cmake build. 
-#cmake -DCMAKE_INSTALL_PREFIX=/usr/bin -DCMAKE_BUILD_TYPE=Release .. PREFIX ?= /usr
-#$ make
- # $ sudo make install
- # make
+src_unpack() {
+	if [[ ${PV} != *9999 ]]; then
+		default
+	else
+		unpack ${MY_P}.tar.bz2
+
+		fi
+}
+
 src_configure() {
     local mycmakeargs=(
     	PREFIX ?= /usr/bin
         $(cmake-utils_use_build bindist  REDIST_PACKAGE)
         use aff || export cmake-utils_use_want afflib afflib
         use ewf || export cmake-utils_use_want libewf libewf
-	cmake-utils_src_configure
+	cmake-utils_src_configure  -DCMAKE_BUILD_TYPE=Release
+	econf
 }
 
+#mkdir build
+#cd build
+#cmake -DCMAKE_BUILD_TYPE=Release ..
+#make
+#make install
+#/xmount-0.7.3/src/CMakeLists.txt
+
 src_install() {
+	mkdir ${MY_P}/build
+	cd ${MY_P}/build
+	cmake-utils_src_make
 	cmake-utils_src_install
 	# install a default configuration file
 	dodoc README CHANGELOG VERSION
