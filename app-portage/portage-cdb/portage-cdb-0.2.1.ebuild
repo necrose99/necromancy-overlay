@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 DESCRIPTION="increase portage's speed after syncing, and for calculating dependencies. This method uses a database, rather than a bunch of flat files to store its metadata."
 HOMEPAGE="http://gentoo-wiki.com/TIP_speed_up_portage_with_cdb"

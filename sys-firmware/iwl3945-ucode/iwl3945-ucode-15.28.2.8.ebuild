@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/iwl3945-ucode/iwl3945-ucode-15.28.2.8.ebuild,v 1.2 2012/10/03 19:32:54 vapier Exp $
+# $Id$
 
 MY_P="iwlwifi-3945-ucode-${PV}"
 

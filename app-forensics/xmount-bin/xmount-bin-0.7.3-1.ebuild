@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: blshkv $ Necrose99 Since upstream Switched to CMake this is a quick and hasty hack. till I get Source to build.
+# $Id$
 
 EAPI=5
 inherit  eutils unpacker  flag-o-matic

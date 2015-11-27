@@ -1,7 +1,7 @@
-# Copyright open-overlay 2015 by Alex
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI="5"
-K_NOUSENAME="yes"
 K_NOSETEXTRAVERSION="yes"
 K_SECURITY_UNSUPPORTED="1"
 K_DEBLOB_AVAILABLE="0"
@@ -22,6 +22,3 @@ src_unpack() {
         unpack reiser4-for-${PV}.patch.gz
         kernel-2_src_unpack
 }
-
-
-

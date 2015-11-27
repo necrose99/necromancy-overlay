@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v3
-# $Header: $
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI="4"
 
@@ -34,4 +34,3 @@ src_install() {
 
 	python setup.py install --root=${D} || die "Install failed"
 }
-

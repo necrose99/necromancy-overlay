@@ -1,6 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 inherit lua
 
@@ -62,4 +62,3 @@ src_install() {
 		dosym rex_onig.so.${PV%.*} $(lua_get_libdir)/rex_onig.so || die "dosym failed"
 	fi
 }
-

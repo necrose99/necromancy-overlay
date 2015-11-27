@@ -1,6 +1,6 @@
-# Copyright open-overlay 2015 by Alex
-
-EAPI=5
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 
 MOZ_HTTP_URI="http://archive.mozilla.org/pub/firefox/nightly/2015/11/2015-11-12-00-40-57-mozilla-aurora"
@@ -89,4 +89,3 @@ src_install() {
 	EOF
 	fperms 0755 /usr/bin/${PN}
 }
-

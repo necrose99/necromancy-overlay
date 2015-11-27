@@ -1,6 +1,6 @@
-# ChangeLog for dev-util/cmake
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/cmake/ChangeLog,v 1.300 2014/09/26 21:07:08 mattst88 Exp $
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
   26 Sep 2014; Matt Turner <mattst88@gentoo.org> cmake-2.8.12.2-r1.ebuild:
   alpha stable, bug 517016.

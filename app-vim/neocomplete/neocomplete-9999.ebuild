@@ -1,6 +1,6 @@
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-
-EAPI=4
+# $Id$
 
 VIM_PLUGIN_VIM_VERSION="7.0"
 inherit vim-plugin git-2
@@ -25,4 +25,3 @@ VIM_PLUGIN_HELPFILES=""
 VIM_PLUGIN_HELPTEXT=""
 VIM_PLUGIN_HELPURI=""
 VIM_PLUGIN_MESSAGES=""
-

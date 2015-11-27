@@ -1,7 +1,7 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/libosip/libosip-4.0.0.ebuild,v 1.4 2013/08/18 13:25:30 ago Exp $
-# git-r3_fetch inherit git-3 old asembla repo is dust atm. 
+# $Id$
+
 ## Michael R LAwrencce mike@michaellawrenceit.com (Necrose99)  this is a templative ebuild,  I will need requirements to finish working.
 EAPI="5"
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit gnome2-utils eutils rpm
@@ -36,4 +36,3 @@ src_install() {
 
 pkg_postinst() { gtk-update-icon-cache; }
 pkg_postrm() { gtk-update-icon-cache; }
-

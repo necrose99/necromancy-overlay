@@ -1,7 +1,7 @@
-*visual-paradigm-for-uml-10.0.1.20130202 (15 Feb 2013)
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-  15 Feb 2013; Diego E. Pettenò <flameeyes@gentoo.org>
-  +visual-paradigm-for-uml-10.0.1.20130202.ebuild,
   -visual-paradigm-for-uml-10.0.1.20121204.ebuild:
   Version bump; get the file from the archive since this is the old version.
 

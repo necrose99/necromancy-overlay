@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ffmpeg-1.2.12.ebuild,v 1.3 2015/03/05 14:00:41 aballier Exp $
+# $Id$
 
 EAPI="4"
 
@@ -324,4 +324,3 @@ multilib_src_install() {
 	rm "${D}"/usr/lib*/{libavcodec.so,libavformat.so,libavutil.so}
 	rm "${D}"/usr/lib*/{libavdevice.*,libavfilter.*,libpostproc.*,libswresample.*,libavresample.*,libswscale.so}
 }
-

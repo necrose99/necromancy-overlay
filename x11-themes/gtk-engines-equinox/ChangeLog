@@ -1,6 +1,6 @@
-# ChangeLog for x11-themes/gtk-engines-equinox
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 *gtk-engines-equinox-1.50-r1 (17 Nov 2012)
 
@@ -26,4 +26,3 @@
   Added (optional) dependency on x11-themes/faenza-icon-theme
 
   Some repoman-dictated fixes
-

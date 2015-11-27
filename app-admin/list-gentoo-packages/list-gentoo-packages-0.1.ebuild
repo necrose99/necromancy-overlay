@@ -1,7 +1,7 @@
-﻿# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $ # necrose99 and yes this is so blasted handy for support issues. 
-# http://nikita.melnichenko.name/blog.php?id=13&topic=gentoo-list-installed-packages-with-use-flags was inspired by.
+# $Id$
+
 EAPI=5
 
 inherit eutils

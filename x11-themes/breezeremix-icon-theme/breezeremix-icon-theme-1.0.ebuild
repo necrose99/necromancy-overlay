@@ -1,7 +1,7 @@
-# Copyright open-overlay 2015 by Alex
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=5
-DESCRIPTION="Mix of Breeze and FaenzaFlattr icon themes."
 HOMEPAGE="http://kde-look.org"
 SRC_URI="https://github.com/manson9/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
 

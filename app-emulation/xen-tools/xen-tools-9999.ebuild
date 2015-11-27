@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen-tools/xen-tools-9999.ebuild,v 1.7 2011/10/23 10:49:29 patrick Exp $
+# $Id$
 
 EAPI=5
 

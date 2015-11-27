@@ -1,7 +1,7 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI="3"
 inherit distutils
 
 DESCRIPTION="Integrated Development Environment for Gentoo Linux ebuilds"
@@ -29,4 +29,3 @@ src_install() {
 	cd docs
 	dodoc TODO ChangeLog README COPYING CREDITS
 }
-

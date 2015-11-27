@@ -1,6 +1,6 @@
-# Copyright open-overlay 2015 by Alex
-
-EAPI=5
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 # no support for python3_2 or above yet wrt #471326
 PYTHON_COMPAT=( python2_7 )

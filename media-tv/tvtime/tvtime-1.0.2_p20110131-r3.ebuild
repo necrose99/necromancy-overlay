@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-tv/tvtime/tvtime-1.0.2_p20110131-r3.ebuild,v 1.5 2012/05/02 21:32:37 jdhore Exp $
+# $Id$
 
 EAPI=4
 inherit eutils autotools

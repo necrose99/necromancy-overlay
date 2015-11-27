@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit eutils git-r3
@@ -21,4 +21,3 @@ DEPEND="dev-lang/python:3.4
 	dev-python/pygtksourceview
 	sys-devel/automake:1.15"
 RDEPEND="${DEPEND}"
-

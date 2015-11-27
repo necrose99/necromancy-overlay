@@ -1,6 +1,6 @@
-# Copyright open-overlay 2015 by Alex
-
-EAPI=5
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 inherit eutils versionator
 MY_PN=${PN/-professional/} 
@@ -42,6 +42,3 @@ fperms a+x /opt/${PN}/bin/{pycharm.sh,fsnotifier{,64},inspect.sh}
 	newicon "bin/${MY_PN}.png" ${PN}.png
 	make_desktop_entry ${PN} "${PN}" "${PN}"	
 }
-
-
-

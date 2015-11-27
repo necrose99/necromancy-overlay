@@ -1,7 +1,7 @@
-# Copyright open-overlay 2015 by Alex
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=5
-CHROMIUM_LANGS="
 	am ar bg bn ca cs da de el en_GB en_US es_419 es et fa fil fi fr gu he hi
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt_BR pt_PT ro ru sk sl sr sv
 	sw ta te th tr uk vi zh_CN zh_TW

@@ -1,7 +1,7 @@
-*pdf2htmlEX-0.11 (21 Jan 2014)
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-  21 Jan 2014; Manuel Rüger <mrueg@gentoo.org> +pdf2htmlEX-0.11.ebuild,
-  -pdf2htmlEX-0.8.1.ebuild:
   [app-text/pdf2htmlEX] Version bump.
 
 *pdf2htmlEX-0.8.1 (14 May 2013)

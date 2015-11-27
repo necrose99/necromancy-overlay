@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=4
 inherit cmake-utils git-2
@@ -19,6 +19,3 @@ DEPEND=">=dev-libs/boost-1.49[threads,static-libs]
 		dev-libs/openssl 
 		media-libs/libsdl"
 RDEPEND="${DEPEND}"
-
-
-

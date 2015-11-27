@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/seabios/seabios-1.7.0.ebuild,v 1.5 2012/10/17 03:39:28 cardoe Exp $
+# $Id$
 
 EAPI=4
 

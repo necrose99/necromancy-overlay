@@ -1,6 +1,6 @@
-# ChangeLog for app-i18n/man-pages-zh_CN
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
   01 Sep 2013; Tom Li <biergaizi2009@gmail.com> man-pages-zh_CN-9999.ebuild:
   Switch to new GitHub manpages-zh Project.

@@ -1,6 +1,6 @@
-EAPI="5"
-
-inherit eutils systemd vcs-snapshot
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 DESCRIPTION="Symlinks and syncs user specified dirs to RAM thus reducing HDD/SDD calls and speeding-up the system"
 HOMEPAGE="https://wiki.archlinux.org/index.php/Anything-sync-daemon"

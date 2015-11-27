@@ -1,6 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 inherit git-2 eutils
 
@@ -44,4 +44,3 @@ pkg_postinst() {
         elog
         elog "rc-update add cloudprint default"
 }
-

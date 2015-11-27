@@ -1,6 +1,6 @@
-EAPI="4"
-PYTHON_DEPEND="2:2.7"
-
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 inherit eutils fdo-mime gnome2-utils python distutils
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 DESCRIPTION="Conducts Internet measurement tasks to large numbers of IPv4 and IPv6 addresses, in parallel, to fill a specified packets-per-second rate."
 HOMEPAGE="http://www.caida.org/tools/measurement/scamper/"

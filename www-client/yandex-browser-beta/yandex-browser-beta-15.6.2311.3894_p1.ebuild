@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $
+# $Id$
 
 EAPI="5"
 CHROMIUM_LANGS="cs de en_US es fr it ja kk pt_BR pt_PT ru tr uk zh_CN zh_TW"
@@ -104,4 +104,3 @@ pkg_postinst() {
 pkg_postrm() {
         gnome2_icon_cache_update
 }
-

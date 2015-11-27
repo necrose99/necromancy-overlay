@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-i18n/fcitx/fcitx-4.2.8.5.ebuild,v 1.1 2014/11/02 07:36:01 yngwin Exp $
+# $Id$
 
 EAPI=5
 

@@ -1,7 +1,7 @@
-# Copyright open-overlay 2015 by Alex
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=5
-inherit eutils autotools mono gnome2-utils fdo-mime versionator gnome.org
 
 DESCRIPTION="Import, organize, play, and share your music using a simple and powerful interface"
 HOMEPAGE="http://banshee.fm/"

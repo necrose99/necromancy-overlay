@@ -1,6 +1,6 @@
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-
-EAPI=4
+# $Id$
 
 DESCRIPTION="mruby is the lightweight implementation of the Ruby language complying to (part of) the ISO standard."
 HOMEPAGE="https://github.com/mruby/mruby"

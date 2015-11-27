@@ -1,6 +1,6 @@
-#Copyright open-overlay 2015 by Alex
-
-EAPI=5
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 inherit git-2
 DESCRIPTION="Mint Mate Display Manager Themes"

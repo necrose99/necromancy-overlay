@@ -1,6 +1,6 @@
-# Copyright open-overlay 2015 by Alex
-EAPI=5
-inherit eutils 
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 DESCRIPTION="Genymotion Emulator"
 HOMEPAGE="http://genymotion.com"

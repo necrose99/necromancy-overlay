@@ -1,7 +1,7 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=2
 inherit eutils versionator
 
 # NetworkManager likes itself with capital letters

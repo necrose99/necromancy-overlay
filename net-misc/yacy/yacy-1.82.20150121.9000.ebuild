@@ -1,6 +1,6 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-EAPI=5
+# $Id$
 
 inherit eutils versionator user
 
@@ -44,4 +44,3 @@ pkg_postinst() {
 	einfo "yacy.logging will write logfiles into /var/log/yacy/"
 	einfo "To setup YaCy, open http://localhost:8090 in your browser."
 }
-

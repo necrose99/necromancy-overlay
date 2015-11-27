@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-mysql/jdbc-mysql-5.1.26.ebuild,v 1.1 2013/09/14 13:38:22 tomwij Exp $
+# $Id$
 
 EAPI="5"
 

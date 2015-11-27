@@ -1,6 +1,6 @@
-# Copyright open-overlay 2015 by Alex
-
-EAPI=5
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 PLOCALES=" \
 	af am ar ast be ber bg bn bs ca ckb csb cs cy da de el en_AU en_CA \

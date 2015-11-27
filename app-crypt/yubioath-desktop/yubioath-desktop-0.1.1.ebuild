@@ -1,7 +1,7 @@
-EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-DESCRIPTION="Library and tool for personalization of Yubico's YubiKey NEO"
 SRC_URI="http://opensource.yubico.com/yubioath-desktop/releases/${P}.tar.gz"
 HOMEPAGE="http://opensource.yubico.com/yubioath-desktop"
 

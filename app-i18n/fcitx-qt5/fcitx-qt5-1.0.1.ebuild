@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit cmake-utils
@@ -21,4 +21,3 @@ RDEPEND=">=app-i18n/fcitx-4.2.8[dbus]
 	dev-qt/qtgui:5=
 	dev-qt/qtwidgets:5="
 DEPEND="${RDEPEND}"
-

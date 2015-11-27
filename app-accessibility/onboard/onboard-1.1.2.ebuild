@@ -1,5 +1,5 @@
-# Copyright 2014-2015 Igor Savlook <agentsmith.hengsha.city@gmail.com>, 2015 Brenton Horne <brentonhorne77@gmail.com>
-# Distributed under the terms of the GNU General Public License v3
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI="5"

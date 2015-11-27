@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/iwl5000-ucode/iwl5000-ucode-8.83.5.1-r1.ebuild,v 1.4 2012/12/25 04:06:27 jdhore Exp $
+# $Id$
 
 EAPI=5
 inherit linux-info

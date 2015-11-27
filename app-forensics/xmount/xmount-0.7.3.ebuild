@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: blshkv $ Necrose99 for a Quick stab at tinkering on new version test $ 
+# $Id$
 
 EAPI=5
 inherit cmake-utils git-3 multilib

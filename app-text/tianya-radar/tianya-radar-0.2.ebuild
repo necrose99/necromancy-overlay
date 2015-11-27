@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -20,4 +20,3 @@ DEPEND=">=dev-qt/qtwidgets-5.4:5
   dev-libs/boost[context,threads]"
 
 RDEPEND="${DEPEND}"
-

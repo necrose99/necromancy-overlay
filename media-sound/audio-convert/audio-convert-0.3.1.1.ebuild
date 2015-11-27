@@ -1,6 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 DESCRIPTION="Convert wav, ogg, mp3, mpc, flac, ape, aac or wma files into wav, ogg, mp3, mpc, flac, ape or aac files"
 HOMEPAGE="https://savannah.nongnu.org/projects/audio-convert"

@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 # This ebuild come from sunrise repository. Zugaina.org only host a copy.
 # For more info go to http://gentoo.zugaina.org/

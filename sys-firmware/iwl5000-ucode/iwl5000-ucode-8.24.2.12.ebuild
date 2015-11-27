@@ -1,6 +1,6 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/iwl5000-ucode/iwl5000-ucode-8.24.2.12.ebuild,v 1.2 2012/10/03 19:33:31 vapier Exp $
+# $Id$
 
 MY_PN="iwlwifi-5000-ucode"
 MY_PV="${PV/0/A}"

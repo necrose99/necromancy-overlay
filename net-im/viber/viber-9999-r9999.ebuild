@@ -1,6 +1,6 @@
-# Copyright open-overlay 2015 by Alex
-
-EAPI="5"
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 inherit eutils
 DESCRIPTION="Free calls, text and picture sharing with anyone, anywhere!"
@@ -23,4 +23,3 @@ src_install(){
 	doins -r opt usr
 	fperms 755 /opt/viber/Viber
 }
-

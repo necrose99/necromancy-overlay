@@ -1,7 +1,7 @@
-# Copyleft Calculate Linux 2007 - 2011
-# Автор: Росен Александров - sandikata@yandex.ru - roko@jabber.calculate-linux.org - Freenode - ROKO__
-# $Header: $
-EAPI=3
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
 inherit eutils subversion
 DESCRIPTION="A full featured system information script"
 HOMEPAGE="http://code.google.com/p/inxi/"

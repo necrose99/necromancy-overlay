@@ -1,6 +1,6 @@
-# Copyright open-overlay 2015 by Alex
-
-EAPI=5
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 PYTHON_COMPAT=( python2_7 )
 inherit eutils fdo-mime flag-o-matic java-pkg-opt-2 linux-info multilib pax-utils python-single-r1 qt4-r2 toolchain-funcs udev

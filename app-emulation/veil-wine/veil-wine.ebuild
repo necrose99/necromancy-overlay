@@ -1,7 +1,7 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $necrose99 exp veil wine setup metapackage, 
-EAPI="5"
+# $Id$
+
 
 # inherit versionator
 
@@ -70,4 +70,3 @@ pkg_postinst() {
   elog "rember veil should be used for pentesting, or Security Research"
   ewarn "Pentest for good of Information Security , -Should you be a fool to abuse this- the Police/athorities wont have a sence of humor "
 }
-

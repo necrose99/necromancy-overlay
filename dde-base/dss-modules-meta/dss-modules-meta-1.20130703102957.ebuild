@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=4
 
@@ -33,4 +33,3 @@ RDEPEND="=dde-base/deepin-system-settings-1.20130703102957
 		=dde-base/dss-module-touchpad-1.20130703102957
 		=dde-base/dss-module-mount-media-1.20130703102957
 		=dde-base/dss-module-tray-power-1.20130703102957"
-

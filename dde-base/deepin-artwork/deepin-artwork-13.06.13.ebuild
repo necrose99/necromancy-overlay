@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=4
 
@@ -31,4 +31,3 @@ src_install() {
 pkg_preinst() { gnome2_icon_savelist; }
 pkg_postinst() { gnome2_icon_cache_update; }
 pkg_postrm() { gnome2_icon_cache_update; }
-

@@ -1,6 +1,6 @@
-# ChangeLog for sys-firmware/ivtv-firmware
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/ivtv-firmware/ChangeLog,v 1.4 2013/02/11 20:13:25 ssuominen Exp $
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 *ivtv-firmware-20080701-r1 (11 Feb 2013)
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-firmware/ivtv-firmware/ivtv-firmware-20080701.ebuild,v 1.3 2013/02/11 04:55:40 cardoe Exp $
+# $Id$
 
 DESCRIPTION="firmware for Hauppauge PVR-x50 and Conexant 2341x based cards"
 HOMEPAGE="http://www.ivtvdriver.org/index.php/Firmware"
