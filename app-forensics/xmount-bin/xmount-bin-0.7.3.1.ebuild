@@ -31,7 +31,8 @@ RDEPEND="sys-fs/fuse
 	ewf? ( app-forensics/libewf )"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
-	!!app-forensics/xmount"
+	!!app-forensics/xmount
+	app-arch/dpkg"
 
 
 	src_unpack() {
