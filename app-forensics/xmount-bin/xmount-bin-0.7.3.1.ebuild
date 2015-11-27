@@ -33,10 +33,10 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	!!app-forensics/xmount"
 
-src_unpack() {
-  unpacker_src_unpack
-	mkdir -p "${S}"
-	mv "${WORKDIR}/usr" "${S}"
+
+	src_unpack() {
+	unpack_deb ${A}
+	
 	}
 
 src_install() {
