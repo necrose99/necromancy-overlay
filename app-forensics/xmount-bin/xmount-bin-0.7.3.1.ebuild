@@ -38,7 +38,7 @@ QA_PREBUILT="*"
 S=${WORKDIR}
 
 src_unpack() {
-        unpack_deb xmount-${PV}_$(usex amd64 "amd64" "i386").deb ${A}
+        unpack_deb xmount-${PV}.deb ${A}
 }
 src_install() {
 	into /
