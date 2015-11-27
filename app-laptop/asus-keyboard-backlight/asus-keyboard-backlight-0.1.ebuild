@@ -7,8 +7,7 @@ EAPI=5
 DESCRIPTION="Configure the brightness of the keyboard's backlight on ASUS
 laptops."
 HOMEPAGE="http://projects.flogisoft.com/asus-keyboard-backlight/"
-SRC_URI="http://projects.flogisoft.com/${PN}/download/${PN}_${PV}_src.tar.gz
-https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/app-laptop/asus-keyboard-backlight/Files/asus-kbd-backlight.service"
+SRC_URI="http://projects.flogisoft.com/${PN}/download/${PN}_${PV}_src.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -45,15 +44,25 @@ src_install(){
 	echo 1 > "$D"/var/lib/asus-kbd-backlight/brightness
 }
 if USE="systemd?"
-	inherit systemd
-	pkg_postinst
+inherit systemd
+	pkg_service
 	else
 	fi
 }
 ## ADD In Systemd Gentoo Devs Say its better to Install them all.
-pkg_postinst() {
-	systemd_enable_service
-systemd_install_serviced ${s}/asus-kbd-backlight.service /usr/lib/systemd/system/asus-kbd-backlight.service
+pkg_service() {
+		cat <<-'EOF' > /usr/lib/systemd/system/asus-kbd-backlight.service
+		[Unit]
+		Description=Allow user access to keyboard backlight
+		After=systemd-udevd.service
+		
+		[Service]
+		ExecStart=/usr/bin/asus-kbd-backlight allowusers
+		
+		[Install]
+		WantedBy=multi-user.target
+	EOF
+#systemd_dounit /usr/lib/systemd/system/asus-kbd-backlight.service
 systemd_enable_service /usr/lib/systemd/system/asus-kbd-backlight.service 
 
 }
