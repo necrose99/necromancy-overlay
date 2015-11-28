@@ -12,7 +12,7 @@ https://launchpad.net/${PN}/trunk/0.1/+download/${PN}_${PV}_0.1_src.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~*"
 IUSE="-sys-apps/systemd"
 
 RDEPEND="${DEPEND}
