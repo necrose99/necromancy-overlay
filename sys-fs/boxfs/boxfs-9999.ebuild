@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
-${D}=${WORKDIR}/${P}
+D=${WORKDIR}/${P}
 src_unpack() {
 git-r3_src_unpack
 }
