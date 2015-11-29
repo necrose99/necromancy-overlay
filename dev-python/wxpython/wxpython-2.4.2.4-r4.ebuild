@@ -23,8 +23,8 @@ RDEPEND=">=dev-lang/python-2.1
 	unicode? ( >=x11-libs/gtk+-2.0
 		>=x11-libs/pango-1.2
 		>=dev-libs/glib-2.0 )
-	!gtk2? ( =x11-libs/gtk+-1.2*
-		=dev-libs/glib-1.2* )
+	!gtk2? ( >=x11-libs/gtk+-1.2*
+		>=dev-libs/glib-1.2* )
 	png? ( media-libs/libpng )
 	jpeg? ( media-libs/jpeg )
 	tiff? ( media-libs/tiff )
