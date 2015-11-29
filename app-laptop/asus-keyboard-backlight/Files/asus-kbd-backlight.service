@@ -1,12 +1,12 @@
 [Unit]
-Description=Asus Keyboard Backlight
-Wants=systemd-backlight@leds:asus::kbd_backlight.service
+Description=Allow user access to keyboard backlight
 After=systemd-udevd.service
+
 [Service]
 Type=oneshot
-
 RemainAfterExit=yes
-ExecStart=/bin/chmod 666 /sys/class/leds/asus::kbd_backlight/brightness
 ExecStart=/usr/bin/asus-kbd-backlight allowusers
+ExecStop=/usr/bin/asus-kbd-backlight disallowusers
+
 [Install]
 WantedBy=multi-user.target
