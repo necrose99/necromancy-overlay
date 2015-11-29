@@ -3,52 +3,34 @@
 # $Id$
 
 EAPI=5
-SCM=
-
+inherit eutils cmake-utils 
 if [[ ${PV} = 9999 ]]; then
 	SCM=git-r3
 	EGIT_REPO_URI="https://code.pinguin.lu/diffusion/XMOUNT/xmount.git"
 	EGIT_BOOTSTRAP=""
+else
+	SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/xmount_${PV}.orig.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
-
-inherit cmake-utils ${SCM} multilib
 
 DESCRIPTION="Convert on-the-fly between multiple input and output harddisk image types"
 HOMEPAGE="https://www.pinguin.lu/xmount"
 
-if [[ ${PV} = 9999 ]]; then
-	KEYWORDS=""
-else
-	SRC_URI="http://files.pinguin.lu/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
-
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="+aff +ewf"
+KEYWORDS="~amd64 ~x86 ~arm ~arm64 ~powerpc ~ppc64el"
+
 
 RDEPEND="sys-fs/fuse
 	aff? ( app-forensics/afflib )
 	ewf? ( app-forensics/libewf )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
-src_prepare() {
-	sed -i -e "s#lib/xmount#$(get_libdir)/xmount#g" $(find -name CMakeLists.txt) || die
-}
-#/xmount/src/CMakeLists.txt
-#cmake -DCMAKE_BUILD_TYPE=Release ..
-#ake
-#make install
+#prepare: we might need files/cmake_c_flags patch on hardened
+
 src_configure() {
-	local mycmakeargs=(
-		CMAKE_BUILD_TYPE=Release
-		-DCMAKE_DISABLE_FIND_PACKAGE_LibAFF=$(usex !aff)
-		-DCMAKE_DISABLE_FIND_PACKAGE_LibEWF=$(usex !ewf)
-	)
-
+	CMAKE_BUILD_TYPE=Release
 	cmake-utils_src_configure
 }
-src_install() {
- cmake-utils_src_install
- }
