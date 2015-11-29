@@ -25,6 +25,11 @@ RDEPEND="sys-fs/fuse
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
+EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
+${D}=${WORKDIR}/${P}
+src_unpack() {
+git-r3_src_unpack
+}
 src_install() {
 	dodir /usr/bin
 	emake PREFIX="${D}usr" install
