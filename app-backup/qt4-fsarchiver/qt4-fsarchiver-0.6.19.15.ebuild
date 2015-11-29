@@ -49,7 +49,7 @@ sed -i -e '/Encoding/d' starter/*.desktop || die "sed on qt4-fsarchiver.desktop 
 	|| die "sed on ${PN}.pro failed"
 }	
 src_configure() {
-	eqmake
+	eqmake4
 }
 src_install() {
 	emake INSTALL_ROOT="${D}" install
