@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit qt4-r2 eutils versionator qmake-utils qt4-build #qt5-build unknow test case,
+inherit qt4-r2 eutils versionator  #qt5-build unknow test case,
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 MIN_PV="$(get_version_component_range 1-3)"
