@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}
 	systemd? ( sys-apps/systemd )"
 
 S="${WORKDIR}/asus-kbd-backlight-${PV}"
-
+# write for systemD or other init Support , changed to Add Symlinks if using openrc,etc. ie be init neutral. 
 src_install(){
 	#Install
 	#$1 : the output path, if different of /
@@ -29,16 +29,19 @@ src_install(){
 	dodir /etc/acpi/events/
 	cp -v ./events/* "$D"/etc/acpi/events/
 	#ACPI script
-	cp -v ./code/asus-kbd-backlight.py "$D"/etc/acpi/
-	chmod 755 "$D"/etc/acpi/asus-kbd-backlight.py
+	cp -v ./code/asus-kbd-backlight.py "$D"/usr/bin/asus-kbd-backlight.py
+	dosym /usr/bin/asus-kbd-backlight.py "$D"/etc/acpi/asus-kbd-backlight.py
+	chmod 755 "$D"/usr/bin/asus-kbd-backlight.py
 	#Resume script
 	dodir /etc/pm/sleep.d/
-	cp -v ./code/asus-kbd-backlight_resume.sh "$D"/etc/pm/sleep.d/80_asus-kbd-backlight
-	chmod 755 "$D"/etc/pm/sleep.d/80_asus-kbd-backlight
+	cp -v ./code/asus-kbd-backlight_resume.sh "$D"/usr/bin/asus-kbd-backlight_resume
+	dosym /usr/bin/asus-kbd-backlight_resume /etc/pm/sleep.d/80_asus-kbd-backlight
+	chmod 755 "$D"/usr/bin/asus-kbd-backlight_resume
 	#Init script
 	dodir	/etc/init.d/
-	cp -v ./code/asus-kbd-backlight_init.sh  "$D"/etc/init.d/asus-kbd-backlight
-	chmod 755 "$D"/etc/init.d/asus-kbd-backlight
+	cp -v ./code/asus-kbd-backlight_init.sh  "$D"/usr/bin/asus-kbd-backlight
+	dosym /usr/bin/asus-kbd-backlight /etc/init.d/asus-kbd-backlight
+	chmod 755 "$D"/usr/bin/asus-kbd-backlight
 
 	#Bak
 	dodir /var/lib/asus-kbd-backlight/
@@ -48,8 +51,7 @@ src_install(){
 pkg_service() {
 	if USE="systemd?"
 inherit systemd
-	else
-	fi
+		# write the systemd unit file
 		cat <<-'EOF' > /usr/lib/systemd/system/asus-kbd-backlight.service
 		[Unit]
 		Description=Allow user access to keyboard backlight
@@ -59,9 +61,11 @@ inherit systemd
 		ExecStart=/usr/bin/asus-kbd-backlight allowusers
 		
 		[Install]
-		WantedBy=multi-user.target
-	EOF
-#systemd_dounit /usr/lib/systemd/system/asus-kbd-backlight.service
-systemd_enable_service /usr/lib/systemd/system/asus-kbd-backlight.service 
+		WantedBy=multi-user.target 
+		EOF
 
+dosym   /usr/lib/systemd/system/asus-kbd-backlight.service /etc/systemd/system/asus-kbd-backlight.service
+systemd_enable_service /usr/lib/systemd/system/asus-kbd-backlight.service 
+	else
+	fi
 }
