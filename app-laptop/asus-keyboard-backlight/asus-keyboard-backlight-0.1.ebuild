@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}
 	systemd? ( sys-apps/systemd )"
 
 S="${WORKDIR}/asus-kbd-backlight-${PV}"
-# write for systemD or other init Support , changed to Add Symlinks if using openrc,etc. ie be init neutral. 
+# write for systemD or other init Support , changed to bin path & Add Symlinks if using openrc,etc. better to be init neutral. 
 src_install(){
 	#Install
 	#$1 : the output path, if different of /
@@ -46,8 +46,9 @@ src_install(){
 	#Bak
 	dodir /var/lib/asus-kbd-backlight/
 	echo 1 > "$D"/var/lib/asus-kbd-backlight/brightness
-
+}
 ## ADD In Systemd Gentoo Devs Say its better to Install them all.
+# write for systemD use= if not using SystemD or going to Migrate to it no point in adding extra crap if user dont want it.
 pkg_service() {
 	if USE="systemd?"
 inherit systemd
