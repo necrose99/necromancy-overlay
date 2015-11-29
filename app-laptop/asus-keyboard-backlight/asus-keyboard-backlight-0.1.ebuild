@@ -8,7 +8,8 @@ DESCRIPTION="Configure the brightness of the keyboard's backlight on ASUS
 laptops."
 HOMEPAGE="http://projects.flogisoft.com/asus-keyboard-backlight/"
 SRC_URI="http://projects.flogisoft.com/${PN}/download/${PN}_${PV}_src.tar.gz
-https://launchpad.net/${PN}/trunk/0.1/+download/${PN}_${PV}_0.1_src.tar.gz"
+https://launchpad.net/${PN}/trunk/0.1/+download/${PN}_${PV}_0.1_src.tar.gz
+${FILESDIR}"
 
 LICENSE="GPL-2"
 SLOT="0"
