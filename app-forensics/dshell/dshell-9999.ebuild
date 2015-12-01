@@ -10,9 +10,9 @@ inherit distutils-r1 git-r3 eutils python-single-r1.eclass
 
 USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
 
-	EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
-	EGIT_BRANCH="master"
-	EGIT_CHECKOUT_DIR=${WORKDIR}/${PN}
+EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
+EGIT_BRANCH="master"
+EGIT_CHECKOUT_DIR=${WORKDIR}/${PN}
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
