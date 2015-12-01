@@ -13,6 +13,7 @@ USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted.
 EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
 EGIT_BRANCH="master"
 EGIT_CHECKOUT_DIR=${WORKDIR}/${PN}
+EGIT_SOURCEDIR="${WORKDIR}/${P}
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
