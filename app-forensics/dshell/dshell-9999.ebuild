@@ -20,8 +20,7 @@ SRC_URI=""
 LICENSE="MIT"
 SLOT="0"
 
-DEPEND="dev-lang/python/python-2.*
-	dev-python/pygeoip
+DEPEND="dev-python/pygeoip
 	dev-python/ipy
 	dev-python/dpkt
 	dev-python/pypcap
