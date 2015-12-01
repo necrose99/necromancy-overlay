@@ -23,11 +23,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-lang/python/python-2.*
- dev-python/pygeoip
- dev-python/ipy
- dev-python/dpkt
- dev-python/pypcap
- dev-python/pycrypto"
+	dev-python/pygeoip
+	dev-python/ipy
+	dev-python/dpkt
+	dev-python/pypcap
+	dev-python/pycrypto"
 RDEPEND="${DEPEND}
 	doc? ( dev-python/epydoc[$(python_gen_usedep 'python2*')] )"
 
