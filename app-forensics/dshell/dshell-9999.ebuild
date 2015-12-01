@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python{2_5,2_6,2_7} ) #pypy2_0 ie python 2.x compat to be tested
 
 inherit git-r3 eutils python-single-r1
 
-USE="+onbydefault doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
+USE="+onbydefault +doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
 
 EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
 EGIT_BRANCH="master"
