@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 	doc? ( dev-python/epydoc )" 
 	#doc? ( dev-python/epydoc[$(python_gen_usedep 'python2*')] )" ? error. for now....simplify
 
-src_install() {
+src_prepare() {
 	cd ${S}/work/dshell-9999/
 	make all
 }
