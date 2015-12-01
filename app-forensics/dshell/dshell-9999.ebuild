@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7,2_*} pypy2_0)
+PYTHON_COMPAT=( python{2_5,2_6,2_7,} pypy2_0)
 
 inherit distutils-r1 git-r3 eutils python-single-r1.eclass
 
