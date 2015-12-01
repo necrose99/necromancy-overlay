@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_5,2_6,2_7} ) #pypy2_0 ie python 2.x compat to be tested. >=python-2.x <=python-3.x not yet supported.
 
-inherit git-2 eutils python-single-r1 #git r3 blows
+inherit git-2 eutils  #git r3 blows python-single-r1
 IUSE="+onbydefault +doc"
 USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
 
