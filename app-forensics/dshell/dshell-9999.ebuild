@@ -31,6 +31,5 @@ RDEPEND="${DEPEND}
 src_install() {
 	cd ${S}/work/dshell-9999/
 	make all
-	#emake ${S}/work/dshell-9999/Makefile
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
