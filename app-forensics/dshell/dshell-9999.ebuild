@@ -17,10 +17,8 @@ EGIT_CHECKOUT_DIR=${WORKDIR}/${PN}
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
 SRC_URI=""
-KEYWORDS="~*" #~amd64 ~x86 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-lang/python/python-2.*
 	dev-python/pygeoip
@@ -38,5 +36,5 @@ git-r3_src_unpack
 }
 src_install() {
 	cd ${WORKDIR}/${PN}/
-	emake make all
+	emake all
 }
