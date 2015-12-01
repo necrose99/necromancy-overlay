@@ -30,6 +30,6 @@ RDEPEND="${DEPEND}
 
 src_install() {
 	cd ${S}
-	emake
+	emake Makefile
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
