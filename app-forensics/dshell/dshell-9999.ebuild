@@ -42,9 +42,10 @@ src_prepare() {
 src_install() {
 #/usr/bin/{$p} emake Makefile all is extra janky....  .dshellrc dshell dshell-decode will set exports to
 # {S} / build /var/tmp.. for the moment i'm not getting emake makefile all , upstream Makefile portage no like.
-# and me nesting sed n x's =just as shity to patch the paths. in bash sh files.
+# and me nesting sed n x's =just as shity to patch the paths. in bash sh files. 
+# until upstream make file is less flaky.. have to do this shit.
 cd /usr/bin/dshell/
-#Makefile cleanup segments. 
+#Makefile cleanup segments. maily py scripts so if user updates best to clean house.
 	rm -fv $(PWD)/dshell
 	rm -fv $(PWD)/dshell-decode
 	rm -fv $(PWD)/.dshellrc
