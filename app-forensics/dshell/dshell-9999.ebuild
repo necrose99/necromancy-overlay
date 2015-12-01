@@ -32,56 +32,50 @@ src_prepare() {
 	cd ${S}/work/dshell-9999/
 	rm -r ${S}/work/dshell-9999/.git && rm -r ${S}/work/dshell-9999/docker
 	rm install-ubuntu.py && rm -r ${S}/work/dshell-9999/share
-	dodir /usr/bin/{$p}
-	dodir /usr/share/doc/{$p}
-	cp "${D}" /usr/bin/{$p}
+	dodir /usr/bin/dshell/
+    cp -R "${S}/" "${D}/" || die "Copy failed"
+	dodir /usr/share/doc/dshell
 
 }
 
-}
-#src_install() {
-#/usr/bin/{$p}
-cd /usr/bin/{$p}
-clean_rc:
+}    
+src_install() {
+#/usr/bin/{$p} emake Makefile all is extra janky....  .dshellrc dshell dshell-decode will set exports to
+#{S}/ build /var/tmp.. for the moment i'm not getting emake makefile all , upstream Makefile portage no like.
+# and me nesting sed n x's =just as shity to patch the paths. in bash sh files.
+cd /usr/bin/dshell/
+#Makefile cleanup segments. 
 	rm -fv $(PWD)/dshell
 	rm -fv $(PWD)/dshell-decode
 	rm -fv $(PWD)/.dshellrc
 	rm -fv $(PWD)/bin/decode 
-
-clean_py:
 	find $(PWD)/decoders -name '__init__.py' -exec rm -v {} \;
-
-clean_pyc:
 	find $(PWD)/decoders -name '*.pyc' -exec rm -v {} \;
 	find $(PWD)/lib -name '*.pyc' -exec rm -v {} \;
-
-clean_pydoc:
 	find $(PWD)/doc -name '*.htm*' -exec rm -v {} \;
-c:
-	# Generating .dshellrc and dshell files 
+
+#Makefile # Generating .dshellrc and dshell files #initpy: #pydoc:
 	python $(PWD)/bin/generate-dshellrc.py $(PWD)
-	chmod 755 $(PWD)/dshell
-	chmod 755 $(PWD)/dshell-decode
-	chmod 755 $(PWD)/bin/decode.py
-	ln -s $(PWD)/bin/decode.py $(PWD)/bin/decode
-
-initpy:
+	dosbin $(PWD)/dshell
+	dosbin $(PWD)/dshell-decode
+	dosbin $(PWD)/bin/decode.py
+	dosym $(PWD)/bin/decode.py $(PWD)/bin/decode
 	find $(PWD)/decoders -type d -not -path \*.svn\* -print -exec touch {}/__init__.py \;
-
-pydoc:
 	(cd $(PWD)/doc && ./generate-doc.sh $(PWD) ) 
 }
-}
-do_syms
+
+do_syms() {
 /usr/share/GeoIP /usr/bin/{$p}/share
 cp -s /usr/bin/{$p}/doc/*.html /usr/share/doc/{$p}
 dosym /usr/bin/{$p}LICENSE.txt /usr/share/doc/{$p}
 dosym /usr/bin/{$p}README.md /usr/share/doc/{$p}
 dosym /usr/bin/{$p}/dshell /usr/bin/
 dosym /usr/bin/{$p}/dshell-decode /usr/bin/
+}
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
 pkg_postinst() {
+	rm /usr/bin/dshell/Makefile
 	elog "Don't forget to run 'geoipupdate.sh -f' (or geoipupdate from"
-	elog "net-misc/geoipupdate) to populate ${ROOT}/usr/share/GeoIP/"
+	elog "net-misc/geoipupdate) or dev-python/pygeoip to populate ${ROOT}/usr/share/GeoIP/"
 	elog "with geo-located IP address databases."
 }
