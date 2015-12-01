@@ -29,6 +29,8 @@ RDEPEND="${DEPEND}
 	#doc? ( dev-python/epydoc[$(python_gen_usedep 'python2*')] )" ? error. for now....simplify
 
 src_install() {
-	emake ${S}/work/dshell-9999/Makefile
+	cd ${S}/work/dshell-9999/
+	make all
+	#emake ${S}/work/dshell-9999/Makefile
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
