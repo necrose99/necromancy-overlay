@@ -36,5 +36,5 @@ git-r3_src_unpack
 }
 src_install() {
 	cd ${WORKDIR}/${PN}/
-	emake all
+	emake
 }
