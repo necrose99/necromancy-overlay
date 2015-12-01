@@ -36,6 +36,8 @@ src_prepare() {
 }
 #src_install() {
 #/usr/bin/{$p}
-#einstalldocs /usr/share/docs/{$p}
+    dodoc LICENSE.txt README.md /usr/share/docs/{$p}
+    dohtml ${S}/work/doc/*.html /usr/share/docs/{$p}
+    /usr/share/docs/{$p}
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
