@@ -26,7 +26,7 @@ DEPEND="dev-python/pygeoip
 	dev-python/pypcap
 	dev-python/pycrypto"
 RDEPEND="${DEPEND}
-	doc? (dev-python/epydoc)" 
+	doc? ( dev-python/epydoc )" 
 	#doc? ( dev-python/epydoc[$(python_gen_usedep 'python2*')] )" ? error. for now....simplify
 
 S="${WORKDIR}/${PN}/"
