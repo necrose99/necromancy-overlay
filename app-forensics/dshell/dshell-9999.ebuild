@@ -11,7 +11,7 @@ IUSE="+onbydefault +doc"
 USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
 
 EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
-EGIT_SOURCEDIR="${WORKDIR}/${P}
+EGIT_SOURCEDIR=${S}
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
@@ -28,10 +28,8 @@ RDEPEND="${DEPEND}
 	doc? ( dev-python/epydoc )" 
 	#doc? ( dev-python/epydoc[$(python_gen_usedep 'python2*')] )" ? error. for now....simplify
 
-S="${WORKDIR}/${PN}/"
-
 src_install() {
-	cd ${WORKDIR}/${PN}/
+	cd ${S}
 	emake
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
