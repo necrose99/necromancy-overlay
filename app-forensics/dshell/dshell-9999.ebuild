@@ -30,6 +30,12 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	cd ${S}/work/dshell-9999/
-	make all
+	emake INSTALL_ROOT="${D}" all
+}
+
+}
+#src_install() {
+#/usr/bin/{$p}
+#einstalldocs /usr/share/docs/{$p}
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
