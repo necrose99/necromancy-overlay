@@ -54,17 +54,7 @@ pkg_service() {
 	if USE="systemd?"
 inherit systemd
 		# write the systemd unit file
-		cat <<-'EOF' > /usr/lib/systemd/system/asus-kbd-backlight.service
-		[Unit]
-		Description=Allow user access to keyboard backlight
-		After=systemd-udevd.service
-		
-		[Service]
-		ExecStart=/usr/bin/asus-kbd-backlight allowusers
-		
-		[Install]
-		WantedBy=multi-user.target 
-		EOF
+doexe   ${FILESDIR}/asus-kbd-backlight.service /usr/lib/systemd/system/asus-kbd-backlight.service
 
 dosym   /usr/lib/systemd/system/asus-kbd-backlight.service /etc/systemd/system/asus-kbd-backlight.service
 systemd_enable_service /usr/lib/systemd/system/asus-kbd-backlight.service 
