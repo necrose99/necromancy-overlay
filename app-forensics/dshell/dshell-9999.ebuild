@@ -11,8 +11,7 @@ IUSE="+onbydefault +doc"
 USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
 
 EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
-EGIT_SOURCEDIR=${S}
-S=${DISTDIR}
+EGIT_SOURCEDIR=${S}/
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
@@ -39,23 +38,25 @@ src_prepare() {
 
 }
 
-}    
+}
 src_install() {
-	src_install() {
-	mkdir "${D}/opt/${P}"
+	mkdir "${ROOT}/opt/dshell"
+
+
+
 #/usr/bin/{$p} emake Makefile all is extra janky....  .dshellrc dshell dshell-decode will set exports to
 # {S} / build /var/tmp.. for the moment i'm not getting emake makefile all , upstream Makefile portage no like.
 # and me nesting sed n x's =just as shity to patch the paths. in bash sh files. 
 # until upstream make file is less flaky.. have to do this shit.
 #Makefile cleanup segments. maily py scripts so if user updates best to clean house.
-	rm -fv $(PWD)/dshell
-	rm -fv $(PWD)/dshell-decode
-	rm -fv $(PWD)/.dshellrc
-	rm -fv $(PWD)/bin/decode 
-	find $(PWD)/decoders -name '__init__.py' -exec rm -v {} \;
-	find $(PWD)/decoders -name '*.pyc' -exec rm -v {} \;
-	find $(PWD)/lib -name '*.pyc' -exec rm -v {} \;
-	find $(PWD)/doc -name '*.htm*' -exec rm -v {} \;
+	rm -fv "${WORKDIR}/${PV}/dshell"
+	rm -fv "${WORKDIR}/${PV}/dshell"
+	rm -fv "${WORKDIR/${PV}/.dshellrc
+	rm -fv "${WORKDIR}/${PV}/bin/decode 
+	find ${WORKDIR}/${PV}/decoders -name '__init__.py' -exec rm -v {} \;
+	find ${WORKDIR}/${PV}/decoders -name '*.pyc' -exec rm -v {} \;
+	find ${WORKDIR}/${PV}/lib -name '*.pyc' -exec rm -v {} \;
+	find ${WORKDIR}/${PV}/doc -name '*.htm*' -exec rm -v {} \;
 
 #Makefile # Generating .dshellrc and dshell files #initpy: #pydoc:
 	python $(PWD)/bin/generate-dshellrc.py $(PWD)
@@ -66,19 +67,23 @@ src_install() {
 	find $(PWD)/decoders -type d -not -path \*.svn\* -print -exec touch {}/__init__.py \;
 	(cd $(PWD)/doc && ./generate-doc.sh $(PWD) ) 
 }
-
+${WORKDIR}/${PV} ${ROOT}/opt/dshell/
 do_syms() {
+	
+mkdir -p "${D}/usr/bin"
+ln -s  
+ln -s 
 /usr/share/GeoIP /usr/bin/{$p}/share
 cp -s /usr/bin/{$p}/doc/*.html /usr/share/doc/{$p}
 dosym /usr/bin/{$p}LICENSE.txt /usr/share/doc/{$p}
 dosym /usr/bin/{$p}README.md /usr/share/doc/{$p}
-dosym /usr/bin/{$p}/dshell /usr/bin/
-dosym /usr/bin/{$p}/dshell-decode /usr/bin/
+dosym "/opt/dshell/dshell" "${D}/usr/bin"
+dosym "/opt/dshell/dshell-decode" "${D}/usr/bin" 
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
 pkg_postinst() {
 	rm /usr/bin/dshell/Makefile
 	elog "Don't forget to run 'geoipupdate.sh -f' (or geoipupdate from"
-	elog "net-misc/geoipupdate) or dev-python/pygeoip to populate ${ROOT}/usr/share/GeoIP/"
+	elog "net-misc/geoipupdate) or dev-python/pygeoip to populate ${ROOT}/opt/dshell/share/GeoIP/"
 	elog "with geo-located IP address databases."
 }
