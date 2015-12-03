@@ -4,15 +4,17 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} ) #pypy2_0 ie python 2.x compat to be tested. >=python-2.x <=python-3.x not yet supported.
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
 
-inherit git-2 eutils  #git r3 blows python-single-r1
+inherit git-2 eutils versionator #git r3 blows python-single-r1
 IUSE="+onbydefault +doc"
 USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted. 
 
 EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
-EGIT_SOURCEDIR=${S}/
-
+EGIT_SOURCEDIR="${WORKDIR}"
+S="${WORKDIR}"
+MY_PN="Dshell" # prune -9999
+MY_P="${MY_PN}"
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
 SRC_URI=""
@@ -25,23 +27,25 @@ DEPEND="dev-python/pygeoip
 	dev-python/pypcap
 	dev-python/pycrypto"
 RDEPEND="${DEPEND}
-	doc? ( dev-python/epydoc )" 
-	#doc? ( dev-python/epydoc[$(python_gen_usedep 'python2*')] )" ? error. for now....simplify
+	doc? ( dev-python/epydoc )
+	>=dev-lang/python-2.*
+	<=dev-lang/python-3.*" #Less than 3.
+
 
 src_prepare() {
-	cd ${S}/work/dshell-9999/
-	rm -r ${S}/work/dshell-9999/.git && rm -r ${S}/work/dshell-9999/docker
+	cd ${S}/dshell/
+	rm -r ${S}/dshell-9999/.git && rm -r ${S}/dshell-9999/docker
 	rm install-ubuntu.py && rm -r ${S}/work/dshell-9999/share
-	dodir /usr/bin/dshell/
-    cp -R "${S}/" "${D}/" || die "Copy failed"
+	dodir "${ROOT}/opt/Dshell"
+    cp -R "${S}/" "/opt/Dshell" || die "Copy failed"
 	dodir /usr/share/doc/dshell
 
 }
 
 }
 src_install() {
+	mkdir "${ROOT}/opt/Dshell"
 	mkdir "${ROOT}/opt/dshell"
-
 
 
 #/usr/bin/{$p} emake Makefile all is extra janky....  .dshellrc dshell dshell-decode will set exports to
@@ -49,15 +53,14 @@ src_install() {
 # and me nesting sed n x's =just as shity to patch the paths. in bash sh files. 
 # until upstream make file is less flaky.. have to do this shit.
 #Makefile cleanup segments. maily py scripts so if user updates best to clean house.
-	rm -fv "${WORKDIR}/${PV}/dshell"
-	rm -fv "${WORKDIR}/${PV}/dshell"
-	rm -fv "${WORKDIR/${PV}/.dshellrc
-	rm -fv "${WORKDIR}/${PV}/bin/decode 
-	find ${WORKDIR}/${PV}/decoders -name '__init__.py' -exec rm -v {} \;
-	find ${WORKDIR}/${PV}/decoders -name '*.pyc' -exec rm -v {} \;
-	find ${WORKDIR}/${PV}/lib -name '*.pyc' -exec rm -v {} \;
-	find ${WORKDIR}/${PV}/doc -name '*.htm*' -exec rm -v {} \;
-
+	rm -fv "${WORKDIR}/${P}/dshell"
+	rm -fv "${WORKDIR}/${P}/dshell"
+	rm -fv "${WORKDIR/${P}/.dshellrc
+	rm -fv "${WORKDIR}/${P}/bin/decode 
+	find ${WORKDIR}/${P}/decoders -name '__init__.py' -exec rm -v {} \;
+	find ${WORKDIR}/${P}/decoders -name '*.pyc' -exec rm -v {} \;
+	find ${WORKDIR}/${P}/lib -name '*.pyc' -exec rm -v {} \;
+	find ${WORKDIR}/${P}/doc -name '*.htm*' -exec rm -v {} \;
 #Makefile # Generating .dshellrc and dshell files #initpy: #pydoc:
 	python $(PWD)/bin/generate-dshellrc.py $(PWD)
 	dosbin $(PWD)/dshell
@@ -67,18 +70,17 @@ src_install() {
 	find $(PWD)/decoders -type d -not -path \*.svn\* -print -exec touch {}/__init__.py \;
 	(cd $(PWD)/doc && ./generate-doc.sh $(PWD) ) 
 }
-${WORKDIR}/${PV} ${ROOT}/opt/dshell/
+${WORKDIR}/${P} ${ROOT}/opt/Dshell/
 do_syms() {
 	
-mkdir -p "${D}/usr/bin"
 ln -s  
 ln -s 
 /usr/share/GeoIP /usr/bin/{$p}/share
-cp -s /usr/bin/{$p}/doc/*.html /usr/share/doc/{$p}
-dosym /usr/bin/{$p}LICENSE.txt /usr/share/doc/{$p}
-dosym /usr/bin/{$p}README.md /usr/share/doc/{$p}
-dosym "/opt/dshell/dshell" "${D}/usr/bin"
-dosym "/opt/dshell/dshell-decode" "${D}/usr/bin" 
+cp -s /opt/Dshell/doc/*.html /usr/share/doc/{$p}
+dosym /opt/DshellLICENSE.txt /usr/share/doc/{$p}
+dosym /opt/DshellREADME.md /usr/share/doc/{$p}
+dosym "/opt/Dshell/dshell" "/usr/bin"
+dosym "/opt/dshell/dshell-decode" "/usr/bin" 
 }
 # havent forked emake into emake a+b then emake docs ondep yet as well, project newish so docs are in short supply. 
 pkg_postinst() {
