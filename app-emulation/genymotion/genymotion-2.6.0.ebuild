@@ -1,55 +1,51 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
-inherit unpacker
-DESCRIPTION="Genymotion Emulator"
-HOMEPAGE="http://genymotion.com"
+# $Header: $
+
+EAPI=5
+inherit eutils
+
+DESCRIPTION="Genymotion is a fast and easy-to-use Android emulator to run and test your Android apps"
+HOMEPAGE="https://www.genymotion.com"
+
+install_filename="
+	amd64? (
+		${P}_x64.bin
+	)
+	x86? (
+		${P}_x86.bin
+	)
+"
 SRC_URI="
-    x86?   ( http://files2.genymotion.com/genymotion/genymotion-2.6.0/genymotion-2.6.0-linux_x86.bin -> genymotion-2.6.0-_x86.deb )
-    AMD64? ( http://files2.genymotion.com/genymotion/genymotion-2.6.0/genymotion-2.6.0-linux_x64.bin -> genymotion-2.6.0-_x86.deb )"
-
-LICENSE="Genymotion"
-SLOT="0"
-KEYWORDS="amd64"
-IUSE="qt4 qt5"
-RDEPEND="|| ( >=app-emulation/virtualbox-4.3.12 >=app-emulation/virtualbox-bin-4.3.12 )
-        qt4? ( dev-qt/qtwebkit:4 )      
-        qt5? ( dev-qt/qtwebkit:5 )"
-
-pkg_postinst() {
-               echo 
-               elog "Welcome to Genymotion Emulator"
-               elog "To run Genymotion virtual devices, you must install Oracle VM VirtualBox 4.1 or above."
-               elog "However, for performance reasons, we recommend using version 4.3.12."
-               elog "Thanks open-overlay 2015 by Alex"
-               echo 
-}
-src_unpack() {
-unpack "${A}"
-mv "${PN}-master" "${P}"
-}
-QA_PREBUILT="
-   opt/${PN}/${PN}/*.so
-   opt/${PN}/${PN}/${PN}-tool
-   opt/${PN}/${PN}/libqca.so.2
-   opt/${PN}/${PN}/plugins/libvboxmanage.so.1.0.0
-   opt/${PN}/${PN}/tools/adb
-   opt/${PN}/${PN}/tools/aapt
-   opt/${PN}/${PN}/player
-   opt/${PN}/${PN}/genyshell
-   opt/${PN}/${PN}/${PN}
-   opt/${PN}/${PN}/device-upgrade
-   opt/${PN}/${PN}/libavutil.so.51
-   opt/${PN}/${PN}/libswscale.so.2
-   opt/${PN}/${PN}/libprotobuf.so.7
+	amd64? (
+		http://files2.genymotion.com/${PN}/${P}/${P}_x64.bin
+	)
+	x86? (
+		http://files2.genymotion.com/${PN}/${P}/${P}_x86.bin
+	)
 "
 
+LICENSE=""
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE=""
+
+DEPEND=""
+RDEPEND="${DEPEND} virtual/opengl media-libs/libpng:1.2 || ( >=app-emulation/virtualbox-4.3.18 >=app-emulation/virtualbox-bin-4.3.18 )"
+
+S=${DISTDIR}
+
 src_install() {
-local dir="/opt/${PN}"
-insinto ${dir}
-doins -r *
-fperms 755 "${dir}/${PN}/${PN}" "${dir}/${PN}/player" "${dir}/${PN}/gmtool"   
-newicon "${PN}/icons/icon.png" "${PN}.png" 
-make_wrapper ${PN} ${dir}/${PN}/${PN} 
-make_desktop_entry ${PN} "Genymotion" ${PN} "System;Emulator"
+	mkdir "${D}/opt"
+
+	if use amd64; then
+		yes | bash ${P}_x64.bin -d "${D}/opt"
+	elif use x86; then
+		yes | bash ${P}_x86.bin -d "${D}/opt"
+	fi
+
+	mkdir -p "${D}/usr/bin"
+	ln -s "/opt/genymotion/genymotion" "${D}/usr/bin" 
+	ln -s "/opt/genymotion/genymotion-shell" "${D}/usr/bin" 
+	make_desktop_entry genymotion "Genymotion" "/opt/genymotion/icons/icon.png" "System;Emulator"
 }
