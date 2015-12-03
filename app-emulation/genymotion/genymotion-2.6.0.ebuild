@@ -1,10 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
-
+inherit unpacker
 DESCRIPTION="Genymotion Emulator"
 HOMEPAGE="http://genymotion.com"
-SRC_URI="https://github.com/manson9/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+    x86?   ( http://files2.genymotion.com/genymotion/genymotion-2.6.0/genymotion-2.6.0-linux_x86.bin -> genymotion-2.6.0-_x86.deb )
+    AMD64? ( http://files2.genymotion.com/genymotion/genymotion-2.6.0/genymotion-2.6.0-linux_x64.bin -> genymotion-2.6.0-_x86.deb )"
+
 LICENSE="Genymotion"
 SLOT="0"
 KEYWORDS="amd64"
