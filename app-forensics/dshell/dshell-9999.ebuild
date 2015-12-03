@@ -12,6 +12,7 @@ USE="doc" #Documentaion IS recomended. However Alow Users to kill if not wanted.
 
 EGIT_REPO_URI="https://github.com/USArmyResearchLab/Dshell.git"
 EGIT_SOURCEDIR=${S}
+S=${DISTDIR}
 
 DESCRIPTION="Dshell is a network modular forensic analysis framework From USArmyResearchLab"
 HOMEPAGE="https://github.com/USArmyResearchLab/Dshell"
@@ -40,11 +41,12 @@ src_prepare() {
 
 }    
 src_install() {
+	src_install() {
+	mkdir "${D}/opt/${P}"
 #/usr/bin/{$p} emake Makefile all is extra janky....  .dshellrc dshell dshell-decode will set exports to
 # {S} / build /var/tmp.. for the moment i'm not getting emake makefile all , upstream Makefile portage no like.
 # and me nesting sed n x's =just as shity to patch the paths. in bash sh files. 
 # until upstream make file is less flaky.. have to do this shit.
-cd /usr/bin/dshell/
 #Makefile cleanup segments. maily py scripts so if user updates best to clean house.
 	rm -fv $(PWD)/dshell
 	rm -fv $(PWD)/dshell-decode
