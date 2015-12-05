@@ -38,14 +38,14 @@ src_prepare() {
 	rm install-ubuntu.py && rm -r ${S}/work/dshell-9999/share
 	dodir "${ROOT}/opt/Dshell"
     cp -R "${S}/" "/opt/Dshell" || die "Copy failed"
-	dodir /usr/share/doc/dshell
+	dodir ${ROOT}/usr/share/doc/dshell
 
 }
 
 }
 src_install() {
 	mkdir "${ROOT}/opt/Dshell"
-	mkdir "${ROOT}/opt/dshell"
+
 
 
 #/usr/bin/{$p} emake Makefile all is extra janky....  .dshellrc dshell dshell-decode will set exports to
