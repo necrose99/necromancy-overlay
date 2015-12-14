@@ -11,7 +11,7 @@ detect_version
 DESCRIPTION="Live -git  arm64 linaro version of the Linux kernel"
 HOMEPAGE="https://github.com/torvalds/linux"
 EGIT_REPO_URI="https://github.com/artagnon/boot-wrapper-aarch64.git"
-
+DEPEND="sys-devel/gcc-linaro" 
 KEYWORDS="~arm64"
 IUSE=""
 
