@@ -8,8 +8,8 @@ inherit eutils
 
 DESCRIPTION="ZFS Manager is a menu driven utility for managing ZFS Filesystems "
 HOMEPAGE="http://downloads.sourceforge.net/project/zfsmanager/"
-SRC_URI="mirror://sourceforge/${PN}/source/ZFS-Man.py -> zfsmanager.py
-
+#SRC_URI="mirror://sourceforge/${PN}/source/ZFS-Man.py -> zfsmanager.py
+SRC_URI="https://raw.githubusercontent.com/necrose99/zfs-manager/master/ZFS-Man.py" -> zfsmanager.py
 PYTHON_COMPAT=( python{2_*} )
 LICENSE="GPL-2"
 SLOT="0"
