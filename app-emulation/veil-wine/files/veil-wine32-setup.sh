@@ -3,56 +3,59 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $necrose99 exp veil wine setup metapackage, 
-EAPI="5"
+# DEPEND="app-emulation/winetricks , uses wine tricks to make a wine prefix, 
+# however Converting to a more distro agnostic so veil enviorments 
+## as well One can get a repeatable veil specific wine without having risks IE DUAL BOOT cp -symbloic links for files 
+## MY REAL Windows shit ie steam games etc >>>> wine or wine prefixes...  and no one wants to be a derp and infect themselves. 
+### so ./veilwine32 or 64 
+# GUI nice but will be a few..... 
+#cmd=(dialog --separate-output --checklist "Select options:" 22 76 16)
+#options=(1 "Option 1" off    # any option can be set to default to "on"
+         2 "Option 2" off
+         3 "Option 3" off
+         4 "Option 4" off)
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+clear
+for choice in $choices
+do
+    case $choice in
+        1)
+            echo "First Option"
+            ;;
+        2)
+            echo "Second Option"
+            ;;
+        3)
+            echo "Burn Veil Wine Enviorment Oh Noze the Police arz a coming..."
+            ;; shread_veilwine
+            
+       4)
+            echo "Copy Hashes file to cloud."
+            ;;
+        5)
+            echo "Quit"
+            ;;
+    esac
+done
 
-# inherit versionator
-
-MY_P="${PN}-$(replace_version_separator 3 '-')"
-
-DESCRIPTION="multi user meta wine setup to support veil-framwork/metasploit"
-HOMEPAGE="spike-pentesting.org"
-SRC_URI=""
-  LICENSE="metapackage"
-SLOT="0"
-    KEYWORDS="~amd64 ~x86"
-    Ewarn "useflags uninstall will FILE shread veilwine reinstall is shred+install alias"
-    IUSE="+onbydefault +install  -uninstall -reinstall"
-
-  DEPEND="app-emulation/winetricks
-         app-misc/srm"
-         # firejail
-         # ebuilds for veil-framwork not yet done,
-    
-          RDEPEND="${DEPEND}
-          install? ( veil_wine_setup )
-          uninstall? ( shread_veilwine )
-          reinstall? ( reinstall_veilwine )
-          ~x86? ( veil_wine_setup_x86 )
-          ~amd64? ( veil_wine_setup_64 )"
-
-S="${WORKDIR}/${PN}"
+if (( $EUID = 0 )); then
+    mkdir /root/.veilwine32
+    mydir=/.veilwine32
+    myhome=/root/
+    else
+mydir=$(whoami)
+myhome=/home/
 dir_prepair () {
-  dodir /opt/veilwine
+  mkdir /$myhome/$mydir/.veilwine32
 }
 veil_wine_setup_x86 () {
-	WINEPREFIX=~/opt/veilwine WINEARCH=win32 wine32 winecfg
-	env WINEPREFIX=~/opt/veilwine wineboot -u
-	export WINEPREFIX=
+	WINEPREFIX=~/$myhome/$mydir/.veilwine32 WINEARCH=win32 wine32 winecfg
+	env WINEPREFIX=~/$myhome/$mydir/.veilwine32 wineboot -u
+	export WINEPREFIX=~/$myhome/$mydir/.veilwine32
   }
-  veil_wine_setup_64 () {
-	env WINEPREFIX=~/opt/veilwine WINEARCH=win64 wine64 winecfg
-	env WINEPREFIX=~/opt/veilwine wineboot -u
-	export WINEPREFIX=/opt/veilwine
-  }
-  veilgroup_setup () { 
-    groupadd veilusers
-    usermod -aG root veilusers
-  chgrp -hR  veilusers /opt/veilwine
-  }
-  
-  # Basic 32-bit Python-in-Wine environment
-winetricks allfonts
-wget -N http://python.org/ftp/python/2.7.5/python-2.7.5.msi
+ # Basic 32-bit Python-in-Wine environment
+sh winetricks corefonts vcrun6  allfonts
+wget -N https://www.python.org/ftp/python/2.7.11/python-2.7.11.msi
 wine msiexec /i python-2.7.5.msi /quiet
 
 do_pip () {
@@ -60,45 +63,39 @@ do_pip () {
 wget -N https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
 wine ~/.wine/drive_c/Python27/python.exe ez_setup.py
 wget -N https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-wine ~/.wine/drive_c/Python27/python.exe get-pip.py
+wine ~/$myhome/$mydir/.veilwine32/drive_c/Python27/Python27/python.exe get-pip.py
 }
 # Dependency: Jinja2
-wine ~/.wine/drive_c/Python27/Scripts/pip.exe install jinja2
+wine ~/$myhome/$mydir/.veilwine32/drive_c/Python27/Scripts/pip.exe install jinja2
 
 # Dependency:  lxml requires Visual Studio, let's use a prebuilt binary instead
 wget -N https://pypi.python.org/packages/2.7/l/lxml/lxml-3.2.3.win32-py2.7.exe
-wine ~/.wine/drive_c/Python27/Scripts/easy_install.exe lxml-3.2.3.win32-py2.7.exe
+wine ~/$myhome/$mydir/.veilwine32/drive_c/Python27/Scripts/easy_install.exe lxml-3.2.3.win32-py2.7.exe
 
 # Dependency: Windows specific
-wine ~/.wine/drive_c/Python27/Scripts/pip.exe install pyreadline
+wine ~/$myhome/$mydir/.veilwine32/ install pyreadline
 
 # Dependency: python-imaging
-wine ~/.wine/drive_c/Python27/Scripts/pip.exe install pil
+wine ~/$myhome/$mydir/.veilwine32/Python27/Scripts/pip.exe install pil
+wine ~/$myhome/$mydir/.veilwine32/Python27/Scripts/pip.exe pypiwin32  # pywin32 replaces the nag of getting py-win32.
 
 # Pyinstaller
-wget -N http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe/download?use_mirror=autoselect -O pywin32-218.win32-py2.7.exe
-wine ~/.wine/drive_c/Python27/Scripts/easy_install.exe pywin32-218.win32-py2.7.exe
-wine ~/.wine/drive_c/Python27/Scripts/pip.exe install pyinstaller
+wine ~/$myhome/$mydir/.veilwine32/drive_c/Python27/Scripts/pip.exe install pyinstaller
 cp scripts/mailpile mailpile.py
-wine ~/.wine/drive_c/Python27/Scripts/pyinstaller.exe --hidden-import=mailpile.jinjaextensions mailpile.py
-
-
+wine ~/$myhome/$mydir/.veilwine32/drive_c/Python27/Scripts/pyinstaller.exe --hidden-import=mailpile.jinjaextensions mailpile.py
 
 
 reinstall_veilwine() {
   shread_veilwine 
-  veil_wine_setup
+  veil_wine_setup_x86
 }
 shread_veilwine() {
 Echo "Setting the world Onfire ***shreading your copy of wine for veil*******"
 Echo "***shreading for your protection "
-srm -r /opt/veilwine/*
+srm -r /$myhome/$mydir/.veilwine32/*
 }
 
 pkg_postinst() {
-	elog "you'll need to add youself to veilusers group to run the "build" of wine"
-	ewarn "after you have ziped your payloads veil framwork , its wise to run the ebuild with reinstall to cleanup"
-  elog "knock knock :ITs the cops ,got ya!! , rember veil can be dangerious to pc's and should be used for pentesting"
-  ewarn "Dont get Caught , the police wont even let you have a solar calulator when thier though with you; should you be foolish abuse this."
+echo "WARNING!!!: Dont get Caught , the police wont even let you have a solar calulator when thier though with you; should you be foolish abuse this."
 }
 
