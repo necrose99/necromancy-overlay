@@ -10,18 +10,20 @@ inherit distutils-r1 git-r3
 EGIT_REPO_URI="git://github.com/snarez/${PN}.git"
 
 DESCRIPTION="A half-arsed UI module for GDB & LLDB"
-HOMEPAGE="https://github.com/snarez/voltron"
+HOMEPAGE="https://github.com/snare/voltron"
 
-LICENSE="BEER"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-python/scruffy
-		dev-python/rl"
+DEPEND="
+		dev-python/rl
+		dev-python/requests
+		dev-python/flask-restful"
 RDEPEND="${DEPEND}"
 
 python_install_all() {
-        local DOCS=( README.md )
-        distutils-r1_python_install_all
+	local DOCS=( README.md )
+	distutils-r1_python_install_all
 }
