@@ -46,9 +46,10 @@ src_prepare() {
 	# fix icon installation location
 	sed -i \
 		-e "/icon.path/s:app-install/icons:${PN}:" "*${PN}.pro" \
-		|| die "sed on ${PN}*.pro failed"
+		|| die "sed on *${PN}.pro failed"
 }
 src_configure() {
+	# eqmake5 via use may be doable.. when the time comes. 
 	eqmake4
 }
 src_install() {
