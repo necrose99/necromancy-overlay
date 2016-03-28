@@ -46,7 +46,7 @@ src_prepare() {
 		|| die "sed on ${PN}*.pro failed"
 }
 src_configure() {
-	eqmake
+	eqmake4
 }
 src_install() {
 	emake INSTALL_ROOT="${D}" install
