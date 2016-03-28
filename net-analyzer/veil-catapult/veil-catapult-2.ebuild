@@ -9,7 +9,7 @@ inherit python-single-r1
 
 DESCRIPTION="A tool for payloads generation that bypass common anti-virus solutions"
 HOMEPAGE="https://github.com/Veil-Framework/Veil-Evasion"
-SRC_URI="https://github.com/Veil-Framework/Veil-Evasion/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Veil-Framework/Veil-Catapult/archive/master.zip   -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -46,5 +46,5 @@ src_install() {
 	insinto /etc/veil
 	newins "${FILESDIR}"/${PN}-2.23-settings.py settings.py
 
-	dosym /usr/$(get_libdir)/veil-evasion/Veil-Evasion.py /usr/bin/veil-evasion
+	dosym /usr/$(get_libdir)/veil-evasion/catapult/Veil-Catapult.py /usr/bin/veil-catapult
 }
