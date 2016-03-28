@@ -32,7 +32,7 @@ RDEPEND=">=dev-python/pycrypto-2.3
 #  mingw-w64 monodoc-browser monodevelop mono-mcs unzip ruby wget git \
 #  ca-certificates ttf-mscorefonts-installer
 
-S="${WORKDIR}/Veil-Evasion-${PV}"
+S="${WORKDIR}/Veil-Catapult-${PV}"
 
 src_install() {
 	rm -r config/
