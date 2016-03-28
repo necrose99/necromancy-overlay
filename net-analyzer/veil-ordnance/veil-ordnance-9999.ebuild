@@ -36,7 +36,8 @@ RDEPEND=">=dev-python/pycrypto-2.3
 
 ${S}="${WORKDIR}/veil-ordnance"
 src_unpack()	# This function unpacks our files
-{ git-r3_src_unpack
+{ 
+	git-r3_src_unpack
 }
 
 src_install() {
@@ -45,7 +46,7 @@ src_install() {
 
 	dodir /usr/$(get_libdir)/${PN}
 	cp -R * "${ED}"/usr/$(get_libdir)/${PN} || die "Copy files failed"
-	python_fix_shebang "${ED}"/usr/$(get_libdir)/${PN}/Veil-Catapult.py
+	python_fix_shebang "${ED}"/usr/$(get_libdir)//veil-evasion/${PN}/Veil-Ordnance.py
 
 
 	dosym /usr/$(get_libdir)/veil-evasion/Ordnance/Veil-Ordnance.py /usr/bin/veil-ordnance.py
