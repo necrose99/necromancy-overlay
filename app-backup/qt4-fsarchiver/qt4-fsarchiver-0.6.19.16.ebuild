@@ -1,7 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: Necrose99 Proxymaintier  Exp $
-#ssh-fs & cifs / samba are highly recomened for network backups and LIVE rescue type disk/s
+# $Id$ Necrose99 Proxymaintier
 EAPI=5
 
 inherit qmake-utils versionator eutils
