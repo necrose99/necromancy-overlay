@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="tools"
 
-DEPEND=""
+DEPEND="net-analyzer/veil-evasion"
 RDEPEND=">=dev-python/pycrypto-2.3
 	dev-python/symmetricjsonrpc
 	dev-python/pefile
@@ -40,11 +40,8 @@ src_install() {
 
 	dodir /usr/$(get_libdir)/${PN}
 	cp -R * "${ED}"/usr/$(get_libdir)/${PN} || die "Copy files failed"
-	python_fix_shebang "${ED}"/usr/$(get_libdir)/${PN}/Veil-Evasion.py
+	python_fix_shebang "${ED}"/usr/$(get_libdir)/${PN}/Veil-Catapult.py
 
-	#use our custom settings
-	insinto /etc/veil
-	newins "${FILESDIR}"/${PN}-2.23-settings.py settings.py
 
 	dosym /usr/$(get_libdir)/veil-evasion/catapult/Veil-Catapult.py /usr/bin/veil-catapult
 }
