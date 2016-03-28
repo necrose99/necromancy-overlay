@@ -38,12 +38,12 @@ S="${WORKDIR}/${PN}"
 src_prepare() {
 	# fix .desktop file
 	sed -i \
-		-e '/Encoding/d' starter/"${PN}".desktop \
+		-e '/Encoding/d' starter/"${PN}"*.desktop \
 		|| die "sed on qt4-fsarchiver.desktop failed"
 	# fix icon installation location
 	sed -i \
-		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
-		|| die "sed on ${PN}.pro failed"
+		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}*.pro" \
+		|| die "sed on ${PN}*.pro failed"
 }
 src_configure() {
 	eqmake
@@ -54,12 +54,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "optional dependencies:"
-	elog "  sys-fs/btrfs-progs"
-	elog "  sys-fs/jfsutils"
-	elog "  sys-fs/ntfs3g[ntfsprogs]"
-	elog "  sys-fs/reiser4progs"
-	elog "  sys-fs/reiserfsprogs"
-	elog "  sys-fs/sshfs-fuse"
-	elog "  sys-fs/xfsprogs"
+	elog "The following packages may be installed to privide optional features/file system support & or Samba NFS etc: for network"
+	optfeature "btrfs-progs" sys-fs/btrfs-progs 
+	optfeature "jfsutils" sys-fs/jfsutils"
+	optfeature "ntfs3g" sys-fs/ntfs3g[ntfsprogs]"
+	optfeature "reiser4progs"  sys-fs/reiser4progs"
+	optfeature "reiserprogs" sys-fs/reiserfsprogs"
+	optfeature "sshfs-fuse" sys-fs/sshfs-fuse"
+	optfeature "sys-fs/xfsprogs"  sys-fs/xfsprogs"
 }
