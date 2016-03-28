@@ -37,12 +37,15 @@ S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	# fix .desktop file
+	# as of newer versions qt4-fsarchiver/starter mate-qt4-fsarchiver.desktop,kde-qt4-fsarchiver.desktop gnome-qt4-fsarchiver.desktop
+	# * was added so SED will edit them all , TO DO add more  Additional Window Managers via patch.
+	
 	sed -i \
-		-e '/Encoding/d' starter/"${PN}"*.desktop \
+		-e '/Encoding/d' starter/"*${PN}"*.desktop \
 		|| die "sed on qt4-fsarchiver.desktop failed"
 	# fix icon installation location
 	sed -i \
-		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}*.pro" \
+		-e "/icon.path/s:app-install/icons:${PN}:" "*${PN}.pro" \
 		|| die "sed on ${PN}*.pro failed"
 }
 src_configure() {
