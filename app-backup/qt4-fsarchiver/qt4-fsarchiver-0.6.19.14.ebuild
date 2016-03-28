@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit qmake-utils eutils versionator  #qt5-build unknow test case,
+inherit qmake-utils versionator eutils
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 MIN_PV="$(get_version_component_range 1-3)"
@@ -36,19 +36,20 @@ DEPEND="${CDEPEND}"
 S="${WORKDIR}/${PN}"
 
 src_prepare() {
-#epatch test on pro / Desktop files
-#epatch "${DISTDIR}"/Gentoo-qt4-fsarchiver-pro.diff
-#epatch "${DISTDIR}"starter/Gentoo-qt4-fsarchiver-pro.diff
-# fix .desktop file ~I dont sed well yet for all 3 desktop files,
-sed -i -e '/Encoding/d' starter/*.desktop || die "sed on qt4-fsarchiver.desktop failed"
 	# fix .desktop file
-	sed -e '/Encoding/d' -i starter/*.desktop || die
+	# as of newer versions qt4-fsarchiver/starter mate-qt4-fsarchiver.desktop,kde-qt4-fsarchiver.desktop gnome-qt4-fsarchiver.desktop
+	# * was added so SED will edit them all , TO DO add more  Additional Window Managers via patch.
+	
+	sed -i \
+		-e '/Encoding/d' starter/"*${PN}"*.desktop \
+		|| die "sed on qt4-fsarchiver.desktop failed"
 	# fix icon installation location
 	sed -i \
-		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
-	|| die "sed on ${PN}.pro failed"
-}	
+		-e "/icon.path/s:app-install/icons:${PN}:" "*${PN}.pro" \
+		|| die "sed on *${PN}.pro failed"
+}
 src_configure() {
+	# eqmake5 via use may be doable.. when the time comes. 
 	eqmake4
 }
 src_install() {
@@ -57,12 +58,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "optional dependencies:"
-	elog "  sys-fs/btrfs-progs"
-	elog "  sys-fs/jfsutils"
-	elog "  sys-fs/ntfs3g[ntfsprogs]"
-	elog "  sys-fs/reiser4progs"
-	elog "  sys-fs/reiserfsprogs"
-	elog "  sys-fs/sshfs-fuse"
-	elog "  sys-fs/xfsprogs"
+	elog "The following packages may be installed to privide optional features/file system support & or Samba NFS etc: for network"
+	optfeature "btrfs-progs" sys-fs/btrfs-progs 
+	optfeature "jfsutils" sys-fs/jfsutils"
+	optfeature "ntfs3g" sys-fs/ntfs3g[ntfsprogs]"
+	optfeature "reiser4progs"  sys-fs/reiser4progs"
+	optfeature "reiserprogs" sys-fs/reiserfsprogs"
+	optfeature "sshfs-fuse" sys-fs/sshfs-fuse"
+	optfeature "sys-fs/xfsprogs"  sys-fs/xfsprogs"
 }
