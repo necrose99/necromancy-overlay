@@ -1,21 +1,28 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-inherit git-3
+inherit linux-info systemd user
+
+if [[ ${PV} == "9999" ]] ; then
+	EGIT_REPO_URI="git://github.com/braintree/${PN}.git"
+	inherit git-r3 autotools #git-2
+	KEYWORDS="~*"
+	LICENSE="MIT"
+	SLOT="0"
+else
+	SRC_URI="https://github.com/braintree/mallorca/archive/${PN}/releases/v${PV}/${P}.tar.xz"
+	# https://github.com/braintree/mallorca/archive/0.3.13.tar.gz ref.. may need pv hander ssawp.
+	KEYWORDS="~*"
+	LICENSE="MIT"
+	SLOT="0"
+	IUSE=""
+fi
 
 DESCRIPTION="mallory inspired nodejs Man-in-the-middle proxy for HTTPS with SSL verification and connection pooling/keep-alive."
-HOMEPAGE="https://github.com/braintree/mallorca"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/braintree/mallorca.git"
-EGIT_COMMIT="v${PV}"
 
-LICENSE="MIT"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="net-libs/nodejs
 	sys-apps/npm
