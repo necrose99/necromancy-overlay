@@ -37,6 +37,6 @@ src_install() {
 ### populate the rules
 pkg_postinst() {
  einfo "running wazuh ossec-rules , may take up to a few mins to dowload & update"
-python path/to/the/python_script.py
+python /var/ossec/update/ruleset/ossec_ruleset.py
 	elog "wazuh ossec_ruleset installed ,note you may wish to Cron task this"
 }
