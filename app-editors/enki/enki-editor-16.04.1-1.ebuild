@@ -13,29 +13,55 @@ MY_P="mks_${PV}-src"
 
 DESCRIPTION="Enki is a text editor for programmers"
 HOMEPAGE="http://enki-editor.org/"
-SRC_URI="https://github.com/hlamer/enki/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+#http://download.opensuse.org/repositories/home:/hlamer:/enki/Debian_8.0/all/enki_16.04.1-1~obs1_all.deb
+install_filename="
+	amd64? (
+		${P}_x64.bin
+	)
+	x86? (
+		${P}_x86.bin
+	)
+"
+SRC_URI="
+	amd64? (
+		http://download.opensuse.org/repositories/home:/hlamer:/enki/Debian_8.0/amd64/python3-qutepart_3.0.1-1~obs1_amd64.deb
+    #${PN}/${P}/${P}_x64.bin
+	)
+	x86? (
+		http://download.opensuse.org/repositories/home:/hlamer:/enki/Debian_8.0/i386/python3-qutepart_3.0.1-1~obs1_i386.deb
+    #${PN}/${P}/${P}_x86.bin
+	)
+"
+
+LICENSE=""
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE="
+SRC_URI="http://download.opensuse.org/repositories/home:/hlamer:/enki/Debian_8.0/all/${PV}~obs1_all.deb -> ${P}.deb"
 
 LICENSE="GPL-2 LGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86 ~x86-interix ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86  ~amd64-linux ~x86-linux"
 IUSE="doc plugins"
 
 RDEPEND="
-	dev-qt/designer:4
-	dev-qt/qtcore:4
-	dev-qt/qtgui:4
-	dev-qt/qthelp:4
-	dev-qt/qtsql:4
+	dev-qt/designer:5
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qthelp:5
+	dev-qt/qtsql:5
 	dev-python/pyparsing 
 	qutepart?
-	=python/python-2.7.9-r2
-	dev-python/PyQt4
+	>=dev-lang/python-3
+	dev-python/PyQt5
+	dev-python/flake8
+	dev-python/markdown
 "
 DEPEND="${RDEPEND}
 	doc? ( >=app-doc/doxygen-1.5.8 )
 "
 
-PATCHES=( "${FILESDIR}/${P}-install.patch" )
+
 DOCS=( ChangeLog readme.txt )
 
 S=${WORKDIR}/${MY_P}
