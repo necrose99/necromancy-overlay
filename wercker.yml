@@ -3,4 +3,9 @@ build:
   steps:
     - script:
         name: Checking using repoman
+        code: repoman fix
+        code: repoman manifest
+        code: repoman full
+        code: repoman commit
+        code: repoman -m "Version bump" commit
         code: repoman full --include-dev --pretend --verbose
