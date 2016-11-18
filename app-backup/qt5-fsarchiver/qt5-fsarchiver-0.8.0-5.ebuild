@@ -4,22 +4,18 @@
 EAPI=6
 
 inherit qmake-utils versionator eutils
+# if you building a Gentoo Rescue CD/DVD it would be wise build all the optional DEPS.
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 MIN_PV="$(get_version_component_range 1-3)"
 
 DESCRIPTION="Qt5 frontend for fsarchiver forked into qt5 flavor"
 HOMEPAGE="http://qt4-fsarchiver.sourceforge.net/"
-if [[ ${PV} = 9999* ]]; then
-	EGIT_REPO_URI="https://github.com/DieterBaum/qt5-fsarchiver.git"
-	inherit git-2
-else
-	SRC_URI="https://github.com/DieterBaum/qt4-fsarchiver/qt5-fsarchiver/source/${PV}.tar.gz
+SRC_URI="https://github.com/DieterBaum/qt4-fsarchiver/qt5-fsarchiver/source/${PV}.tar.gz
 		mirror://sourceforge/qt4-fsarchiver/${PN}/source/${MY_P}.tar.gz"
-		# 
+		 
 		
-	KEYWORDS="amd64 arm hppa ~mips ppc ppc64 x86"
-fi
+KEYWORDS="amd64 arm hppa ~mips ppc ppc64 x86"
 
 LICENSE="GPL-2"
 SLOT="0"
