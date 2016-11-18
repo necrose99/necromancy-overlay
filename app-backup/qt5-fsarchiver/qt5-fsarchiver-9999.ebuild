@@ -3,23 +3,44 @@
 # $Header: Necrose99 Proxymaintier  Exp $
 EAPI=6
 
-inherit qmake-utils versionator
+inherit ${SCM}  qmake-utils versionator
 
 MY_P="${PN}-$(replace_version_separator 3 '-')"
 MIN_PV="$(get_version_component_range 1-3)"
 
+if [[ ${PV} == *9999 ]] ; then
+	SCM="git-r3"
+	EGIT_REPO_URI="git://github.com/DieterBaum/${PN}.git https://github.com/DieterBaum/${PN}.git"  
+fi
+
 DESCRIPTION="Qt5 frontend for fsarchiver forked into qt5 flavor"
 HOMEPAGE="http://qt4-fsarchiver.sourceforge.net/"
-if [[ ${PV} = 9999* ]]; then
-	EGIT_REPO_URI="https://github.com/DieterBaum/qt5-fsarchiver.git"
-	inherit git-2
+
+MY_P=${P/_/-}
+MY_PV=${PV/_/-}
+
+if [[ ${PV} == *9999 ]]; then
+	SRC_URI=""
+	KEYWORDS=""
 else
-	SRC_URI="https://github.com/DieterBaum/qt4-fsarchiver/${PN}/source/${PV}.tar.gz
+	# TODO!
+	# git submodule packaging really is a mess
+	SRC_URI="
+		SRC_URI="https://github.com/DieterBaum/qt4-fsarchiver/${PN}/source/${PV}.tar.gz
 		mirror://sourceforge/qt4-fsarchiver/${PN}/source/${MY_P}.tar.gz"
-	
-		
-	KEYWORDS="amd64 arm hppa ~mips ppc ppc64 x86"
+	"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 fi
+
+src_unpack() {
+	if [[ ${PV} == *9999 ]]; then
+		git-r3_src_unpack
+		cd $EGIT_SOURCEDIR
+		git submodule update --init --recursive
+		S="EGIT_SOURCEDIR"
+	else
+	S="${WORKDIR}/${PN}"
+	}
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -41,7 +62,7 @@ RDEPEND="${CDEPEND}
 	>=app-backup/fsarchiver-${MIN_PV}[lzma,lzo]"
 DEPEND="${CDEPEND}"
 
-S="${WORKDIR}/${PN}"
+
 
 src_prepare() {
 	# fix .desktop file
@@ -77,4 +98,3 @@ pkg_postinst() {
 	elog "  net-fs/sshfs"
 	elog "  sys-fs/xfsprogs"
 }
-
