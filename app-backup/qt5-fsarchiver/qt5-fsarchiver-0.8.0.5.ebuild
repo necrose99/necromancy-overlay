@@ -10,14 +10,11 @@ MIN_PV="$(get_version_component_range 1-3)"
 
 DESCRIPTION="Qt5 frontend for fsarchiver forked into qt5 flavor"
 HOMEPAGE="http://qt4-fsarchiver.sourceforge.net/"
-if [[ ${PV} = 9999* ]]; then
-	EGIT_REPO_URI="https://github.com/DieterBaum/qt5-fsarchiver.git"
-	inherit git-2
-else
-	SRC_URI="mirror://sourceforge/qt4-fsarchiver/${PN}/source/${MY_P}.tar.gz"
+
+SRC_URI="mirror://sourceforge/qt4-fsarchiver/${PN}/source/${MY_P}.tar.gz"
 		
 	KEYWORDS="amd64 arm hppa ~mips ppc ppc64 x86"
-fi
+
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -42,26 +39,18 @@ S="${WORKDIR}/${PN}"
 
 
 src_prepare() {
-	# fix .desktop file
-	# as of newer versions qt4/qt5-fsarchiver/starter mate-qt4-fsarchiver.desktop,kde-qt4-fsarchiver.desktop gnome-qt4-fsarchiver.desktop
-	# * was added so SED will edit them all , TO DO add more  Additional Window Managers sed...
-	# sed -i '/OnlyShowIn=KDE'  kde-qt4-fsarchiver.desktop ,  can add for LXQT, Razorqt etc. or the like. or edit a few in mate..
-	# 
-	#sed -i \
-	#-e '/Encoding/d' starter/"*${PN}"*.desktop \
-
-	sed -i \
-		-e '/Encoding/d' starter/"gnome-qt4-fsarchiver.desktop \
-	sed -i \
-		-e '/Encoding/d' starter/"kde-qt4-fsarchiver.desktop \
-		|| die "sed on qt4-fsarchiver.desktop failed"
-	sed -i \
-		-e '/Encoding/d' starter/"mate-qt4-fsarchiver.desktop \
-		|| die "sed on qt4-fsarchiver.desktop failed"
-	# fix icon installation location
-	sed -i \
-		-e "/icon.path/s:app-install/icons:${PN}:" "*${PN}.pro" \
-		|| die "sed on *${PN}.pro failed"
+#use our custom fixes , to replace with Epatch however this will do for testing. 
+#and I am none to fond of sed partly due to it being quite obscure.
+	rm ${PN}/qt5-fsarchiver.pro  # fix Icons path manually was a sed statment. 
+	cp "${FILESDIR}"/qt5-fsarchiver.pro ${PN}/
+	# fix Pro file
+	rm  ${PN}/starter/gnome-qt5-fsarchiver.desktop 
+	rm  ${PN}/starter/kde-qt5-fsarchiver.desktop 
+	rm  ${PN}/starter/mate-qt5-fsarchiver.desktop
+	# clean out the desktop files. 
+	cp "${FILESDIR}"/gnome-qt5-fsarchiver.desktop ${PN}/starter/gnome-qt5-fsarchiver.desktop
+	cp "${FILESDIR}"/kde-qt5-fsarchiver.desktop ${PN}/starter/kde-qt5-fsarchiver.desktop
+	cp "${FILESDIR}"/mate-qt5-fsarchiver.desktop ${PN}/starter/mate-qt5-fsarchiver.desktop
 }
 
 
