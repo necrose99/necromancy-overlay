@@ -132,7 +132,7 @@ RESOURCES += src/icon.qrc
 # install
  target.path = /usr/sbin
  icon.files = src/images/harddrive.png
- icon.path = /usr/share/app-install/icons
+ icon.path = /usr/share/qt4-fsarchiver/
  autostart.files = starter/gnome-qt4-fsarchiver.desktop
  autostart.path = /usr/share/applications
  autostart1.files = starter/kde-qt4-fsarchiver.desktop 
