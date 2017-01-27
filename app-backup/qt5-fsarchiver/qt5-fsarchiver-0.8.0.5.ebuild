@@ -51,6 +51,7 @@ src_prepare() {
 	cp "${FILESDIR}"/gnome-qt5-fsarchiver.desktop ${PN}/starter/gnome-qt5-fsarchiver.desktop
 	cp "${FILESDIR}"/kde-qt5-fsarchiver.desktop ${PN}/starter/kde-qt5-fsarchiver.desktop
 	cp "${FILESDIR}"/mate-qt5-fsarchiver.desktop ${PN}/starter/mate-qt5-fsarchiver.desktop
+	|| die "copy from Files dir (patches) failed"
 }
 
 
