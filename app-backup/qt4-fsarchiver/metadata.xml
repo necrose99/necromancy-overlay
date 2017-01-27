@@ -4,8 +4,6 @@
 	        <herd>proxy-maintainers</herd>
 	        <maintainer>
 	        <email>idella4@gentoo.org</email>
-	        </maintainer>
-		<maintainer>
 		<email>necrose99@protomail.ch,mike@michaellawrenceit.com</email>
 		<name>Michael R. Lawrence</name>
 		<description>proxy maintainer and recipient of bugs</description>

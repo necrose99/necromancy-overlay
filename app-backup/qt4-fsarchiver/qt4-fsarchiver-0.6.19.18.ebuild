@@ -36,21 +36,27 @@ S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	# fix .desktop file
-	# as of newer versions qt4-fsarchiver/starter mate-qt4-fsarchiver.desktop,kde-qt4-fsarchiver.desktop gnome-qt4-fsarchiver.desktop
+	# as of newer versions qt4/qt5-fsarchiver/starter mate-qt4-fsarchiver.desktop,kde-qt4-fsarchiver.desktop gnome-qt4-fsarchiver.desktop
 	# * was added so SED will edit them all , TO DO add more  Additional Window Managers sed...
 	# sed -i '/OnlyShowIn=KDE'  kde-qt4-fsarchiver.desktop ,  can add for LXQT, Razorqt etc. or the like. or edit a few in mate..
 	# 
-	
+	#sed -i \
+	#-e '/Encoding/d' starter/"*${PN}"*.desktop \
+
 	sed -i \
-		-e '/Encoding/d' starter/"*${PN}"*.desktop \
+		-e '/Encoding/d' starter/"gnome-qt4-fsarchiver.desktop \
+	sed -i \
+		-e '/Encoding/d' starter/"kde-qt4-fsarchiver.desktop \
+		|| die "sed on qt4-fsarchiver.desktop failed"
+	sed -i \
+		-e '/Encoding/d' starter/"mate-qt4-fsarchiver.desktop \
 		|| die "sed on qt4-fsarchiver.desktop failed"
 	# fix icon installation location
 	sed -i \
 		-e "/icon.path/s:app-install/icons:${PN}:" "*${PN}.pro" \
 		|| die "sed on *${PN}.pro failed"
 }
-	# eqmake5 via use may be doable.. when the time comes. https://github.com/KDAB/Qt4to5 also could be spliced in 
-	# via one of the Gentoo Devs as a function , I just keep the package up as a mere mortal user.
+
 
 src_configure() {
 	eqmake4
