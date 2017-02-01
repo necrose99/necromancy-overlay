@@ -1,0 +1,31 @@
+usage: metagen [-h] [--version] [--herd HERD] [--email EMAIL] [--name NAME]
+               [--echangelog] [--desc DESC] [--type TYPE] [--long LONG]
+               [--output OUTPUT] [--force] [--verbose] [--quiet] [-Q]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+
+maintainer arguments:
+  --herd HERD, -H HERD  Name of herd. If not specified, It will be empty. This
+                        requires either the -e or -m option.
+  --email EMAIL, -e EMAIL
+                        Maintainer's email address
+  --name NAME, -n NAME  Maintainer's name
+  --echangelog, -m      Use name and email address from ECHANGELOG_USER
+                        environmental variable. This is a shortcut for -e
+                        <email> -n <name>
+  --desc DESC, -d DESC  Description of maintainership
+  --type TYPE, -t TYPE  Maintainer type as of GLEP 67; valid values are:
+                        "person", "project", "unknown"
+
+package arguments:
+  --long LONG, -l LONG  Long description of package.
+
+operation arguments:
+  --output OUTPUT, -o OUTPUT
+                        Specify location of output file.
+  --force, -f           Force overwrite of existing metadata.
+  --verbose, -v         Verbose. Output of file to stdout. (default)
+  --quiet, -q           Squelch output of file to stdout.
+  -Q                    Do not write file to disk.

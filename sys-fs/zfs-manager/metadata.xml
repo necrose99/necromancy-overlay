@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>sys-fs</herd>
+	<herd>proxy-maintainers</herd>
+	  <maintainer>
+    <email>mike@michaellawrenceit.com</email>
+		<name>Michael R. Lawrence</name>
+		<description>Proxied maintainer. Assign bugs to him</description>
+	</maintainer>
+</pkgmetadata>
+<maintainer>
+  </maintainer>
+  <longdescription>ZFS Manager is a menu driven utility for managing ZFS Filesystems
+a simple Python Gui CLI Script and General Utility. 
+</longdescription>
+    

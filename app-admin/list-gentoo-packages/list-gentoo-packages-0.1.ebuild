@@ -8,7 +8,9 @@ inherit eutils
 
 DESCRIPTION="List all installed Gentoo packages with USE flags (easy to rember alias of enalyze..) for novice users"
 HOMEPAGE="https://github.com/necrose99/necromancy-overlay"
-SRC_URI="http://nikita.melnichenko.name/download.php?q=list-gentoo-packages.sh-v0.2 
+#SRC_URI="http://nikita.melnichenko.name/download.php?q=list-gentoo-packages.sh-v0.2" 
+# url dosent pull down file cleanly and wont manifest properly 
+SRC_URI="${files/list-gentoo-packages.sh}"
 
 LICENSE="GPL-2"
 SLOT="0"
