@@ -1,0 +1,12 @@
+--- /home/mike/Downloads/qt4-fsarchiver/starter/kde-qt4-fsarchiver.desktop
++++ /home/mike/necromancy-overlay/app-backup/qt4-fsarchiver/files/kde-qt4-fsarchiver.desktop
+@@ -3,7 +3,7 @@
+ Name[de_DE]=qt4-fsarchiver
+ Comment=Qt GUI for fsarchiver
+ Exec=kdesudo qt4-fsarchiver
+-Icon=/usr/share/app-install/icons/harddrive.png
++Icon=/usr/share/qt4-fsarchiver/harddrive.png
+ Terminal=false
+ Type=Application
+ Categories=GNOME;GTK;Utility;
+

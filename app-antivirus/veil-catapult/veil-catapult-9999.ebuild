@@ -7,10 +7,10 @@ inherit python-any-r1 git-3
 PYTHON_COMPAT=( python2_7 )
 
 
-DESCRIPTION="Veil-Catapult is a payload delivery tool that integrates with Veil-Evasion"
-GO_PN="github.com/hashicorp/${PN}"
+DESCRIPTION="Veil-Catapult is a payload delivery tool that integrates with Veil-Evasion, A tool to bypass common anti-virus solutions"
+HOMEPAGE="https://github.com/Veil-Framework/Veil-Evasion""
 HOMEPAGE="https://www.veil-framework.com/"
-EGIT_REPO_URI="https://github.com/Veil-Framework/Veil-Ordnance.git"
+EGIT_REPO_URI="https://github.com/Veil-Framework/Veil-Catapult.git"
 LICENSE="MPL-2.0"
 SLOT="0"
 IUSE="test"
@@ -19,45 +19,42 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="net-analyzer/veil-evasion"
-RDEPEND=">=dev-python/pycrypto-2.3
-	dev-python/symmetricjsonrpc
-	dev-python/pefile
-	dev-python/capstone-python
-	tools? (
-		dev-lang/go
-		app-emulation/wine
-		net-analyzer/metasploit )
-	"
-src_unpack()	# This function unpacks our files
-{ 
-	git-r3_src_unpack
-}
+DEPEND="${RDEPEND}"
+RDEPEND="net-analyzer/veil-evasion"
 
-S="${WORKDIR}/veil-catapult-${PV}/veil-catapult"
+S="${WORKDIR}/Veil-Catapult-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="tools"
+#IUSE="tools"
 
 
-# FIXME:
-#  pyinstaller
-#  mingw-w64 monodoc-browser monodevelop mono-mcs unzip ruby wget git \
-#  ca-certificates ttf-mscorefonts-installer
 
-S="${WORKDIR}/Veil-Catapult-${PV}"
+src_prepare() {
+	#+os.path.expanduser(settings.PYINSTALLER_PATH + '/pyinstaller.py')+
+	# os.path.expanduser(settings.PYINSTALLER_PATH + '/pyinstaller.py')
+	#sed -i "s|os.path.expanduser(settings.PYINSTALLER_PATH + '/pyinstaller.py')|'/usr/bin/pyinstall'|g" modules/common/supportfiles.py || die "sed failed"
+        ## uses APT GET , no need. 
+	rm /${WORKDIR}/Veil-Catapult-${PV}/setup.sh
+}
 
 src_install() {
 	rm -r config/
 	rm -r setup/
 
-	dodir /usr/$(get_libdir)/${PN}
+	dodir /usr/$(get_libdir)/veil-evasion/${PN}/
 	cp -R * "${ED}"/usr/$(get_libdir)/${PN} || die "Copy files failed"
-	python_fix_shebang "${ED}"/usr/$(get_libdir)/veil-evasion/${PN}/Veil-Catapult.py
+	python_fix_shebang "${ED}"/usr/$(get_libdir)/${PN}/Veil-Catapult.py
 
 
-	dosym /usr/$(get_libdir)/veil-evasion/catapult/Veil-Catapult.py /usr/bin/veil-catapult
+
+	dosym /usr/$(get_libdir)/veil-evasion/veil-catapult/Veil-Catapult.py /usr/bin/Veil-catapult
 }
+
+pkg_postinst(){
+	einfo "you will need to setup a wine env for pyinstaller , veil prefix recomended."
+	einfo "wine msiexec /i python-2.7.12.msi"
+}
+
 

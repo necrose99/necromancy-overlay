@@ -21,12 +21,11 @@ DOC_CONTENTS="
 	For your convenience you can review
 	https://www.veil-framework.com/guidesvideos/
 
-RDEPEND="dev-python/jsonrpc
->=net-analyzerVeil-Evasion-2.21.1.1
-net-analyzerVeil-Ordnance 
-net-analyzerVeil-Pillage
-net-analyzerVeil-Catapult"
+RDEPEND="app-antivirus/Veil-Evasion
+	app-antivirus/Veil-Ordnance 
+	app-antivirus/Veil-Pillage
+	app-antivirus/Veil-Catapult"
 
 pkg_postinst() {
-	readme.gentoo_pkg_postinst
+	readme.gentoo_pkg_postinst # work in progress.
 }
