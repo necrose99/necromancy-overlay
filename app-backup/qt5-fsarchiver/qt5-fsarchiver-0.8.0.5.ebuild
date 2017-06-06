@@ -43,35 +43,17 @@ src_prepare() {
 #and I am none to fond of sed partly due to it being quite obscure.
 src_prepare() {
 	# fix .desktop file
-	# as of newer versions qt4/qt5-fsarchiver/starter mate-qt4-fsarchiver.desktop,kde-qt4-fsarchiver.desktop gnome-qt4-fsarchiver.desktop
-	# * was added so SED will edit them all , TO DO add more  Additional Window Managers sed...
-	# sed -i '/OnlyShowIn=KDE'  kde-qt4-fsarchiver.desktop ,  can add for LXQT, Razorqt etc. or the like. or edit a few in mate..
-	# 
-	#sed -i \
-	#-e '/Encoding/d' starter/"*${PN}"*.desktop \  ## GRR not Hitting ALL *.desktop files 
-
-	sed -i \
-		-e '/Encoding/d' starter/"gnome-qt4-fsarchiver.desktop \
-	sed -i \
-		-e '/Encoding/d' starter/"kde-qt4-fsarchiver.desktop \
-		|| die "sed on qt4-fsarchiver.desktop failed"
-	sed -i \
-		-e '/Encoding/d' starter/"mate-qt4-fsarchiver.desktop \
-		|| die "sed on qt4-fsarchiver.desktop failed"
+src_prepare() {
+	# fix .desktop file/s
+for i in starter/*.desktop ; do sed -i 
+			\ -e '/Encoding/d' starter/"*.desktop \
+		|| die "sed on qt5-fsarchiver.desktop failed"
+	# fix icon installation location
+	
 	# fix icon installation location
 	sed -i \
-		-e "/icon.path/s:app-install/icons:${PN}:" "*${PN}.pro" \
-		|| die "sed on *${PN}.pro failed"
-
-	# fix Pro file
-	rm  ${PN}/starter/gnome-qt5-fsarchiver.desktop 
-	rm  ${PN}/starter/kde-qt5-fsarchiver.desktop 
-	rm  ${PN}/starter/mate-qt5-fsarchiver.desktop
-	# clean out the desktop files. 
-	cp "${FILESDIR}"/gnome-qt5-fsarchiver.desktop ${PN}/starter/gnome-qt5-fsarchiver.desktop
-	cp "${FILESDIR}"/kde-qt5-fsarchiver.desktop ${PN}/starter/kde-qt5-fsarchiver.desktop
-	cp "${FILESDIR}"/mate-qt5-fsarchiver.desktop ${PN}/starter/mate-qt5-fsarchiver.desktop
-	|| die "copy from Files dir (patches) failed"
+		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
+		|| die "sed on ${PN}.pro failed"
 }
 
 
