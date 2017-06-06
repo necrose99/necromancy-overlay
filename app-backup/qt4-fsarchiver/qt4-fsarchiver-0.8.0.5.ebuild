@@ -35,19 +35,16 @@ DEPEND="${CDEPEND}"
 S="${WORKDIR}/${PN}"
 
 src_prepare() {
-#use our custom fixes , to replace with Epatch however this will do for testing. 
-#and I am none to fond of sed partly due to it being quite obscure.
-	rm ${PN}/qt4-fsarchiver.pro  # fix Icons path manually was a sed statment. 
-	cp "${FILESDIR}"/qt4-fsarchiver.pro ${PN}/
-	# fix Pro file
-	rm  ${PN}/starter/gnome-qt4-fsarchiver.desktop 
-	rm  ${PN}/starter/kde-qt4-fsarchiver.desktop 
-	rm  ${PN}/starter/mate-qt4-fsarchiver.desktop
-	# clean out the desktop files. 
-	cp "${FILESDIR}"/gnome-qt4-fsarchiver.desktop ${PN}/starter/gnome-qt4-fsarchiver.desktop
-	cp "${FILESDIR}"/kde-qt4-fsarchiver.desktop ${PN}/starter/kde-qt4-fsarchiver.desktop
-	cp "${FILESDIR}"/mate-qt4-fsarchiver.desktop ${PN}/starter/mate-qt4-fsarchiver.desktop
-	|| die "copy from Files dir (patches) failed"
+	# fix .desktop file/s
+for i in starter/*.desktop ; do sed -i 
+			\ -e '/Encoding/d' starter/"*.desktop \
+		|| die "sed on qt4-fsarchiver.desktop failed"
+	# fix icon installation location
+	
+	# fix icon installation location
+	sed -i \
+		-e "/icon.path/s:app-install/icons:${PN}:" "${PN}.pro" \
+		|| die "sed on ${PN}.pro failed"
 }
 
 src_configure() {
