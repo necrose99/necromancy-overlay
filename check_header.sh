@@ -17,7 +17,7 @@ check_header() {
     local e=$1
 
     echo 'FIX "# $Header:" in: '"$e"
-    sed -e 's/^# \$Header: .*\$$/# $Id$/g' -i "${e}"
+    sed -e 's/^# \$Header: .*\$$/ /g' -i "${e}"
 }
 
 while read e; do
