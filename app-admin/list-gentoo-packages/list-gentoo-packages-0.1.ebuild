@@ -14,24 +14,24 @@ SRC_URI="${files/list-gentoo-packages.sh}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="*"
+KEYWORDS=""
 IUSE=""
-DEPEND=""
-RDEPEND=""
+DEPEND="${RDEPEND}"
+RDEPEND="app-portage/gentoolkit"
 
-einfo"now a touch depricated. so sayeth the Gentoo devs , however an alias to list ALL packages even unlisted,Libs EVERYTHING with flags"
-einfo"Even Still its Very Damned handy fro the average user,"
+einfo "now a touch depricated. so sayeth the Gentoo devs ", 
+einfo "however an alias to list ALL packages even unlisted,Libs EVERYTHING with flags"
+einfo"Even Still its Very Damned handy fro the average user, and if you have legacy.. boxes also useful... if migrating to newer gentoo"
 
 src_install() {
-	echo enalyze analyze -u packages >> /usr/bin/list-gentoo-packages.sh
-	chmode +x /usr/bin/list-gentoo-packages.sh
-	ln -s /usr/bin/list-gentoo-packages /usr/bin/list-gentoo-packages.sh
+cp ${files/list-gentoo-packages.sh} /usr/bin/list-gentoo-packages.sh
+	fixperms +x /usr/bin/list-gentoo-packages.sh
+	dosym /usr/bin/list-gentoo-packages /usr/bin/list-gentoo-packages.sh
 	
 }
 
 pkg_postinst() {
 	elog "list-gentoo-packages.sh installed ,note this will List Everything & the kitchen sink to the terminal"
 	elog "list-gentoo-packages.sh (ie pipe with | more/less etc. or redirect with > to mypackages.txt etc) "
-	elog "enalyze analyze -u packages alias thats easy to rember for novices/lazy, panic of impending drive fail-doom, etc."
-	elog "http://nikita.melnichenko.name/blog.php had one that list all flags etc, works still however is somewhat depricated."
+
 }
