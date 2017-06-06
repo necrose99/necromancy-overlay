@@ -43,14 +43,12 @@ src_prepare() {
 	#sed -i \
 	#-e '/Encoding/d' starter/"*${PN}"*.desktop \
 
-	sed -i \
-		-e '/Encoding/d' starter/"gnome-qt4-fsarchiver.desktop \
-	sed -i \
-		-e '/Encoding/d' starter/"kde-qt4-fsarchiver.desktop \
+src_prepare() {
+	# fix .desktop file/s
+for i in starter/*.desktop ; do sed -i 
+			\ -e '/Encoding/d' starter/"*.desktop \
 		|| die "sed on qt4-fsarchiver.desktop failed"
-	sed -i \
-		-e '/Encoding/d' starter/"mate-qt4-fsarchiver.desktop \
-		|| die "sed on qt4-fsarchiver.desktop failed"
+
 	# fix icon installation location
 	sed -i \
 		-e "/icon.path/s:app-install/icons:${PN}:" "*${PN}.pro" \
