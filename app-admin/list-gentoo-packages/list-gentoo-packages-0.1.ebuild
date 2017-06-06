@@ -26,7 +26,7 @@ einfo"Even Still its Very Damned handy fro the average user, and if you have leg
 src_install() {
 cp ${files/list-gentoo-packages.sh} /usr/bin/list-gentoo-packages.sh
 	fixperms +x /usr/bin/list-gentoo-packages.sh
-	dosym /usr/bin/list-gentoo-packages /usr/bin/list-gentoo-packages.sh
+	dosym /usr/bin/list-gentoo-packages.sh /usr/bin/list-gentoo-packages 
 	
 }
 
