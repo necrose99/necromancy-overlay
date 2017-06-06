@@ -5,7 +5,7 @@
 EAPI=3
 inherit eutils
 
-DESCRIPTION="Инструмент за създаване на зареждащ USB FLASH."
+DESCRIPTION="Инструмент за създаване на зареждащ (Calculate Linux create) USB FLASH."
 HOMEPAGE="https://github.com/sandikata/"
 SRC_URI=""
 
