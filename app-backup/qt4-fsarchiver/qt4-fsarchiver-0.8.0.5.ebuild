@@ -39,7 +39,6 @@ src_prepare() {
 for i in starter/*.desktop ; do sed -i 
 			\ -e '/Encoding/d' starter/"*.desktop \
 		|| die "sed on qt4-fsarchiver.desktop failed"
-	# fix icon installation location
 	
 	# fix icon installation location
 	sed -i \
