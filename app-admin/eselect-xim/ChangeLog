@@ -1,9 +1,0 @@
-# Copyright 1999-2015 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Id$
-
-*eselect-xim-0.9.1 (18 May 2014)
-
-  18 May 2014; scsi <scsichen@gmail.com> +eselect-xim-0.9.1.ebuild,
-  +files/xim.d/fcitx:
-  add fcitx supports.
