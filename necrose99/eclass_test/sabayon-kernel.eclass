@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Sabayon Project
+# Copyright 2004-2010 Sabayon Project
 # Distributed under the terms of the GNU General Public License v2
 # $
 
@@ -221,8 +221,8 @@ fi
 _get_real_kv_full() {
 	if [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
 		echo "${ORIGINAL_KV_FULL}"
-	elif [[ "${OKV/.*}" -ge "3" ]]; then
-		# Linux 3.x+ support, KV_FULL is set to: 3.0-sabayon
+	elif [[ "${OKV/.*}" = "3" ]]; then
+		# Linux 3.x support, KV_FULL is set to: 3.0-sabayon
 		# need to add another final .0 to the version part
 		echo "${ORIGINAL_KV_FULL/-/.0-}"
 	else
@@ -353,7 +353,7 @@ if [ -n "${K_ONLY_SOURCES}" ] || [ -n "${K_FIRMWARE_PACKAGE}" ]; then
 	DEPEND="sys-apps/sed"
 	RDEPEND="${RDEPEND}"
 else
-	IUSE="btrfs dmraid dracut iscsi luks lvm mdadm plymouth splash"
+	IUSE="dmraid dracut iscsi luks lvm mdadm plymouth splash"
 	if [ -n "${K_SABKERNEL_ZFS}" ]; then
 		IUSE="${IUSE} zfs"
 	fi
@@ -361,11 +361,10 @@ else
 		sys-apps/sed
 		sys-devel/autoconf
 		sys-devel/make
-		|| ( >=sys-kernel/genkernel-next-5[dmraid(+)?,mdadm(+)?] >=sys-kernel/genkernel-3.4.45-r2 )
+		|| ( >=sys-kernel/genkernel-next-5 >=sys-kernel/genkernel-3.4.45-r2 )
 		arm? ( dev-embedded/u-boot-tools )
 		amd64? ( sys-apps/v86d )
 		x86? ( sys-apps/v86d )
-		btrfs? ( sys-fs/btrfs-progs )
 		splash? ( x11-themes/sabayon-artwork-core )
 		lvm? ( sys-fs/lvm2 sys-block/thin-provisioning-tools )
 		plymouth? (
@@ -436,6 +435,11 @@ sabayon-kernel_src_unpack() {
 		sed -i "s/^EXTRAVERSION :=.*//" "${S}/Makefile" || die
 	fi
 	OKV="${okv}"
+
+	# Let's handle EAPIs 0 and 1...
+	case ${EAPI:-0} in
+		0|1) sabayon-kernel_src_prepare ;;
+	esac
 }
 
 sabayon-kernel_src_prepare() {
@@ -513,8 +517,7 @@ _kernel_src_compile() {
 
 	cd "${S}" || die
 	local GKARGS=()
-	GKARGS+=( "--no-menuconfig" "--no-save-config" "--e2fsprogs" "--udev" )
-	use btrfs && GKARGS+=( "--btrfs" )
+	GKARGS+=( "--no-save-config" "--e2fsprogs" "--udev" )
 	use splash && GKARGS+=( "--splash=sabayon" )
 	use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=${PLYMOUTH_THEME}" )
 	use dmraid && GKARGS+=( "--dmraid" )
@@ -769,8 +772,8 @@ _get_release_level() {
 		echo "${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}$(_get_real_extraversion)"
 	elif [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
 		echo "${KV_FULL}"
-	elif [[ "${OKV/.*}" -ge "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
-		# Linux 3.x+ support, KV_FULL is set to: 3.0-sabayon
+	elif [[ "${OKV/.*}" = "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
+		# Linux 3.x support, KV_FULL is set to: 3.0-sabayon
 		# need to add another final .0 to the version part
 		echo "${KV_FULL/-/.0-}"
 	else
@@ -783,8 +786,8 @@ sabayon-kernel_uimage_config() {
 	# 1. /boot/uImage symlink is broken (pkg_postrm)
 	# 2. /boot/uImage symlink doesn't exist (pkg_postinst)
 
-	if ! has_version app-eselect/eselect-uimage; then
-		ewarn "app-eselect/eselect-uimage not installed"
+	if ! has_version app-admin/eselect-uimage; then
+		ewarn "app-admin/eselect-uimage not installed"
 		ewarn "If you are using this tool, please install it"
 		return 0
 	fi
@@ -818,8 +821,8 @@ sabayon-kernel_bzimage_config() {
 	use x86 && kern_arch="x86"
 	use amd64 && kern_arch="x86_64"
 
-	if ! has_version app-eselect/eselect-bzimage; then
-		ewarn "app-eselect/eselect-bzimage not installed"
+	if ! has_version app-admin/eselect-bzimage; then
+		ewarn "app-admin/eselect-bzimage not installed"
 		ewarn "If you are using this tool, please install it"
 		return 0
 	fi
@@ -956,10 +959,11 @@ sabayon-kernel_pkg_postrm() {
 	fi
 }
 
+# export all the available functions here
 case ${EAPI:-0} in
-	[01234])
-		die "EAPI ${EAPI:-0} is not supported"
+	0|1) extra_export_funcs= ;;
+	*) extra_export_funcs=src_prepare ;;
 esac
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare \
+EXPORT_FUNCTIONS pkg_setup src_unpack ${extra_export_funcs} \
 	src_compile src_install pkg_preinst pkg_postinst pkg_prerm pkg_postrm
