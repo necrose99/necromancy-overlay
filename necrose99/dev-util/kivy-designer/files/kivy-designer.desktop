@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Kivy Designer (Live version)
+Comment=Kivy Designer is Kivy's tool for designing graphical user interfaces (GUIs) from Kivy Widgets
+Exec=kivy-designer
+Icon=/opt/kivy-designer/docs/source/img/logo.png
+StartupNotify=false
+Categories=Development;IDE;
+Type=Application

@@ -1,0 +1,1 @@
+gksudo 'python /opt/kivy-designer/main.py'
