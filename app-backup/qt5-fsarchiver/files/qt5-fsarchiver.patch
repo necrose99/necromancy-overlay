@@ -1,0 +1,32 @@
+diff -Nur a/src/share/polkit-1/actions/org.project.pkexec.run-qt5-fsarchiver.policy b/src/share/polkit-1/actions/org.project.pkexec.run-qt5-fsarchiver.policy
+--- a/src/share/polkit-1/actions/org.project.pkexec.run-qt5-fsarchiver.policy	2016-06-04 17:03:48.000000000 +0100
++++ b/src/share/polkit-1/actions/org.project.pkexec.run-qt5-fsarchiver.policy	2017-08-21 17:53:25.245124171 +0100
+@@ -7,7 +7,7 @@
+   <action id="org.project.pkexec.run-qt5-fsarchiver">
+     <description>Run the qt5-fsarchiver program</description>
+     <message>Authentication is required to run qt5-fsarchiver</message>
+-    <icon_name>harddrive.png</icon_name>
++    <icon_name>redcore-logo.png</icon_name>
+     <defaults>
+       <allow_any>auth_admin</allow_any>
+       <allow_inactive>auth_admin</allow_inactive>
+diff -Nur a/starter/gnome-qt5-fsarchiver.desktop b/starter/gnome-qt5-fsarchiver.desktop
+--- a/starter/gnome-qt5-fsarchiver.desktop	2017-01-30 16:09:58.000000000 +0000
++++ b/starter/gnome-qt5-fsarchiver.desktop	2017-08-21 17:57:00.486186980 +0100
+@@ -1,12 +1,11 @@
+ [Desktop Entry]
+-Name=qt5-fsarchiver
+-Name[de_DE]=qt5-fsarchiver
++Name=Qt5 fsarchiver
++Name[de_DE]=Qt5 fsarchiver
+ Comment=Qt GUI for fsarchiver
+-Exec=/usr/sbin/qt5-fsarchiver_polkit %f
+-Icon=/usr/share/app-install/icons/harddrive.png
++Exec=kdesu /usr/sbin/qt5-fsarchiver
++Icon=/usr/share/qt5-fsarchiver/harddrive.png
+ Terminal=false
+ Type=Application
+ Categories=Utility;Archiving;Qt;
+ StartupNotify=false
+-OnlyShowIn=GNOME
+ 
