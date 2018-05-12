@@ -8,11 +8,7 @@
 			 <email>mike@michaellawrenceit.com</email>
 			<!--- necrose99@protonmail.ch   --- for the tinfoil hats encypted email --!>
 			</owner>    
-		<owner type="person">
-      			<email>brentonhorne77@gmail.com</email>
-      			<name><![CDATA[Brenton Horne]]></name>
-    			</owner>
-		<source type="git">https://github.com/necrose99/necromancy-overlay.git</source>
+		source type="git">https://github.com/necrose99/necromancy-overlay.git</source>
 		<source type="git">git://github.com/necrose99/necromancy-overlay.git</source>
     		<source type="git">git@github.com:necrose99/necromancy-overlay.git</source>
 		 <feed>https://github.com/necrose99/necromancy-overlay/commits/master.atom</feed>
