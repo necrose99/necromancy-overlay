@@ -152,7 +152,7 @@ pm necrose99 #necromancy-ol (mainly me an tavis-ci or
 wercker.com sends my build spam) <br>
 </p>
 <h3 id="add">ADD</h3>
-<p>layman -f -a <a
+<p>layman -f -a necromancy -o  <a
 href="https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/overlay.xml">https://raw.githubusercontent.com/necrose99/necromancy-overlay/master/overlay.xml</a></p>
 <p><strong>AND if to frazzled From Graduate Classwork ,Family
 ,or Repo Maintenance , You Can "Dig" me up in game,<br>
