@@ -1,5 +1,0 @@
-[necromancy]
-location = /usr/local/overlay/brother-overlay
-sync-type = git
-sync-uri = https://github.com/stefan-langenmaier/brother-overlay.git
-auto-sync = yes
