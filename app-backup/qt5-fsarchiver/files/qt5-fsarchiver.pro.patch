@@ -1,8 +1,0 @@
-@@ -145,7 +145,7 @@
-
-- icon.path = /usr/share/app-install/icons
-+ icon.path =  /usr/share/qt5-fsarchiver
-  autostart.files = starter/gnome-qt5-fsarchiver.desktop
-  autostart.path = /usr/share/applications
-  autostart1.files = starter/kde-qt5-fsarchiver.desktop 
-
