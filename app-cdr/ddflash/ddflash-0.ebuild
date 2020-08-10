@@ -4,7 +4,7 @@
 
 EAPI=3
 
-DESCRIPTION="Конзолен интерфейс с прогрес индикатор към програма "dd" за записване на boot live flash "
+DESCRIPTION="Console interface with progress indicator to the "dd" program for recording boot live flash "
 HOMEPAGE=""
 SRC_URI=""
 
