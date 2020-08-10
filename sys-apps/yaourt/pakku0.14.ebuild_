@@ -3,12 +3,12 @@
 # $Id$
 
 EAPI=4
-
+https://github.com/kitsunyan/pakku.git
 inherit bash-completion-r1 eutils
 
 DESCRIPTION="A pacman wrapper with extended features and AUR support"
-HOMEPAGE="http://www.archlinux.fr/yaourt-en/"
-SRC_URI="http://mir.archlinux.fr/~tuxce/releases/${PN}/${P}.tar.gz"
+HOMEPAGE="https://github.com/kitsunyan/pakku"
+SRC_URI="https://github.com/kitsunyan/pakku/releases/download/${PN}/${PN}.tar.xz" 
 
 LICENSE="GPL-2"
 SLOT="0"
