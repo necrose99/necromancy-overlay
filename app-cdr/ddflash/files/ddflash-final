@@ -1,35 +1,34 @@
-    #!/bin/bash
-    # Автор: Росен Александров (и благодарности към gat3way)
-    # За мен: roko@jabber.calculate-linux.org , sandikata@yandex.ru, Скайп ROKO__2
-    # Важно за да работи правилно скрипта трябва да го поставите в /usr/local/bin както и да имате инсталиран пакет "pv", поне в AltLinux се казва така.
+#! / bin / bash
+    # Author: Rosen Alexandrov (and thanks to gat3way)
+    # About me: roko@jabber.calculate-linux.org, sandikata@yandex.ru, Skype ROKO__2
+    # Important for the script to work properly you need to put it in / usr / local / bin as well as have the "pv" package installed, at least in AltLinux it says so.
      
-    if [ `id -u` -ne 0 ] ;
+    if [`id -u` -ne 0];
     then
-    exec notify-send -t 10000 "Нямате администраторски права! Стартирайте скрипта като администратор или със sudo dd-flash" ; exit 1
+    exec notify-send -t 10000 "You do not have administrator rights! Run the script as an administrator or with sudo dd-flash"; exit 1
     fi
      
-    echo "За да можете да създадете Жив флаш диск трябва да го поставите в USB порта на компютъра, като флаш диска не трябва да е монтиран!"
+    echo "In order to create a Live Flash Drive you need to insert it into the USB port of your computer, and the Flash Drive must not be mounted!"
     echo
-    echo "Пълен път до ISO (Пример /home/user/Загрузки/iso.iso)"
+    echo "Full path to ISO (Example /home/user/Downloads/iso.iso)"
     read iso
      
-    while ! [ -s $iso ]; do
-    printf "Избрания файл не съществува. Моля изберете съществуващ.  ->  "
+    while! [-s $ iso]; to
+    printf "The selected file does not exist. Please select an existing one. ->"
     read iso
     done
     echo
-    while ! fdisk -s $flash &>/dev/null; do
-       printf "Въведете съществуващ флаш диск. Пример /dev/sdc  ->  "
+    while! fdisk -s $ flash &> / dev / null; to
+       printf "Insert an existing flash drive. Example / dev / sdc ->"
     read flash
     done
     echo
-    echo "Операцията ще унищожи информацията на вашия флаш диск!"
-    echo "Сигурни ли сте че искате да продължите?"
-    select yn in "Да" "Не"; do
-    case $yn in
-    # Разкоменирайте този ред ако искате по-кратка информация за трансфера Да ) dd if=$iso | pv -ptr -N $iso | dd of=$flash ;;
-    Да ) (pv -n $iso | dd of=$flash bs=128M conv=notrunc,noerror) 2>&1 | dialog --gauge "Копиране... Моля Изчакайте..."; exit 1 ;;
-    Не ) exit;;
+    echo "The operation will destroy the information on your flash drive!"
+    echo "Are you sure you want to continue?"
+    select yn in "Yes" "No"; to
+    case $ yn in
+    # Uncomment this line if you want more information about the transfer Yes) dd if = $ iso | pv -ptr -N $ iso | dd of = $ flash ;;
+   yes) (pv -n $ iso | dd of = $ flash bs = 128M conv = notrunc, noerror) 2> & 1 | dialog --gauge "Copy ... Please Wait ..."; exit 1 ;;
+    No) exit ;;
     esac
     done
-     
