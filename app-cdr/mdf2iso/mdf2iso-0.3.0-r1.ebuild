@@ -6,7 +6,8 @@ inherit eutils toolchain-funcs
 
 DESCRIPTION="Alcohol 120% bin image to ISO image file converter"
 HOMEPAGE="http://mdf2iso.berlios.de/"
-SRC_URI="http://download.berlios.de/${PN}/${P}-src.tar.bz2"
+SRC_URI="http://deb.debian.org/debian/pool/main/m/mdf2iso/mdf2iso_0.3.1.orig.tar.gz"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc ~x86"
