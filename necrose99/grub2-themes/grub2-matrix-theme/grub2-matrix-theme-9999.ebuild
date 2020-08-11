@@ -6,7 +6,7 @@ inherit git-2 grub2-theme
 
 DESCRIPTION="Grub2 matrix theme"
 HOMEPAGE="http://kde-look.org/content/show.php/matrix+theme+for+grub?content=151010"
-#EGIT_REPO_URI="git://github.com/pantera31752/grub2-matrix-theme.git"
+#EGIT_REPO_URI="${FILES}/grub2-matrix-theme.tar.gz"
 # http://dl.dropbox.com/u/80562560/grub%20matrix%20theme/grub2-matrix-theme.tar.gz
 LICENSE="Creative Commons by-sa"  
 SLOT="9999"
